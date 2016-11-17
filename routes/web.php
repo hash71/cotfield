@@ -27,3 +27,13 @@ Route::get('bal', function () {
     return URL::to('/');
 
 });
+
+Route::post('ajax', function () {
+//    return url('/');
+    return [
+        ['id'=>1,'option'=>'a'],
+        ['id'=>2,'option'=>'a'],
+        ['id'=>3,'option'=>'a'],
+        ['id'=>4,'option'=>'a'],
+    ];
+});

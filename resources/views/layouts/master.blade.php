@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body class="md-skin">
 <div id="wrapper">
     @include('layouts.navigation')
     <div id="page-wrapper" class="gray-bg">
