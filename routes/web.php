@@ -47,3 +47,9 @@ Route::post('ajax_project', function (\Illuminate\Http\Request $request) {
     ]);
 
 });
+
+
+Route::get('datatables', 'DatatablesController@getIndex');
+Route::get('datatables/data', 'DatatablesController@anyData');
+
+
