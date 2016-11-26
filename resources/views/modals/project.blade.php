@@ -9,8 +9,8 @@
                                                                             class="form-control"></div>
                         <div class="form-group">
                             <div class="">
-                                <button id="close-button-project" class="btn btn-white" type="submit">Cancel</button>
-                                <button id="submit-project" class="btn btn-primary" type="submit">Save changes</button>
+                                <button id="close-button-project" class="btn btn-white" type="button">Cancel</button>
+                                <button id="submit-project" class="btn btn-primary" type="button">Save changes</button>
                             </div>
                         </div>
 
