@@ -31,9 +31,19 @@ Route::get('bal', function () {
 Route::post('ajax', function () {
 //    return url('/');
     return [
-        ['id'=>1,'option'=>'a'],
-        ['id'=>2,'option'=>'a'],
-        ['id'=>3,'option'=>'a'],
-        ['id'=>4,'option'=>'a'],
+        ['id' => 1, 'option' => 'a'],
+        ['id' => 2, 'option' => 'a'],
+        ['id' => 3, 'option' => 'a'],
+        ['id' => 4, 'option' => 'a'],
     ];
+});
+
+Route::post('ajax_project', function (\Illuminate\Http\Request $request) {
+
+
+    return response([
+        'name' => $request->input('project'),
+        'success' => 0
+    ]);
+
 });

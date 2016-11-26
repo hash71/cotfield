@@ -3,37 +3,18 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">Sign in</h3>
-
-                        <p>Sign in today for more expirience.</p>
-
-                        <form role="form">
-                            <div class="form-group"><label>Email</label> <input type="email"
-                                                                                placeholder="Enter email"
-                                                                                class="form-control"></div>
-                            <div class="form-group"><label>Password</label> <input type="password"
-                                                                                   placeholder="Password"
-                                                                                   class="form-control"></div>
-                            <div>
-                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Log
-                                        in</strong></button>
-                                <label>
-                                    <div class="icheckbox_square-green" style="position: relative;"><input
-                                                type="checkbox" class="i-checks"
-                                                style="position: absolute; opacity: 0;">
-                                        <ins class="iCheck-helper"
-                                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                    </div>
-                                    Remember me </label>
+                    <form role="form">
+                        <div class="form-group"><label>Email</label> <input id="input-project" type="email"
+                                                                            placeholder="Enter email"
+                                                                            class="form-control"></div>
+                        <div class="form-group">
+                            <div class="">
+                                <button id="close-button-project" class="btn btn-white" type="submit">Cancel</button>
+                                <button id="submit-project" class="btn btn-primary" type="submit">Save changes</button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="col-sm-6"><h4>Not a member?</h4>
-                        <p>You can create an account:</p>
-                        <p class="text-center">
-                            <a href=""><i class="fa fa-sign-in big-icon"></i></a>
-                        </p>
-                    </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -54,7 +35,7 @@
                 },
                 success: function (data) {
                     var i;
-                    options = '';
+                    options = '<option></option>';//for ajax select2 needs an empty first tag for placeholder to work correctly
                     for (i = 0; i < data.length; i++) {
                         options += '<option value="' + data[i].id + '">' + data[i].option + '</option>';
                     }
@@ -74,6 +55,31 @@
                 'width': '100%',
                 'border-radius': '0'
             });
+
+
+        });
+
+        $('#close-button-project').click(function () {
+            $('#modal-project').modal('hide');
+            $('#modal-project form input').val('');
+        });
+
+        $('#submit-project').click(function () {
+            $.post("{{URL::to('/').'/ajax_project'}}",
+                    {
+                        _token: "{{csrf_token()}}",
+                        project: $('#input-project').val()
+                    },
+                    function (data, status) {
+                        if (data.success) {
+                            $('#modal-project').modal('hide');
+                            toastr["success"]("successful");
+                        } else {
+                            toastr["error"]("unsuccessful");
+                        }
+                    }
+            );
+
         });
 
 

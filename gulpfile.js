@@ -32,7 +32,8 @@ elixir(mix => {
         'resources/assets/vendor/bootstrap/css/bootstrap.css',
         'resources/assets/vendor/animate/animate.css',
         'resources/assets/vendor/font-awesome/css/font-awesome.css',
-        'resources/assets/vendor/select2/select2.min.css'
+        'resources/assets/vendor/select2/select2.min.css',
+        'resources/assets/vendor/toastr/toastr.min.css'
     ], 'public/css/vendor.css', './');
 
     mix.scripts([
@@ -41,7 +42,8 @@ elixir(mix => {
         'resources/assets/vendor/metisMenu/jquery.metisMenu.js',
         'resources/assets/vendor/slimscroll/jquery.slimscroll.min.js',
         'resources/assets/vendor/pace/pace.min.js',
-        'resources/assets/vendor/select2/select2.full.min.js'
+        'resources/assets/vendor/select2/select2.full.min.js',
+        'resources/assets/vendor/toastr/toastr.min.js'
     ], 'public/js/vendor.js', './');
 
     mix.sass('inspinia.scss');

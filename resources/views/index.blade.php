@@ -26,11 +26,11 @@
 {{--</style>--}}
 
 <style>
-    .btn-primary {
-        /*width: 100%;*/
+    .modal-content {
+        position: relative;
+        top: 100px;
     }
 </style>
-
 @endpush
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -70,3 +70,26 @@
 
     @include('modals.project')
 @endsection
+
+@push('scripts')
+<script>
+    $(function () {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": false,
+            "preventDuplicates": false,
+            "positionClass": "toast-top-center",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "0",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    });
+</script>
+@endpush
