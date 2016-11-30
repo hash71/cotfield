@@ -12,14 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('test', function () {
+Route::get('projects/create', function () {
     return view('index');
 });
 
@@ -28,28 +29,18 @@ Route::get('bal', function () {
 
 });
 
-Route::post('ajax', function () {
-//    return url('/');
-    return [
-        ['id' => 1, 'option' => 'a'],
-        ['id' => 2, 'option' => 'a'],
-        ['id' => 3, 'option' => 'a'],
-        ['id' => 4, 'option' => 'a'],
-    ];
+Route::post('ajax_select2_options_list/{module_name}', function ($module_name) {
+    return \App\OptionList::where('option', $module_name)->orderBy('id','DESC')->pluck('list','id');
 });
 
-Route::post('ajax_project', function (\Illuminate\Http\Request $request) {
-
-
-    return response([
-        'name' => $request->input('project'),
-        'success' => 0
-    ]);
-
-});
+Route::post('ajax_project_create_option/{module_name}', 'ProjectController@ajaxCreateOption');
 
 
 Route::get('datatables', 'DatatablesController@getIndex');
 Route::get('datatables/data', 'DatatablesController@anyData');
+
+Route::get('bal', function () {
+    return \App\OptionList::where('option', 'project_status')->pluck('list','id');
+});
 
 
