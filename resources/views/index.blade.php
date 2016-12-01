@@ -49,7 +49,8 @@
         </form>
     </div>
 
-    @include('modals.project')
+    {{--@include('modals.project')--}}
+    @include('modals.module',['select_id'=>'project_status','label'=>'Project Status'])
 @endsection
 
 @push('scripts')

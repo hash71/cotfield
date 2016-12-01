@@ -50,18 +50,18 @@
         });
     }
 
-    function add_new_option(url, modal_id) {
-        $.post("{{url('ajax_project_create_option')}}" + '/' + url,
+    function add_new_option(select2_id) {
+        $.post("{{url('ajax_project_create_option')}}" + '/' + select2_id,
                 {
                     _token: "{{csrf_token()}}",
-                    value: $('#input-project').val()
+                    value: $('#modal-' + select2_id + ' input').val()
                 },
                 function (data, status) {
                     console.log(data);
                     if (data == 1) {
-                        $('' + modal_id).modal('hide');
+                        $('#modal-' + select2_id).modal('hide');
                         toastr["warning"]("successful");
-                        $("#project_status").on('select2:opening', getOptionsList('project_status'));
+                        $("#modal-" + select2_id).on('select2:opening', getOptionsList(select2_id));
                     } else {
                         toastr["error"]("unsuccessful");
                     }
