@@ -26,7 +26,7 @@
     $(function () {
 
         $("#{{$select_id}}").select2({
-            placeholder: "Select a status",
+            placeholder: "select",
             allowClear: true
         }).on('select2:opening', getOptionsList('{{$select_id}}')).on('select2:open', function (evt) {
             $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
@@ -37,14 +37,13 @@
             });
         });
 
-
         $('#close-{{$select_id}}').click(function () {
             $('#modal-{{$select_id}}').modal('hide');
             $('#modal-{{$select_id}} form input').val('');
         });
 
         $('#submit-{{$select_id}}').click(function () {
-            add_new_option('project_status', '#modal-project_status');
+            add_new_option('{{$select_id}}', '{{'#modal-'.$select_id}}');
         });
 
 

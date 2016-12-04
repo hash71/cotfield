@@ -34,7 +34,11 @@ class OptionsTableSeeder extends Seeder
             'shipment_port_of_discharge',
             'controller_weight_finalization_area',
             'controller_weight_type',
+            'controller_tear_weight_unit',
+            'controller_invoice_weight_unit',
+            'controller_landing_weight_unit',
             'q_c_quality_claim_amount_unit',
+            'q_c_quality_received_amount_unit',
             'debit_note_received_amount_unit',
             'cc_amount_unit',
             'lc_amendment_charge_amount_unit'

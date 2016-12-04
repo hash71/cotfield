@@ -34,7 +34,9 @@ elixir(mix => {
         'resources/assets/vendor/font-awesome/css/font-awesome.css',
         // 'resources/assets/vendor/select2/select2.min.css',
         'resources/assets/vendor/select2_update/select2.min.css',
-        'resources/assets/vendor/toastr/toastr.min.css'
+        'resources/assets/vendor/toastr/toastr.min.css',
+        'resources/assets/vendor/jasny/jasny-bootstrap.min.css',
+        'resources/assets/vendor/datepicker/datepicker3.css'
     ], 'public/css/vendor.css', './');
 
     mix.scripts([
@@ -45,7 +47,9 @@ elixir(mix => {
         'resources/assets/vendor/pace/pace.min.js',
         // 'resources/assets/vendor/select2/select2.full.min.js',
         'resources/assets/vendor/select2_update/select2.full.min.js',
-        'resources/assets/vendor/toastr/toastr.min.js'
+        'resources/assets/vendor/toastr/toastr.min.js',
+        'resources/assets/vendor/jasny/jasny-bootstrap.min.js',
+        'resources/assets/vendor/datepicker/bootstrap-datepicker.js'
     ], 'public/js/vendor.js', './');
 
     mix.sass('inspinia.scss');

@@ -21,7 +21,7 @@
     <div id="page-wrapper" class="gray-bg">
         @include('layouts.topnavbar')
         @yield('content')
-        @include('layouts.footer')
+        {{--@include('layouts.footer')--}}
     </div>
 </div>
 
@@ -38,19 +38,17 @@
                 _token: "{{csrf_token()}}"
             },
             success: function (data) {
-                console.log(data);
-                var i;
                 options = '<option></option>';//for ajax select2 needs an empty first tag for placeholder to work correctly
                 for (var key in data) {
                     options += '<option value="' + key + '">' + data[key] + '</option>';
                 }
-                console.log(options);
                 $("#" + select2_id).empty().append(options);//
             }
         });
     }
 
     function add_new_option(select2_id) {
+//        console.log($('#modal-' + select2_id + ' input').val());
         $.post("{{url('ajax_project_create_option')}}" + '/' + select2_id,
                 {
                     _token: "{{csrf_token()}}",
