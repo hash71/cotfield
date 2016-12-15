@@ -55,6 +55,9 @@ Route::get('bal', function () {
 //    dd(\App\OptionList::where('id', 1)->first()->list);
 });
 
+Route::get('ini', function () {
+    return phpinfo();
+});
 
 
 
