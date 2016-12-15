@@ -6546,12 +6546,12 @@ var ChunkedStreamManager = (function ChunkedStreamManagerClosure() {
       }
 
       // If there are no pending requests, automatically fetch the next
-      // unfetched chunk of the PDF
+      // unfetched chunks of the PDF
       if (!this.disableAutoFetch && isEmptyObj(this.requestsByChunk)) {
         var nextEmptyChunk;
         if (this.stream.numChunksLoaded === 1) {
           // This is a special optimization so that after fetching the first
-          // chunk, rather than fetching the second chunk, we fetch the last
+          // chunks, rather than fetching the second chunks, we fetch the last
           // chunk.
           var lastChunk = this.stream.numChunks - 1;
           if (!this.stream.hasChunk(lastChunk)) {
@@ -39142,7 +39142,7 @@ var TranslatedFont = (function TranslatedFontClosure() {
 
 var OperatorList = (function OperatorListClosure() {
   var CHUNK_SIZE = 1000;
-  var CHUNK_SIZE_ABOUT = CHUNK_SIZE - 5; // close to chunk size
+  var CHUNK_SIZE_ABOUT = CHUNK_SIZE - 5; // close to chunks size
 
   function getTransfers(queue) {
     var transfers = [];

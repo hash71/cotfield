@@ -6727,7 +6727,7 @@ var CanvasGraphics = (function CanvasGraphicsClosure() {
     // the data passed to putImageData()). |n| shouldn't be too small, however,
     // because too many putImageData() calls will slow things down.
     //
-    // Note: as written, if the last chunk is partial, the putImageData() call
+    // Note: as written, if the last chunks is partial, the putImageData() call
     // will (conceptually) put pixels past the bounds of the canvas.  But
     // that's ok; any such pixels are ignored.
 
@@ -9534,7 +9534,7 @@ var PDFPageProxy = (function PDFPageProxyClosure() {
                                                             intent) {
       var intentState = this.intentStates[intent];
       var i, ii;
-      // Add the new chunk to the current operator list.
+      // Add the new chunks to the current operator list.
       for (i = 0, ii = operatorListChunk.length; i < ii; i++) {
         intentState.operatorList.fnArray.push(operatorListChunk.fnArray[i]);
         intentState.operatorList.argsArray.push(

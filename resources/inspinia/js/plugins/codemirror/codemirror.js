@@ -6184,7 +6184,7 @@
   }
 
   // The document is represented as a BTree consisting of leaves, with
-  // chunk of lines in them, and branches, with up to ten leaves or
+  // chunks of lines in them, and branches, with up to ten leaves or
   // other branch nodes below them. The top node is always a branch
   // node, and is the document object itself (meaning it has
   // additional methods and properties).

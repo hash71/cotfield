@@ -36,8 +36,9 @@
 @endpush
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
-        <form method="post" class="" action="{{url('projects/store')}}" enctype="multipart/form-data">
-            {{csrf_field()}}
+        <form id="main_form" method="post" class="" action="{{url('projects/store')}}" enctype="multipart/form-data">
+            <input type="hidden" name="project_id" value="{{$project_id}}" id="project_id">
+            {!! csrf_field() !!}
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
@@ -663,7 +664,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="upload_payment_copy">Upload Payment Copy</label>
+                                <label for="invoice_upload_payment_copy">Upload Payment Copy</label>
                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                     <div class="form-control" data-trigger="fileinput">
                                         <i class="glyphicon glyphicon-file fileinput-exists"></i>
@@ -672,7 +673,7 @@
                                     <span class="input-group-addon btn btn-default btn-file">
             <span class="fileinput-new">Select file</span>
             <span class="fileinput-exists">Change</span>
-            <input type="file" name="upload_payment_copy" id="upload_payment_copy">
+            <input type="file" name="invoice_upload_payment_copy" id="invoice_upload_payment_copy">
             </span>
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                                        data-dismiss="fileinput">Remove</a>
@@ -833,7 +834,7 @@
                                        class="form-control text-box" value="">
                             </div>
                             <div class="form-group">
-                                <label for="upload_claim_letter">Upload Claim Letter</label>
+                                <label for="s_g_w_c_upload_claim_letter">Upload Claim Letter</label>
                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                     <div class="form-control" data-trigger="fileinput">
                                         <i class="glyphicon glyphicon-file fileinput-exists"></i>
@@ -842,7 +843,7 @@
                                     <span class="input-group-addon btn btn-default btn-file">
         <span class="fileinput-new">Select file</span>
         <span class="fileinput-exists">Change</span>
-        <input type="file" name="upload_claim_letter" id="upload_claim_letter">
+        <input type="file" name="s_g_w_c_upload_claim_letter" id="s_g_w_c_upload_claim_letter">
         </span>
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                                        data-dismiss="fileinput">Remove</a>

@@ -346,7 +346,7 @@ return array(
         */
 
         'registered' => array(
-            'chunk' => 'Maatwebsite\Excel\Filters\ChunkReadFilter'
+            'chunks' => 'Maatwebsite\Excel\Filters\ChunkReadFilter'
         ),
 
         /*
