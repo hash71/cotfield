@@ -43,7 +43,7 @@
         <form id="main_form" method="post" class="" action="{{url('projects/store')}}" enctype="multipart/form-data">
             <input type="hidden" name="project_id" value="{{$project_id}}" id="project_id">
             {!! csrf_field() !!}
-            <div class="row">
+            <div id="r1" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r2" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r3" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r4" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -199,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r5" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -229,7 +229,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r6" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -279,7 +279,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r7" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -334,7 +334,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r8" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -433,7 +433,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r9" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -523,7 +523,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r10" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -572,7 +572,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r11" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -622,7 +622,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r12" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -693,7 +693,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r13" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -767,7 +767,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r14" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -846,7 +846,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r15" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -929,7 +929,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r16" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -991,7 +991,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r17" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
@@ -1021,7 +1021,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="r18" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">

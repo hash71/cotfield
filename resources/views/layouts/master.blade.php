@@ -7,11 +7,15 @@
     <title>@yield('title','Cotfield')</title>
     <link href="{{asset(elixir('css/vendor.css'))}}" rel="stylesheet">
     <link href="{{asset(elixir('css/inspinia.css'))}}" rel="stylesheet">
-    {{--<link rel="stylesheet" href="{{asset('fine-uploader/fine-uploader-new.css')}}">--}}
+    <style>
+        body.md-skin {
+            /*background-color: #f3f3f4*/
+        }
+    </style>
     @stack('styles')
 </head>
 
-<body class="md-skin">
+<body class="fixed-sidebar md-skin">
 <div id="wrapper">
     @include('layouts.navigation')
     <div id="page-wrapper" class="gray-bg">
