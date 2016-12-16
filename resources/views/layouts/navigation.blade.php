@@ -20,8 +20,8 @@
             <li class="{{url()->current() == url('projects/create') ? 'active' : ''}}">
                 <a href="{{url('projects/create')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Create New Project</span></a>
             </li>
-            <li class="{{url()->current() == url('datatables') ? 'active' : ''}}">
-                <a href="{{url('datatables')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Reports</span>
+            <li class="{{url()->current() == url('report') ? 'active' : ''}}">
+                <a href="{{url('report')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Reports</span>
                 </a>
             </li>
 

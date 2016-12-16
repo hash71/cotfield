@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OptionListsTableSeeder::class);
         $this->call(FormElementsTableSeeder::class);
         $this->call(ProjectsTableSeeder::class);
-        $this->call(ClietsTableSeeder::class);
-        $this->call(SalesReportsTableSeeder::class);
         $this->call(ReportsTableSeeder::class);
     }
 }
