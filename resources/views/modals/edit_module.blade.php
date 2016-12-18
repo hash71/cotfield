@@ -25,10 +25,34 @@
 
     $(function () {
 
+
+        function getOptionsListSelected(select2_id) {//just to initialize options global variable
+            $.ajax({
+                url: '{{url("ajax_select2_options_list")}}' + '/' + select2_id,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    _token: "{{csrf_token()}}"
+                },
+                success: function (data) {
+                    var selected = allData[select2_id];
+                    options = '<option></option>';//for ajax select2 needs an empty first tag for placeholder to work correctly
+                    for (var key in data) {
+                        if (key == selected) {
+                            options += '<option value="' + key + '" selected>' + data[key] + '</option>';
+                        } else {
+                            options += '<option value="' + key + '">' + data[key] + '</option>';
+                        }
+                    }
+                    $("#" + select2_id).empty().append(options);
+                }
+            });
+        }
+
         $("#{{$select_id}}").select2({
             placeholder: "select",
             allowClear: true
-        }).on('select2:opening', getOptionsList('{{$select_id}}')).on('select2:open', function (evt) {
+        }).on('select2:opening', getOptionsListSelected('{{$select_id}}')).on('select2:open', function (evt) {
             $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
             $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-{{$select_id}}">ADD NEW</a></div>');
             $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({

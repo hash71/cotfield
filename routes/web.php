@@ -21,6 +21,14 @@ Route::get('projects/create', 'ProjectController@create');
 
 Route::post('projects/store', 'ProjectController@store');
 
+Route::get('projects/{project_id}/edit', 'ProjectController@edit');
+
+Route::put('projects/{project_id}', 'ProjectController@update');
+
+Route::delete('projects/{project_id}', 'ProjectController@delete');
+
+//Route::post('ajax_get_project_details', 'ProjectController@ajax_get_project_details');
+
 Route::post('ajax_select2_options_list/{module_name}', 'ProjectController@ajaxGetOptions');
 
 Route::post('ajax_project_create_option/{module_name}', 'ProjectController@ajaxCreateOption');

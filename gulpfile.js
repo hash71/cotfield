@@ -52,6 +52,7 @@ elixir(mix => {
         'resources/assets/vendor/jasny/jasny-bootstrap.min.js',
         'resources/assets/vendor/datepicker/bootstrap-datepicker.js',
         'resources/assets/vendor/fine-uploader/fine-uploader.js'
+        // 'resources/assets/js/cotfield.js'
     ], 'public/js/vendor.js', './');
 
     mix.sass('inspinia.scss');

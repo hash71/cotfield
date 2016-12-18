@@ -214,7 +214,7 @@
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input
                                             type="text" class="form-control"
-                                            name="contract_date">
+                                            name="contract_date" id="contract_date">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -294,7 +294,7 @@
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
-                                           name="ip_date">
+                                           name="ip_date" id="ip_date">
                                 </div>
                             </div>
                             <div class="form-group" id="data_6">
@@ -302,7 +302,7 @@
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
-                                           name="ip_expiry_date">
+                                           name="ip_expiry_date" id="ip_expiry_date">
                                 </div>
                             </div>
                             <div class="form-group" id="data_7">
@@ -310,7 +310,7 @@
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
-                                           name="sro_date">
+                                           name="sro_date" id="sro_date">
                                 </div>
                             </div>
                             <div class="form-group">upload_ip_copy
@@ -483,7 +483,7 @@
                                         style="width: 100%;">
                                 </select>
                             </div>
-                            <div class="form-group" id="data_12">
+                            <div class="form-group" id="data_13">
                                 <label class="font-normal" for="transshipment_date">Date Of Issue</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -503,7 +503,7 @@
                                         style="width: 100%;">
                                 </select>
                             </div>
-                            <div class="form-group" id="data_13">
+                            <div class="form-group" id="data_14">
                                 <label class="font-normal" for="eta_date">ETA Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -533,7 +533,7 @@
                                 <input type="text" id="nn_commercial_invoice_no" name="nn_commercial_invoice_no"
                                        autocomplete="off" class="form-control text-box" value="">
                             </div>
-                            <div class="form-group" id="data_14">
+                            <div class="form-group" id="data_15">
                                 <label class="font-normal" for="nn_commercial_invoice_date">Commercial Invoice
                                     Date</label>
                                 <div class="input-group date">
@@ -542,7 +542,7 @@
                                            name="nn_commercial_invoice_date" id="nn_commercial_invoice_date">
                                 </div>
                             </div>
-                            <div class="form-group" id="data_15">
+                            <div class="form-group" id="data_16">
                                 <label class="font-normal" for="courier_date">Courier Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -577,7 +577,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <h3>Payment</h3>
-                            <div class="form-group" id="data_16">
+                            <div class="form-group" id="data_17">
                                 <label class="font-normal" for="payment_invoice_payment_date">Invoice Payment
                                     Date</label>
                                 <div class="input-group date">
@@ -586,7 +586,7 @@
                                            name="payment_invoice_payment_date" id="payment_invoice_payment_date">
                                 </div>
                             </div>
-                            <div class="form-group" id="data_17">
+                            <div class="form-group" id="data_18">
                                 <label class="font-normal" for="payment_acceptance_date">Payment Acceptance Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -594,7 +594,7 @@
                                            name="payment_acceptance_date" id="payment_acceptance_date">
                                 </div>
                             </div>
-                            <div class="form-group" id="data_18">
+                            <div class="form-group" id="data_19">
                                 <label class="font-normal" for="payment_maturity_due_date">Maturity Due Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -698,14 +698,13 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <h3>Short/Gain Weight Claim</h3>
-                            <div class="form-group" id="data_19">
+                            <div class="form-group" id="data_20">
                                 <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain Weight
                                     Claim Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" id="s_g_w_c_short_gain_weight_claim_qty"
-                                           name="s_g_w_c_short_gain_weight_claim_qty" autocomplete="off"
-                                           class="form-control" value="">
+                                    <input type="text" name="s_g_w_c_short_gain_weight_claim_date"
+                                           class="form-control" id="s_g_w_c_short_gain_weight_claim_date">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -722,7 +721,7 @@
                                        name="s_g_w_c_short_gain_weight_claim_amount" autocomplete="off"
                                        class="form-control " value="">
                             </div>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_21">
                                 <label class="font-noraml" for="s_g_w_c_amount_received_date">Amount Received
                                     Date</label>
                                 <div class="input-group date">
@@ -772,7 +771,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <h3>Quality Claim</h3>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_22">
                                 <label class="font-noraml" for="q_c_quality_claim_date">Quality Claim Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -807,7 +806,7 @@
                                 <input type="text" id="q_c_approved_claim_amount" name="q_c_approved_claim_amount"
                                        autocomplete="off" class="form-control " value="">
                             </div>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_23">
                                 <label class="font-noraml" for="q_c_amount_received_date">Amount Received Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -856,7 +855,7 @@
                                 <input type="text" id="debit_note_number" name="debit_note_number" autocomplete="off"
                                        class="form-control text-box" value="">
                             </div>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_24">
                                 <label class="font-noraml" for="debit_note_date">Debit Note Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -884,7 +883,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_25">
                                 <label class="font-noraml" for="debit_note_amount_received_date">Amount Received
                                     Date</label>
                                 <div class="input-group date">
@@ -934,7 +933,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
                             <h3>Carrying Charge</h3>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_26">
                                 <label class="font-noraml" for="cc_lc_opening_date">LC Opening Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -942,7 +941,7 @@
                                            name="cc_lc_opening_date" id="cc_lc_opening_date">
                                 </div>
                             </div>
-                            <div class="form-group" id="data_8">
+                            <div class="form-group" id="data_27">
                                 <label class="font-noraml" for="cc_actual_lc_opening_date">Actual LC Opening
                                     Date</label>
                                 <div class="input-group date">
@@ -1051,13 +1050,12 @@
         </form>
     </div>
 
-    @foreach(\App\Option::all()->pluck('name') as $option)
-        @include('modals.module',['select_id'=>$option,'label'=>'Add New'])
-    @endforeach
+
 
 @endsection
 
 @push('scripts')
+
 
 <script type="text/template" id="qq-template">
     <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Drop files here">
@@ -1119,7 +1117,6 @@
         </dialog>
     </div>
 </script>
-
 <script>
     $(function () {
 
@@ -1137,15 +1134,14 @@
         fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter");
         fineuploader("{{$project_id}}", "short_gain_payment_copy");
         fineuploader("{{$project_id}}", "upload_claim_letter");
+        fineuploader("{{$project_id}}", "upload_payment_copy");//updates
+        fineuploader("{{$project_id}}", "debit_upload_payment_copy");//updates
+        fineuploader("{{$project_id}}", "upload_carrying_copy");//updates
         fineuploader("{{$project_id}}", "upload_letter");
         fineuploader("{{$project_id}}", "all_mail_attachement");
     });
-
-
 </script>
-
 <script>
-
     $(function () {
 
         toastr.options = {
@@ -1176,3 +1172,8 @@
     });
 </script>
 @endpush
+@section('module')
+    @foreach(\App\Option::all()->pluck('name') as $option)
+        @include('modals.module',['select_id'=>$option,'label'=>'Add New'])
+    @endforeach
+@endsection

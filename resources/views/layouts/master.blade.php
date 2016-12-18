@@ -5,14 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title','Cotfield')</title>
-    <link href="{{asset(elixir('css/vendor.css'))}}" rel="stylesheet">
-    <link href="{{asset(elixir('css/inspinia.css'))}}" rel="stylesheet">
     <style>
-        body.md-skin {
-            /*background-color: #f3f3f4*/
+        select {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
         }
     </style>
+    <link href="{{asset(elixir('css/vendor.css'))}}" rel="stylesheet">
+    <link href="{{asset(elixir('css/inspinia.css'))}}" rel="stylesheet">
     @stack('styles')
+    <style>
+        .navbar-right {
+            float: right !important;
+            margin-right: -15px;
+        }
+    </style>
 </head>
 
 <body class="fixed-sidebar md-skin">
@@ -41,6 +52,7 @@
                 for (var key in data) {
                     options += '<option value="' + key + '">' + data[key] + '</option>';
                 }
+//                options += '<option value="1" selected>RUNNING</option><option value="1">bunning</option>';
                 $("#" + select2_id).empty().append(options);//
             }
         });
@@ -136,12 +148,8 @@
 
 
 </script>
-{{--<script src="{{asset('fine-uploader/fine-uploader.js')}}"></script>--}}
-
 
 @stack('scripts')
-
-
+@yield('module')
 </body>
-
 </html>
