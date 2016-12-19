@@ -1076,6 +1076,55 @@
     }
 
 
+    (function () {
+
+
+        var file_upload_ids = [
+            "upload_sales_confirmation",
+            "upload_contract_copy",
+            "upload_ip_copy",
+            "upload_sro_copy",
+            "upload_lc_copy",
+            "upload_amendment_copy",
+            "shipment_advice",
+            "upload_nn_documents",
+            "invoice_upload_payment_copy",
+            "upload_acceptance_copy",
+            "upload_controller_documents",
+            "s_g_w_c_upload_claim_letter",
+            "short_gain_payment_copy",
+            "upload_claim_letter",
+            "upload_payment_copy",
+            "debit_upload_payment_copy",
+            "upload_carrying_copy",
+            "upload_letter",
+            "all_mail_attachement"
+        ];
+        var i;
+        for (i = 0; i < file_upload_ids.length; i++) {
+
+
+            var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + file_upload_ids[i];
+
+            $.get(
+                target_url,
+                function (data, status) {
+
+
+                    for (var k = 0; k < data.length; k++) {
+                        var $initial_element = document.getElementById(data[k].select_id + "_div");
+                        console.log($initial_element);
+                        var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                        $initial_element.innerHTML += row;
+                    }
+
+                }
+            );
+        }
+
+    })();
+
+
 </script>
 
 
@@ -1156,9 +1205,9 @@
         fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter");
         fineuploader("{{$project_id}}", "short_gain_payment_copy");
         fineuploader("{{$project_id}}", "upload_claim_letter");
-        fineuploader("{{$project_id}}", "upload_payment_copy");//updates
-        fineuploader("{{$project_id}}", "debit_upload_payment_copy");//updates
-        fineuploader("{{$project_id}}", "upload_carrying_copy");//updates
+        fineuploader("{{$project_id}}", "upload_payment_copy");
+        fineuploader("{{$project_id}}", "debit_upload_payment_copy");
+        fineuploader("{{$project_id}}", "upload_carrying_copy");
         fineuploader("{{$project_id}}", "upload_letter");
         fineuploader("{{$project_id}}", "all_mail_attachement");
     });

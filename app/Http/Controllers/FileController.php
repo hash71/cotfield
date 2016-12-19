@@ -26,7 +26,8 @@ class FileController extends Controller
                 "success" => true,
                 "uuid" => $file->file_id,
                 "name" => $file->file_name,
-                "size" => $file_size
+                "size" => $file_size,
+                "select_id" => $element_id
             ];
             $initial_files[] = $file;
         }

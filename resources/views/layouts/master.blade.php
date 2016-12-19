@@ -38,6 +38,7 @@
 
 <script src="{{asset(elixir('js/vendor.js'))}}"></script>
 <script src="{{asset(elixir('js/inspinia.js'))}}"></script>
+{{--<script src="{{asset('js/cotfield.js')}}"></script>--}}
 <script>
     function getOptionsList(select2_id) {//just to initialize options global variable
         $.ajax({
@@ -135,7 +136,7 @@
             callbacks: {
                 onComplete: function (id, name, responseJSON) {
                     var $element = document.getElementById(element_id + "_div");
-                    var row = '<div class="form-group" style="padding: 10px 0 0;"><div id=' + responseJSON.uuid + '><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + responseJSON.uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + responseJSON.uploadName + '</span></div></div>';
+                    var row = '<div id=' + responseJSON.uuid + ' class="form-group" style="padding: 10px 0 0;"><div ><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + responseJSON.uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + responseJSON.uploadName + '</span></div>';
                     $element.innerHTML += row;
                 },
                 onDeleteComplete: function (id, xhr) {
