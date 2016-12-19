@@ -140,7 +140,8 @@
                     $element.innerHTML += row;
                 },
                 onDeleteComplete: function (id, xhr) {
-                    var element_to_delete = xhr.responseURL.split('/')[6].split('?')[0];
+                    var element_to_delete = xhr.responseURL.split('/');
+                    element_to_delete = element_to_delete[element_to_delete.length - 1].split('?')[0];
                     $('#' + element_to_delete).remove();
                 }
             }
