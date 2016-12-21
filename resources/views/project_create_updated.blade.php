@@ -1145,7 +1145,7 @@
     $(function () {
 
         $('.input-group.date').datepicker({
-            format: 'yyyy/mm/dd',
+            format: 'yyyy-mm-dd',
             todayBtn: "linked",
             keyboardNavigation: false,
             forceParse: false,
