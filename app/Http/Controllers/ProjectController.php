@@ -49,6 +49,13 @@ class ProjectController extends Controller
                 } catch (\Exception $e) {
                     $supplier_name = "";
                 }
+
+                try {
+                    $s_c_origin = OptionList::where('id', $data['s_c_origin'])->first()->list;
+                } catch (\Exception $e) {
+                    $s_c_origin = "";
+                }
+
                 try {
                     $lc_port_of_loading = OptionList::where('id', $data['lc_port_of_loading'])->first()->list;
                 } catch (\Exception $e) {
@@ -69,7 +76,7 @@ class ProjectController extends Controller
                     'supplier_name' => $supplier_name,
                     'contract_number' => $data['contract_number'],
                     'contract_date' => $data['contract_date'],
-                    's_c_origin' => $data['s_c_origin'],
+                    's_c_origin' => $s_c_origin,
                     's_c_price' => $s_c_price,
                     's_c_payment' => $data['s_c_payment'],
                     'p_i_quantity' => $p_i_quantity,
@@ -157,6 +164,11 @@ class ProjectController extends Controller
                     $supplier_name = "";
                 }
                 try {
+                    $s_c_origin = OptionList::where('id', $data['s_c_origin'])->first()->list;
+                } catch (\Exception $e) {
+                    $s_c_origin = "";
+                }
+                try {
                     $lc_port_of_loading = OptionList::where('id', $data['lc_port_of_loading'])->first()->list;
                 } catch (\Exception $e) {
                     $lc_port_of_loading = "";
@@ -177,7 +189,7 @@ class ProjectController extends Controller
                     'supplier_name' => $supplier_name,
                     'contract_number' => $data['contract_number'],
                     'contract_date' => $data['contract_date'],
-                    's_c_origin' => $data['s_c_origin'],
+                    's_c_origin' => $s_c_origin,
                     's_c_price' => $s_c_price,
                     's_c_payment' => $data['s_c_payment'],
                     'p_i_quantity' => $p_i_quantity,
