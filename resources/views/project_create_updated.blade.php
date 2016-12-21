@@ -1144,25 +1144,8 @@
 <script>
     $(function () {
 
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "progressBar": false,
-            "preventDuplicates": true,
-            "positionClass": "toast-top-center",
-            "onclick": null,
-            "showDuration": "400",
-            "hideDuration": "1000",
-            "timeOut": "0",
-            "extendedTimeOut": "0",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-
         $('.input-group.date').datepicker({
-            format: 'dd/mm/yyyy',
+            format: 'yyyy/mm/dd',
             todayBtn: "linked",
             keyboardNavigation: false,
             forceParse: false,

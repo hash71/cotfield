@@ -2,6 +2,27 @@
 @section('title','Index Page')
 @push('styles')
 <style>
+
+    @media all and (min-width: 768px) {
+        #left_button {
+            padding-left: 0
+        }
+
+        #right_button {
+            padding-right: 0
+        }
+    }
+
+    @media all and (max-width: 767px) {
+        #left_button {
+            padding: 10px 0;
+        }
+
+        #right_button {
+            padding: 10px 0;
+        }
+    }
+
     button.dim {
         margin-bottom: 0 !important;
     }
@@ -40,8 +61,10 @@
 @endpush
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
-        <form id="main_form" method="post" class="" action="{{url('projects/store')}}" enctype="multipart/form-data">
+        <form id="main_form" method="post" class="" action="{{url('projects').'/'.$project_id}}"
+              enctype="multipart/form-data">
             <input type="hidden" name="project_id" value="{{$project_id}}" id="project_id">
+            <input type="hidden" name="_method" value="" id="method">
             {!! csrf_field() !!}
             <div id="r1" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -1043,8 +1066,19 @@
                 </div>
             </div>
             <div class="row">
+                {{--<div class="col-lg-8 col-lg-offset-2">--}}
+                {{--<button type="submit" class="btn btn-block btn-danger">SUBMIT</button>--}}
+                {{--</div>--}}
+
                 <div class="col-lg-8 col-lg-offset-2">
-                    <button type="submit" class="btn btn-block btn-danger">SUBMIT</button>
+                    <div class="col-sm-6" id="left_button">
+                        <button type="button" class="btn btn-success btn-outline btn-block" href="#">SAVE
+                        </button>
+                    </div>
+                    <div class="col-sm-6" id="right_button">
+                        <button type="button" class="btn btn-danger btn-outline btn-block" href="#">DELETE
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -1055,6 +1089,17 @@
 @endsection
 
 @push('scripts')
+<script>
+    $('#left_button').on('click', function () {
+//        console.log("left");
+        $('#method').val("put");
+        $('#main_form').submit();
+    });
+    $('#right_button').on('click', function () {
+        $('#method').val("delete");
+        $('#main_form').submit();
+    });
+</script>
 
 <script>
 
@@ -1233,7 +1278,7 @@
         };
 
         $('.input-group.date').datepicker({
-            format: 'dd/mm/yyyy',
+            format: 'yyyy/mm/dd',
             todayBtn: "linked",
             keyboardNavigation: false,
             forceParse: false,

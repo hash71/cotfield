@@ -70,14 +70,13 @@
                 console.log(data);
                 if (data == 1) {
                     $('#modal-' + select2_id).modal('hide');
-                    toastr["warning"]("successful");
+                    toastr["info"]("Option Added Successfully");
                     $("#modal-" + select2_id).on('select2:opening', getOptionsList(select2_id));
                 } else {
-                    toastr["error"]("unsuccessful");
+                    toastr["error"]("Could Not Add The Option");
                 }
             }
         );
-
     }
 
     function fineuploader(project_id, element_id) {
@@ -148,6 +147,44 @@
         });
     }
 
+    $(function () {
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": false,
+            "preventDuplicates": true,
+            "positionClass": "toast-top-center",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "0",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        @if(session()->get('project_created_true') == 1)
+            toastr["info"]("Successfully Project Created");
+        @elseif(session()->get('project_created_false') == 1)
+            toastr["error"]("Failed to Create New Project");
+        @elseif(session()->get('project_updated_true') == 1)
+            toastr["info"]("Successfully Project Updated");
+        @elseif(session()->get('project_updated_false') == 1)
+            toastr["error"]("Failed to Update Project");
+        @elseif(session()->get('project_delete_true') == 1)
+            toastr["info"]("Successfully Project Deleted");
+        @elseif(session()->get('project_delete_false') == 1)
+            toastr["error"]("Failed to Delete Project");
+
+        @endif
+    });
+
+
+</script>
+
+<script>
 
 </script>
 

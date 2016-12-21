@@ -13,7 +13,7 @@ class ProjectsTableSeeder extends Seeder
     {
 
         $faker = Faker\Factory::create();
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $elements = [
                 'project_id',
                 'project_name',
@@ -130,7 +130,7 @@ class ProjectsTableSeeder extends Seeder
                 'remarks_text'
             ];
             $option_list = \App\Option::pluck('name')->toArray();
-            $project_id = time() . str_random(5);
+            $project_id = $i;
             foreach ($elements as $element) {
 
                 if (strpos($element, 'date') !== false) {

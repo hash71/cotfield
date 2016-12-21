@@ -19,10 +19,10 @@
                                    id="sales_report">
                                 <thead>
                                 <tr>
-                                    <th>Project ID</th>
+                                    <th>Project Name</th>
                                     <th>Buyer</th>
                                     <th>Supplier</th>
-                                    <th>Contract Number</th>
+                                    <th>Contract No.</th>
                                     <th>Contract Date</th>
                                     <th>Origin</th>
                                     <th>Price</th>
@@ -30,13 +30,14 @@
                                     <th>QTY</th>
                                     <th>Last Date Of LC Opening</th>
                                     <th>Last Date Of Shipment</th>
-                                    <th>LC Number</th>
+                                    <th>LC No.</th>
                                     <th>LC Date Of Issue</th>
                                     <th>IP No.</th>
                                     <th>IP Date</th>
-                                    <th>IP Expiry Date</th>
-                                    <th>Port Of Landing</th>
-                                    <th>ETA(CTG)</th>
+                                    <th>IP Exp Date</th>
+                                    <th>SRO Date</th>
+                                    <th>Port Of Loading</th>
+                                    <th>ETA</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -54,16 +55,11 @@
     $(function () {
         $('#sales_report').DataTable({
             "fnRowCallback": function (nRow, aData, iDisplayIndex) {
-
                 // Bind click event
                 $(nRow).click(function () {
-//                    console.log(nRow);
-//                    window.open('http://example.com');
-                    //OR
-//                    window.open(aData.url);
-
+                    console.log();
+                    window.open('{{url('/')}}' + '/projects/' + aData.project_id + '/edit', "_self");
                 });
-
                 return nRow;
             },
             processing: true,
@@ -75,7 +71,7 @@
                 {data: 'supplier_name', name: 'supplier_name'},
                 {data: 'contract_number', name: 'contract_number'},
                 {data: 'contract_date', name: 'contract_date'},
-                {data: 'origin', name: 'origin'},
+                {data: 's_c_origin', name: 's_c_origin'},
                 {data: 's_c_price', name: 's_c_price'},
                 {data: 's_c_payment', name: 's_c_payment'},
                 {data: 'p_i_quantity', name: 'p_i_quantity'},
@@ -86,6 +82,7 @@
                 {data: 'i_p_number', name: 'i_p_number'},
                 {data: 'ip_date', name: 'ip_date'},
                 {data: 'ip_expiry_date', name: 'ip_expiry_date'},
+                {data: 'sro_date', name: 'sro_date'},
                 {data: 'lc_port_of_loading', name: 'lc_port_of_loading'},
                 {data: 'eta_date', name: 'eta_date'}
             ],

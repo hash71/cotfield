@@ -270,6 +270,13 @@ class OptionListsTableSeeder extends Seeder
         ];
         foreach ($datas as $data) {
             $data = explode(' ', $data);
+            try {
+                if ($data[2]) {
+                    $data[1] .= $data[2];
+                }
+            } catch (Exception $e) {
+            }
+
             \App\OptionList::create([
                 'option' => $data[0],
                 'list' => $data[1]
