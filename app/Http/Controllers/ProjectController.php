@@ -71,6 +71,7 @@ class ProjectController extends Controller
                 }
                 Report::create([
                     'project_id' => $project_id,
+                    'user_id' => \Auth::id(),
                     'project_name' => $data['project_name'],
                     'buyer_name' => $buyer_name,
                     'supplier_name' => $supplier_name,
@@ -184,6 +185,7 @@ class ProjectController extends Controller
                 }
                 Report::create([
                     'project_id' => $project_id,
+                    'user_id' => \Auth::id(),
                     'project_name' => $data['project_name'],
                     'buyer_name' => $buyer_name,
                     'supplier_name' => $supplier_name,

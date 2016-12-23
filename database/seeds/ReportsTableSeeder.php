@@ -15,6 +15,7 @@ class ReportsTableSeeder extends Seeder
         for ($i = 1; $i <= 100; $i++) {
             \App\Report::create([
                 'project_id' => $i,
+                'user_id' => 1,
                 'project_name' => $faker->name,
                 'buyer_name' => $faker->name,
                 'supplier_name' => $faker->name,

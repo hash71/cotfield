@@ -177,6 +177,9 @@
             toastr["info"]("Successfully Project Deleted");
         @elseif(session()->get('project_delete_false') == 1)
             toastr["error"]("Failed to Delete Project");
+        @elseif(session()->get('register_error') == 1)
+            toastr["error"]("Username Already Exists");
+
 
         @endif
     });
@@ -184,9 +187,6 @@
 
 </script>
 
-<script>
-
-</script>
 
 @stack('scripts')
 @yield('module')

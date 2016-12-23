@@ -5,12 +5,14 @@
                 <div class="dropdown profile-element">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong
-                                            class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b
-                                            class="caret"></b></span> </span> </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="#">Logout</a></li>
-                    </ul>
+                                            class="font-bold">{{Auth::user()->username}}</strong>
+                             </span>
+                                {{--<span class="text-muted text-xs block">Art Director <b class="caret"></b></span> --}}
+                            </span>
+                    </a>
+                    {{--<ul class="dropdown-menu animated fadeInRight m-t-xs">--}}
+                        {{--<li><a href="{{url('logout')}}">Logout</a></li>--}}
+                    {{--</ul>--}}
                 </div>
                 <div class="logo-element">
                     IN+
@@ -43,6 +45,7 @@
                 @endif
             </li>
 
+
             @if(url()->current() == url('report') || url()->current() == url('/') || url()->current() == url('dashboard'))
                 <li class="active">
             @else
@@ -74,6 +77,14 @@
                             <li><a href="#r17">LC Amendment Charge</a></li>
                             <li><a href="#r18">Remarks</a></li>
                         </ul>
+                    </li>
+                @endif
+                @if (\Auth::user()->role == "admin")
+
+                    <li class="{{url()->current() == url('register') ? 'active' : ''}}">
+                        <a href="{{url('register')}}"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Create New User</span>
+                        </a>
                     </li>
                 @endif
         </ul>

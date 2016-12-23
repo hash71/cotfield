@@ -15,6 +15,7 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user_id');
             $table->string('project_id')->unique();
             $table->string('project_name');
             $table->string('buyer_name');
