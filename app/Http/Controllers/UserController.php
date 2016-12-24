@@ -29,10 +29,15 @@ class UserController extends Controller
         return view('user_edit', compact('id'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         if (\Auth::user()->role != "admin")
             return redirect('dashboard');
+
+        $this->validate($request, [
+            'password' => 'required|min:6',
+        ]);
+
         User::where('id', $id)->update([
             'password' => bcrypt(request('password'))
         ]);
