@@ -15,9 +15,6 @@
 
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
-Route::get('bal', function () {
-    return view('user_list');
-});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ReportsController@getReport');
