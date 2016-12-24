@@ -15,6 +15,9 @@
 
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
+Route::get('bal', function () {
+    return view('user_list');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ReportsController@getReport');
@@ -35,6 +38,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('initial_file_list/{project_id}/{element_id}', 'FileController@initial_file_list');
     Route::get('report', 'ReportsController@getReport');
     Route::get('ajax_report', 'ReportsController@ajaxReport');
+    Route::get('user_list', 'UserController@user_list');
+    Route::post('ajax_user_list', 'UserController@ajax_user_list');
+    Route::get('edit_user/{id}', 'UserController@edit');
+    Route::put('update_user/{id}', 'UserController@update');
 //Route::post('ajax_get_project_details', 'ProjectController@ajax_get_project_details');
 });
 

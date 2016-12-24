@@ -17,7 +17,8 @@ class ReportsController extends Controller
 
     public function getReport()
     {
-        return view('report');
+//        return view('report');
+        return view('report_new');
     }
 
 //    public function ajaxSalesReport()
@@ -28,9 +29,26 @@ class ReportsController extends Controller
     public function ajaxReport()
     {
         $role = \Auth::user()->role;
-        if ($role == 'basic') {
-            return Datatables::of(Report::where('user_id', \Auth::id())->get())->make(true);
+
+        if (request('select') && request('from') && request('to')) {
+            if ($role == 'basic') {
+                return Datatables::of(
+                    Report::where('user_id', \Auth::id())
+                        ->whereBetween(request('select'), [request('from'), request('to')])
+                        ->get()
+                )->make(true);
+            }
+            return Datatables::of(
+                Report::whereBetween(request('select'), [request('from'), request('to')])
+                    ->get()
+            )->make(true);
+
+        } else {
+            if ($role == 'basic') {
+                return Datatables::of(Report::where('user_id', \Auth::id())->get())->make(true);
+            }
+            return Datatables::of(Report::all())->make(true);
         }
-        return Datatables::of(Report::all())->make(true);
+
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Index Page')
+@section('title','Create New Project')
 @push('styles')
 <style>
     button.dim {
@@ -1144,14 +1144,14 @@
 <script>
     $(function () {
 
-        $('.input-group.date').datepicker({
-            format: 'yyyy-mm-dd',
-            todayBtn: "linked",
-            keyboardNavigation: false,
-            forceParse: false,
-            calendarWeeks: true,
-            autoclose: true
-        });
+//        $('.input-group.date').datepicker({
+//            format: 'yyyy-mm-dd',
+//            todayBtn: "linked",
+//            keyboardNavigation: false,
+//            forceParse: false,
+//            calendarWeeks: true,
+//            autoclose: true
+//        });
     });
 </script>
 @endpush

@@ -40,6 +40,7 @@ class RegisterController extends Controller
             session()->flash('register_error', 1);
             return redirect()->back()->withInput();
         }
-        return redirect('dashboard');
+        session()->flash('register_success', 1);
+        return redirect('user_list');
     }
 }

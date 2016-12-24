@@ -149,6 +149,15 @@
 
     $(function () {
 
+        $('.input-group.date').datepicker({
+            format: 'yyyy-mm-dd',
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -179,6 +188,10 @@
             toastr["error"]("Failed to Delete Project");
         @elseif(session()->get('register_error') == 1)
             toastr["error"]("Username Already Exists");
+        @elseif(session()->get('register_success') == 1)
+            toastr["info"]("Successfully Created New User");
+        @elseif(session()->get('password_update') == 1)
+            toastr["info"]("Successfully Updated Password");
 
 
         @endif

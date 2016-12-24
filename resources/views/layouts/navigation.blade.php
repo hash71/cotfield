@@ -86,6 +86,11 @@
                                     class="nav-label">Create New User</span>
                         </a>
                     </li>
+                    <li class="{{url()->current() == url('user_list') ? 'active' : ''}}">
+                        <a href="{{url('user_list')}}"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Users List</span>
+                        </a>
+                    </li>
                 @endif
         </ul>
     </div>
