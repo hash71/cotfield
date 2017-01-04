@@ -27,7 +27,15 @@ class ProjectController extends Controller
 
                 $data = $request->except('_token');
                 $project_id = $data['project_id'];
+                $amendments = [];
+                foreach ($data['lc_amendment_day'] as $day) {
+                    if ($day != '') {
+                        $amendments[] = $day;
+                    }
+                }
+                $lc_amendment_day = json_encode($amendments);
                 unset($data['project_id']);
+                unset($data['lc_amendment_day']);
 
                 try {
                     $s_c_price = $data['s_c_price'] . " " . OptionList::where('id', $data['s_c_price_unit'])->first()->list;
@@ -69,6 +77,11 @@ class ProjectController extends Controller
                         'project_value' => $value
                     ]);
                 }
+                Project::create([
+                    'project_id' => $project_id,
+                    'project_option' => 'lc_amendment_day',
+                    'project_value' => $lc_amendment_day
+                ]);
                 Report::create([
                     'project_id' => $project_id,
                     'user_id' => \Auth::id(),
@@ -127,6 +140,10 @@ class ProjectController extends Controller
 
     public function edit($project_id)
     {
+        if (!Report::where('project_id', $project_id)->first()) {
+            $message = "The project you are looking for could not be found";
+            return view('errors.503', compact('message'));
+        }
         $data = Project::where('project_id', $project_id)->pluck('project_value', 'project_option');
         $option_list = \App\Option::pluck('name')->toArray();
 
@@ -142,7 +159,16 @@ class ProjectController extends Controller
 
                 $data = $request->except('_token');
                 $project_id = $data['project_id'];
+                $amendments = [];
+                foreach ($data['lc_amendment_day'] as $day) {
+                    if ($day != '') {
+                        $amendments[] = $day;
+                    }
+                }
+                $lc_amendment_day = json_encode($amendments);
                 unset($data['project_id']);
+                unset($data['lc_amendment_day']);
+
 
                 try {
                     $s_c_price = $data['s_c_price'] . " " . OptionList::where('id', $data['s_c_price_unit'])->first()->list;
@@ -183,6 +209,11 @@ class ProjectController extends Controller
                         'project_value' => $value
                     ]);
                 }
+                Project::create([
+                    'project_id' => $project_id,
+                    'project_option' => 'lc_amendment_day',
+                    'project_value' => $lc_amendment_day
+                ]);
                 Report::create([
                     'project_id' => $project_id,
                     'user_id' => \Auth::id(),

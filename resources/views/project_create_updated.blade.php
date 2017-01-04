@@ -2,6 +2,11 @@
 @section('title','Create New Project')
 @push('styles')
 <style>
+
+    .fa fa-plus-square-o {
+        vertical-align: middle;
+    }
+
     button.dim {
         margin-bottom: 0 !important;
     }
@@ -205,7 +210,7 @@
                         <div class="ibox-content">
                             <h3>Contract</h3>
                             <div class="form-group">
-                                <label for="contract_number">Supplier Name</label>
+                                <label for="contract_number">Contract No.</label>
                                 <input type="text" id="contract_number" name="contract_number" autocomplete="off"
                                        class="form-control text-box" value="">
                             </div>
@@ -233,7 +238,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
                         <div class="ibox-content">
-                            <h3>Performa Invoice</h3>
+                            <h3>Proforma Invoice</h3>
                             <div class="form-group">
                                 <label for="project_name">PI Number</label>
                                 <input type="text" id="p_i_number" name="p_i_number" autocomplete="off"
@@ -275,6 +280,15 @@
                                            name="p_i_latest_date_of_shipment" id="p_i_latest_date_of_shipment">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="upload_pi_copy">Upload PI Copy</label>
+                                <div id="upload_pi_copy">
+                                </div>
+                                <div id="upload_pi_copy_div">
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -405,12 +419,15 @@
                                            name="latest_date_of_shipment" id="latest_date_of_shipment">
                                 </div>
                             </div>
-                            <div class="form-group" id="data_11">
-                                <label class="font-normal" for="lc_amendment_day">LC Amendment Day</label>
-                                <div class="input-group date">
+                            <div class="form-group" id="lc_amendment_day_div">
+                                <label class="font-normal" for="lc_amendment_day">LC Amendment Date &nbsp;&nbsp;<a
+                                            href="#" id="lc_amendment_day_id"><i
+                                                style="font-size: 20px; vertical-align: middle;"
+                                                class="fa fa-plus-square-o"></i></a></label>
+                                <div class="input-group date" id="lc_amendment_day_element">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
-                                           name="lc_amendment_day" id="lc_amendment_day">
+                                           name="lc_amendment_day[]" id="lc_amendment_day">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -731,7 +748,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="s_g_w_c_received_account_number">Received Amount Name</label>
+                                <label for="s_g_w_c_received_account_number">Received Account Name</label>
                                 <input type="text" id="s_g_w_c_received_account_number"
                                        name="s_g_w_c_received_account_number" autocomplete="off"
                                        class="form-control text-box" value="">
@@ -1122,6 +1139,7 @@
 
         fineuploader("{{$project_id}}", "upload_sales_confirmation");
         fineuploader("{{$project_id}}", "upload_contract_copy");
+        fineuploader("{{$project_id}}", "upload_pi_copy");
         fineuploader("{{$project_id}}", "upload_ip_copy");
         fineuploader("{{$project_id}}", "upload_sro_copy");
         fineuploader("{{$project_id}}", "upload_lc_copy");
@@ -1143,15 +1161,33 @@
 </script>
 <script>
     $(function () {
+        $('#controller_invoice_weight').on('change', function () {
+            console.log("bal");
+            var diff = $(this).val() - $('#controller_landing_weight').val();
+            $('#s_g_w_c_short_gain_weight_claim_qty').attr('value', diff);
+            $('#s_g_w_c_short_gain_weight_claim_amount').attr('value', $('#s_c_price').val() * diff);
+        });
 
-//        $('.input-group.date').datepicker({
-//            format: 'yyyy-mm-dd',
-//            todayBtn: "linked",
-//            keyboardNavigation: false,
-//            forceParse: false,
-//            calendarWeeks: true,
-//            autoclose: true
-//        });
+        $('#controller_landing_weight').on('change', function () {
+            console.log("bal");
+            var diff = $('#controller_invoice_weight').val() - $(this).val();
+            $('#s_g_w_c_short_gain_weight_claim_qty').attr('value', diff);
+            $('#s_g_w_c_short_gain_weight_claim_amount').attr('value', $('#s_c_price').val() * diff);
+        });
+
+        $('#lc_amendment_day_id').on('click', function (event) {
+            event.preventDefault();
+            var elem = '<div class="input-group date" id="lc_amendment_day_element" style="padding-top: 10px;"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="lc_amendment_day[]" id="lc_amendment_day"></div>';
+            $('#lc_amendment_day_div').append(elem);
+            $('.input-group.date').datepicker({
+                format: 'yyyy-mm-dd',
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        })
     });
 </script>
 @endpush

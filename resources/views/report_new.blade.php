@@ -3,6 +3,14 @@
 @push('styles')
 
 <link rel="stylesheet" href="{{asset('datatables.min.css')}}">
+<style>
+    .toggle-vis {
+        border: 1px solid #e7e7e7;
+        padding: 0px 7px;
+        line-height: 30px;
+        white-space: nowrap;
+    }
+</style>
 
 
 @endpush
@@ -62,6 +70,28 @@
                         <h5>Sales Report</h5>
                     </div>
                     <div class="ibox-content">
+                        <div style="padding: 15px 0;">
+                            Toggle column:
+                            <a class="toggle-vis" data-column="0">Project Name</a> -
+                            <a class="toggle-vis" data-column="1">Buyer</a> -
+                            <a class="toggle-vis" data-column="2">Supplier</a> -
+                            <a class="toggle-vis" data-column="3">Contract No.</a> -
+                            <a class="toggle-vis" data-column="4">Contract Date</a> -
+                            <a class="toggle-vis" data-column="5">Origin</a> -
+                            <a class="toggle-vis" data-column="6">Price</a> -
+                            <a class="toggle-vis" data-column="7">Payment</a> -
+                            <a class="toggle-vis" data-column="8">QTY</a> -
+                            <a class="toggle-vis" data-column="9">Last Date Of LC Opening</a> -
+                            <a class="toggle-vis" data-column="10">Last Date Of Shipment</a> -
+                            <a class="toggle-vis" data-column="11">LC No.</a> -
+                            <a class="toggle-vis" data-column="12">LC Date Of Issue</a> -
+                            <a class="toggle-vis" data-column="13">IP No.</a> -
+                            <a class="toggle-vis" data-column="14">IP Date</a> -
+                            <a class="toggle-vis" data-column="15">IP Exp Date</a> -
+                            <a class="toggle-vis" data-column="16">SRO Date</a> -
+                            <a class="toggle-vis" data-column="17">Port Of Loading</a> -
+                            <a class="toggle-vis" data-column="18">ETA</a>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover dataTables-example"
                                    id="sales_report">
@@ -106,7 +136,7 @@
                 // Bind click event
                 $(nRow).click(function () {
                     console.log();
-                    window.open('{{url('/')}}' + '/projects/' + aData.project_id + '/edit', "_self");
+                    window.open('{{url('/')}}' + '/projects/' + aData.project_id + '/edit', "_blank");
                 });
                 return nRow;
             },
@@ -148,9 +178,24 @@
             buttons: [
 
 //                {extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'Report'},
-                {extend: 'pdf', title: 'Report', orientation: 'landscape', pageSize: 'LEGAL'},
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excel', title: 'Report',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdf', title: 'Report', orientation: 'landscape', pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
                 {
                     extend: 'print',
                     customize: function (win) {
@@ -163,9 +208,21 @@
                     },
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
-                    title: ''
+                    title: '',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
                 }
             ]
+        });
+        $('a.toggle-vis').on('click', function (e) {
+            e.preventDefault();
+
+            // Get the column API object
+            var column = filter_table.column($(this).attr('data-column'));
+
+            // Toggle the visibility
+            column.visible(!column.visible());
         });
         $('#search-form').on('submit', function (e) {
             filter_table.draw();

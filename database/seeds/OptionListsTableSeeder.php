@@ -272,7 +272,7 @@ class OptionListsTableSeeder extends Seeder
             $data = explode(' ', $data);
             try {
                 if ($data[2]) {
-                    $data[1] .= $data[2];
+                    $data[1] .= " " . $data[2];
                 }
             } catch (Exception $e) {
             }
