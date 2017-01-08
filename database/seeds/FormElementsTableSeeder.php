@@ -61,6 +61,8 @@ class FormElementsTableSeeder extends Seeder
             'lc_amendment_day',
             'shipment_date',
             'shipment_type',
+            'shipment_truck_challan_no',
+            'shipment_no_of_trucks',
             'shipment_shipping_line',
             'shipment_vessel_name',
             'shipment_bill_of_lading',

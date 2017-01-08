@@ -54,7 +54,12 @@
                     options += '<option value="' + key + '">' + data[key] + '</option>';
                 }
 //                options += '<option value="1" selected>RUNNING</option><option value="1">bunning</option>';
-                $("#" + select2_id).empty().append(options);//
+                if (['shipment_type', 'shipment_port_of_loading', 'shipment_transshipment_port', 'shipment_port_of_discharge'].includes(select2_id)) {
+                    $("." + select2_id).empty().append(options);//
+                } else {
+                    $("#" + select2_id).empty().append(options);//
+                }
+
             }
         });
     }
@@ -197,7 +202,44 @@
         @endif
     });
 
+    function initial_plugins_for_shipment_classes() {
 
+        fineuploader($('#project_id').val(), "shipment_advice");
+        fineuploader($('#project_id').val(), "upload_nn_documents");
+
+        var classes = [
+            'shipment_port_of_loading',
+            'shipment_transshipment_port',
+            'shipment_port_of_discharge'
+        ];
+
+        var i;
+        //initialize select2
+
+        for (i = 0; i < classes.length; i++) {//
+            $("." + classes[i]).select2({
+                placeholder: "select",
+                allowClear: true
+            }).on('select2:opening', getOptionsList(classes[i])).on('select2:open', {className: classes[i]}, function (evt) {
+                    $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                    $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                    $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                        'width': '100%',
+                        'border-radius': '0'
+                    });
+                }
+            );
+        }
+        //date
+        $('.input-group.date').datepicker({
+            format: 'yyyy-mm-dd',
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+    }
 </script>
 
 

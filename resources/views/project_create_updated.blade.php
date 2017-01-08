@@ -450,145 +450,220 @@
                     </div>
                 </div>
             </div>
-            <div id="r9" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Shipment</h3>
-                            <div class="form-group" id="data_12">
-                                <label class="font-normal" for="shipment_date">Shipment Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="shipment_date" id="shipment_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_type">Shipment Type</label>
-                                <select id="shipment_type" name="shipment_type" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_shipping_line">Shipping Line</label>
-                                <input type="text" id="shipment_shipping_line" name="shipment_shipping_line"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_vessel_name">Vessel Name</label>
-                                <input type="text" id="shipment_vessel_name" name="shipment_vessel_name"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_bill_of_lading">Bill Of Loading Number</label>
-                                <input type="text" id="shipment_bill_of_lading" name="shipment_bill_of_lading"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_no_of_containers">No. Of Containers</label>
-                                <input type="text" id="shipment_no_of_containers" name="shipment_no_of_containers"
-                                       autocomplete="off" class="form-control " value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_no_of_bales">No. Of Bales</label>
-                                <input type="text" id="shipment_no_of_bales" name="shipment_no_of_bales"
-                                       autocomplete="off" class="form-control " value="">
-                            </div>
+            {{--sn--}}
+            {{--<div id="template" style="display: none;">--}}
 
-                            <div class="form-group">
-                                <label for="shipment_port_of_loading">Port Of Loading</label>
-                                <select id="shipment_port_of_loading" name="shipment_port_of_loading"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group" id="data_13">
-                                <label class="font-normal" for="transshipment_date">Date Of Issue</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="transshipment_date" id="transshipment_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_transshipment_port">Transshipment Port</label>
-                                <select id="shipment_transshipment_port" name="shipment_transshipment_port"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_port_of_discharge">Port Of Discharge</label>
-                                <select id="shipment_port_of_discharge" name="shipment_port_of_discharge"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group" id="data_14">
-                                <label class="font-normal" for="eta_date">ETA Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control" name="eta_date"
-                                           id="eta_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_advice">Shipment Advice</label>
-                                <div id="shipment_advice">
-                                </div>
-                                <div id="shipment_advice_div">
-                                </div>
+                {{--<div id="r9" class="row">--}}
+                    {{--<div class="col-lg-8 col-lg-offset-2">--}}
+                        {{--<div class="ibox float-e-margins">--}}
+                            {{--<div class="ibox-content">--}}
+                                {{--<h3>Shipment</h3>--}}
+                                {{--<div class="form-group" id="data_12">--}}
+                                    {{--<label class="font-normal" for="shipment_date">Shipment Date</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control"--}}
+                                               {{--name="shipment_date" id="shipment_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_type">Shipment Type</label>--}}
+                                    {{--<select id="shipment_type" name="shipment_type" style="width: 100%;height: 30px;"--}}
+                                            {{--class="shipment_type">--}}
+                                        {{--<option value="by_sea" selected>BY SEA</option>--}}
+                                        {{--<option value="by_road">BY ROAD</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_shipping_line">Shipping Line</label>--}}
+                                    {{--<input type="text" id="shipment_shipping_line" name="shipment_shipping_line"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_vessel_name">Vessel Name</label>--}}
+                                    {{--<input type="text" id="shipment_vessel_name" name="shipment_vessel_name"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_bill_of_lading">Bill Of Loading Number</label>--}}
+                                    {{--<input type="text" id="shipment_bill_of_lading" name="shipment_bill_of_lading"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_no_of_containers">No. Of Containers</label>--}}
+                                    {{--<input type="text" id="shipment_no_of_containers" name="shipment_no_of_containers"--}}
+                                           {{--autocomplete="off" class="form-control " value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_no_of_bales">No. Of Bales</label>--}}
+                                    {{--<input type="text" id="shipment_no_of_bales" name="shipment_no_of_bales"--}}
+                                           {{--autocomplete="off" class="form-control " value="">--}}
+                                {{--</div>--}}
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_port_of_loading">Port Of Loading</label>--}}
+                                    {{--<select id="" name="shipment_port_of_loading"--}}
+                                            {{--style="width: 100%;" class="shipment_port_of_loading">--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group" id="data_13">--}}
+                                    {{--<label class="font-normal" for="transshipment_date">Date Of Issue</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control"--}}
+                                               {{--name="transshipment_date" id="transshipment_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_transshipment_port">Transshipment Port</label>--}}
+                                    {{--<select id="" name="shipment_transshipment_port"--}}
+                                            {{--style="width: 100%;" class="shipment_transshipment_port">--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_port_of_discharge">Port Of Discharge</label>--}}
+                                    {{--<select id="" name="shipment_port_of_discharge"--}}
+                                            {{--style="width: 100%;" class="shipment_port_of_discharge">--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group" id="data_14">--}}
+                                    {{--<label class="font-normal" for="eta_date">ETA Date</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control" name="eta_date"--}}
+                                               {{--id="eta_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_advice">Shipment Advice</label>--}}
+                                    {{--<div id="shipment_advice">--}}
+                                    {{--</div>--}}
+                                    {{--<div id="shipment_advice_div">--}}
+                                    {{--</div>--}}
+
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                {{--<div id="r92" class="row">--}}
+                    {{--<div class="col-lg-8 col-lg-offset-2">--}}
+                        {{--<div class="ibox float-e-margins">--}}
+                            {{--<div class="ibox-content">--}}
+                                {{--<h3>Shipment</h3>--}}
+                                {{--<div class="form-group" id="data_12">--}}
+                                    {{--<label class="font-normal" for="shipment_date">Shipment Date</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control"--}}
+                                               {{--name="shipment_date" id="shipment_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_type">Shipment Type</label>--}}
+                                    {{--<select id="shipment_type" name="shipment_type" style="width: 100%;height: 30px;"--}}
+                                            {{--class="shipment_type">--}}
+                                        {{--<option value="by_road" selected>BY ROAD</option>--}}
+                                        {{--<option value="by_sea">BY SEA</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_truck_challan_no">Truck Chalan No.</label>--}}
+                                    {{--<input type="text" id="shipment_truck_challan_no" name="shipment_truck_challan_no"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_no_of_trucks">No. Of Trucks</label>--}}
+                                    {{--<input type="text" id="shipment_no_of_trucks" name="shipment_no_of_trucks"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_no_of_bales">No. Of Bales</label>--}}
+                                    {{--<input type="text" id="shipment_no_of_bales" name="shipment_no_of_bales"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_port_of_loading">Port Of Loading</label>--}}
+                                    {{--<select id="" name="shipment_port_of_loading"--}}
+                                            {{--style="width: 100%;" class="shipment_port_of_loading">--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_port_of_discharge">Port Of Discharge</label>--}}
+                                    {{--<select id="" name="shipment_port_of_discharge"--}}
+                                            {{--style="width: 100%;" class="shipment_port_of_discharge">--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="shipment_advice">Shipment Advice</label>--}}
+                                    {{--<div id="shipment_advice">--}}
+                                    {{--</div>--}}
+                                    {{--<div id="shipment_advice_div">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                {{--<div id="r10" class="row">--}}
+                    {{--<div class="col-lg-8 col-lg-offset-2">--}}
+                        {{--<div class="ibox float-e-margins">--}}
+                            {{--<div class="ibox-content">--}}
+                                {{--<h3>NN Documents</h3>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="nn_commercial_invoice_no">Commercial Invoice Number</label>--}}
+                                    {{--<input type="text" id="nn_commercial_invoice_no" name="nn_commercial_invoice_no"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group" id="data_15">--}}
+                                    {{--<label class="font-normal" for="nn_commercial_invoice_date">Commercial Invoice--}}
+                                        {{--Date</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control"--}}
+                                               {{--name="nn_commercial_invoice_date" id="nn_commercial_invoice_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group" id="data_16">--}}
+                                    {{--<label class="font-normal" for="courier_date">Courier Date</label>--}}
+                                    {{--<div class="input-group date">--}}
+                                        {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                                        {{--<input type="text" class="form-control"--}}
+                                               {{--name="courier_date" id="courier_date">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="nn_dhl_courier_name">Courier Name</label>--}}
+                                    {{--<input type="text" id="nn_dhl_courier_name" name="nn_dhl_courier_name"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="nn_dhl_courier_details">File Number</label>--}}
+                                    {{--<input type="text" id="nn_dhl_courier_details" name="nn_dhl_courier_details"--}}
+                                           {{--autocomplete="off" class="form-control text-box" value="">--}}
+                                {{--</div>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label for="upload_nn_documents">Upload NN Documents</label>--}}
+                                    {{--<div id="upload_nn_documents">--}}
+                                    {{--</div>--}}
+                                    {{--<div id="upload_nn_documents_div">--}}
+                                    {{--</div>--}}
+
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <div id="group">
+
             </div>
-            <div id="r10" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>NN Documents</h3>
-                            <div class="form-group">
-                                <label for="nn_commercial_invoice_no">Commercial Invoice Number</label>
-                                <input type="text" id="nn_commercial_invoice_no" name="nn_commercial_invoice_no"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group" id="data_15">
-                                <label class="font-normal" for="nn_commercial_invoice_date">Commercial Invoice
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="nn_commercial_invoice_date" id="nn_commercial_invoice_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_16">
-                                <label class="font-normal" for="courier_date">Courier Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="courier_date" id="courier_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nn_dhl_courier_name">Courier Name</label>
-                                <input type="text" id="nn_dhl_courier_name" name="nn_dhl_courier_name"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="nn_dhl_courier_details">File Number</label>
-                                <input type="text" id="nn_dhl_courier_details" name="nn_dhl_courier_details"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_nn_documents">Upload NN Documents</label>
-                                <div id="upload_nn_documents">
-                                </div>
-                                <div id="upload_nn_documents_div">
-                                </div>
+            {{--sn--}}
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div id="r11" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
@@ -1144,8 +1219,8 @@
         fineuploader("{{$project_id}}", "upload_sro_copy");
         fineuploader("{{$project_id}}", "upload_lc_copy");
         fineuploader("{{$project_id}}", "upload_amendment_copy");
-        fineuploader("{{$project_id}}", "shipment_advice");
-        fineuploader("{{$project_id}}", "upload_nn_documents");
+        {{--fineuploader("{{$project_id}}", "shipment_advice");--}}
+        {{--fineuploader("{{$project_id}}", "upload_nn_documents");--}}
         fineuploader("{{$project_id}}", "invoice_upload_payment_copy");
         fineuploader("{{$project_id}}", "upload_acceptance_copy");
         fineuploader("{{$project_id}}", "upload_controller_documents");
@@ -1190,9 +1265,265 @@
         })
     });
 </script>
+{{--sn--}}
+<script>
+
+    function getSea() {
+        var sea = "";
+        sea += "<div class=\"row\">";
+        sea += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+        sea += "        <div class=\"ibox float-e-margins\">";
+        sea += "            <div class=\"ibox-content\">";
+        sea += "                <h3>Shipment<\/h3>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label class=\"font-normal\" for=\"shipment_date\">Shipment Date<\/label>";
+        sea += "                    <div class=\"input-group date\">";
+        sea += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        sea += "                        <input type=\"text\" class=\"form-control\" name=\"shipment_date\">";
+        sea += "                    <\/div>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_type\">Shipment Type<\/label>";
+        sea += "                    <select name=\"shipment_type\" style=\"width: 100%;height: 30px;\" class=\"shipment_type\">";
+        sea += "                        <option value=\"by_sea\" selected>BY SEA<\/option>";
+        sea += "                        <option value=\"by_road\">BY ROAD<\/option>";
+        sea += "                    <\/select>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_shipping_line\">Shipping Line<\/label>";
+        sea += "                    <input type=\"text\" name=\"shipment_shipping_line\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_vessel_name\">Vessel Name<\/label>";
+        sea += "                    <input type=\"text\" name=\"shipment_vessel_name\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_bill_of_lading\">Bill Of Loading Number<\/label>";
+        sea += "                    <input type=\"text\" name=\"shipment_bill_of_lading\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_no_of_containers\">No. Of Containers<\/label>";
+        sea += "                    <input type=\"text\" name=\"shipment_no_of_containers\" autocomplete=\"off\" class=\"form-control \" value=\"\">";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_no_of_bales\">No. Of Bales<\/label>";
+        sea += "                    <input type=\"text\" name=\"shipment_no_of_bales\" autocomplete=\"off\" class=\"form-control \" value=\"\">";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_port_of_loading\">Port Of Loading<\/label>";
+        sea += "                    <select name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
+        sea += "                    <\/select>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label class=\"font-normal\" for=\"transshipment_date\">Date Of Issue<\/label>";
+        sea += "                    <div class=\"input-group date\">";
+        sea += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        sea += "                        <input type=\"text\" class=\"form-control\" name=\"transshipment_date\">";
+        sea += "                    <\/div>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_transshipment_port\">Transshipment Port<\/label>";
+        sea += "                    <select name=\"shipment_transshipment_port\" style=\"width: 100%;\" class=\"shipment_transshipment_port\">";
+        sea += "                    <\/select>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_port_of_discharge\">Port Of Discharge<\/label>";
+        sea += "                    <select name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
+        sea += "                    <\/select>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label class=\"font-normal\" for=\"eta_date\">ETA Date<\/label>";
+        sea += "                    <div class=\"input-group date\">";
+        sea += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        sea += "                        <input type=\"text\" class=\"form-control\" name=\"eta_date\">";
+        sea += "                    <\/div>";
+        sea += "                <\/div>";
+        sea += "                <div class=\"form-group\">";
+        sea += "                    <label for=\"shipment_advice\">Shipment Advice<\/label>";
+        sea += "                    <div id=\"shipment_advice\">";
+        sea += "                    <\/div>";
+        sea += "                    <div id=\"shipment_advice_div\">";
+        sea += "                    <\/div>";
+        sea += "                <\/div>";
+        sea += "            <\/div>";
+        sea += "        <\/div>";
+        sea += "    <\/div>";
+        sea += "<\/div>";
+        sea += "";
+        return sea;
+
+    }
+    function getRoad() {
+        var road = "";
+        road += "<div class=\"row\">";
+        road += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+        road += "        <div class=\"ibox float-e-margins\">";
+        road += "            <div class=\"ibox-content\">";
+        road += "                <h3>Shipment<\/h3>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label class=\"font-normal\" for=\"shipment_date\">Shipment Date<\/label>";
+        road += "                    <div class=\"input-group date\">";
+        road += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        road += "                        <input type=\"text\" class=\"form-control\" name=\"shipment_date\">";
+        road += "                    <\/div>";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_type\">Shipment Type<\/label>";
+        road += "                    <select name=\"shipment_type\" style=\"width: 100%;height: 30px;\" class=\"shipment_type\">";
+        road += "                        <option value=\"by_road\" selected>BY ROAD<\/option>";
+        road += "                        <option value=\"by_sea\">BY SEA<\/option>";
+        road += "                    <\/select>";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_truck_challan_no\">Truck Chalan No.<\/label>";
+        road += "                    <input type=\"text\" name=\"shipment_truck_challan_no\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_no_of_trucks\">No. Of Trucks<\/label>";
+        road += "                    <input type=\"text\" name=\"shipment_no_of_trucks\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_no_of_bales\">No. Of Bales<\/label>";
+        road += "                    <input type=\"text\" name=\"shipment_no_of_bales\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_port_of_loading\">Port Of Loading<\/label>";
+        road += "                    <select name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
+        road += "                    <\/select>";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_port_of_discharge\">Port Of Discharge<\/label>";
+        road += "                    <select name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
+        road += "                    <\/select>";
+        road += "                <\/div>";
+        road += "                <div class=\"form-group\">";
+        road += "                    <label for=\"shipment_advice\">Shipment Advice<\/label>";
+        road += "                    <div id=\"shipment_advice\">";
+        road += "                    <\/div>";
+        road += "                    <div id=\"shipment_advice_div\">";
+        road += "                    <\/div>";
+        road += "                <\/div>";
+        road += "            <\/div>";
+        road += "        <\/div>";
+        road += "    <\/div>";
+        road += "<\/div>";
+        road += "";
+        return road;
+    }
+    function getNN() {
+        var nn = "";
+        nn += "<div class=\"row\">";
+        nn += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+        nn += "        <div class=\"ibox float-e-margins\">";
+        nn += "            <div class=\"ibox-content\">";
+        nn += "                <h3>NN Documents<\/h3>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label for=\"nn_commercial_invoice_no\">Commercial Invoice Number<\/label>";
+        nn += "                    <input type=\"text\" name=\"nn_commercial_invoice_no\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        nn += "                <\/div>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label class=\"font-normal\" for=\"nn_commercial_invoice_date\">Commercial Invoice Date";
+        nn += "                    <\/label>";
+        nn += "                    <div class=\"input-group date\">";
+        nn += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        nn += "                        <input type=\"text\" class=\"form-control\" name=\"nn_commercial_invoice_date\">";
+        nn += "                    <\/div>";
+        nn += "                <\/div>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label class=\"font-normal\" for=\"courier_date\">Courier Date<\/label>";
+        nn += "                    <div class=\"input-group date\">";
+        nn += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+        nn += "                        <input type=\"text\" class=\"form-control\" name=\"courier_date\">";
+        nn += "                    <\/div>";
+        nn += "                <\/div>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label for=\"nn_dhl_courier_name\">Courier Name<\/label>";
+        nn += "                    <input type=\"text\" name=\"nn_dhl_courier_name\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        nn += "                <\/div>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label for=\"nn_dhl_courier_details\">File Number<\/label>";
+        nn += "                    <input type=\"text\" name=\"nn_dhl_courier_details\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+        nn += "                <\/div>";
+        nn += "                <div class=\"form-group\">";
+        nn += "                    <label for=\"upload_nn_documents\">Upload NN Documents<\/label>";
+        nn += "                    <div id=\"upload_nn_documents\">";
+        nn += "                    <\/div>";
+        nn += "                    <div id=\"upload_nn_documents_div\">";
+        nn += "                    <\/div>";
+        nn += "                <\/div>";
+        nn += "            <\/div>";
+        nn += "        <\/div>";
+        nn += "    <\/div>";
+        nn += "<\/div>";
+        nn += "";
+        return nn;
+    }
+
+    $('#lc_partial_shipments').on('select2:select', function (evt) {
+
+        var allowed = $('#lc_partial_shipments :selected').text();
+        allowed = allowed.trim();
+
+        if (allowed == 'ALLOWED') {
+            $('#group').empty();
+        } else if (allowed == 'NOT ALLOWED') {
+            $('#group').empty();
+            $('#group').append(getSea());
+            $('#group').append(getNN());
+        }
+        initial_plugins_for_shipment_classes();//for attaching select2 plugin
+        //on selecting road or sea
+        $('.shipment_type').on('change', toggle_sea_road);
+    });
+
+    function toggle_sea_road(evt) {
+
+        var allowed = $('#lc_partial_shipments :selected').text().trim();
+
+        var shipmentType = $(evt.target).val();
+
+        var elemToReplace;
+
+        if (shipmentType == 'by_road') {
+            if (allowed == 'ALLOWED') {
+            } else if (allowed == 'NOT ALLOWED') {
+                elemToReplace = $(evt.target).closest('.row');
+                elemToReplace.replaceWith(getRoad());
+            }
+
+        } else if (shipmentType == 'by_sea') {
+            if (allowed == 'ALLOWED') {
+            } else if (allowed == 'NOT ALLOWED') {
+                elemToReplace = $(evt.target).closest('.row');
+                elemToReplace.replaceWith(getSea());
+            }
+        }
+        initial_plugins_for_shipment_classes();//attach the select plugin again
+        $('.shipment_type').on('change', toggle_sea_road);//after toggling attach the event again
+    }
+
+
+</script>
+{{--sn--}}
 @endpush
 @section('module')
+    <?php
+    $select_classes = [
+        'shipment_type',
+        'shipment_port_of_loading',
+        'shipment_transshipment_port',
+        'shipment_port_of_discharge'
+    ];?>
     @foreach(\App\Option::all()->pluck('name') as $option)
+        @if(in_array($option,$select_classes))
+            @continue
+        @endif
         @include('modals.module',['select_id'=>$option,'label'=>'Add New'])
     @endforeach
+
+    @foreach ($select_classes as $select_class) {
+    @include('modals.module_for_class_select',['select_id'=>$select_class,'label'=>'Add New'])
+    @endforeach
+
+
 @endsection
