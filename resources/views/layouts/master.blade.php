@@ -72,7 +72,6 @@
                 value: $('#modal-' + select2_id + ' input').val()
             },
             function (data, status) {
-                console.log(data);
                 if (data == 1) {
                     $('#modal-' + select2_id).modal('hide');
                     toastr["info"]("Option Added Successfully");
@@ -202,10 +201,32 @@
         @endif
     });
 
-    function initial_plugins_for_shipment_classes() {
+    function initial_plugins_for_shipment_classes(file_id, both) {
 
-        fineuploader($('#project_id').val(), "shipment_advice");
-        fineuploader($('#project_id').val(), "upload_nn_documents");
+
+        if ($('#lc_partial_shipments :selected').text().trim() == 'ALLOWED') {
+//            if (file_id) {//for toggle not for the first time
+            if (both) {
+                fineuploader($('#project_id').val(), "shipment_advice_" + file_id);
+                fineuploader($('#project_id').val(), "upload_nn_documents_" + file_id);
+            } else {
+                fineuploader($('#project_id').val(), "shipment_advice_" + file_id);
+
+            }
+//            } else {
+//
+//                for (var i = 1; i <= parseInt($('#shipping_number').val()); i++) {
+//                    fineuploader($('#project_id').val(), "shipment_advice_" + i);
+//                    fineuploader($('#project_id').val(), "upload_nn_documents_" + i);
+//                }
+//            }
+
+        } else {
+            fineuploader($('#project_id').val(), "shipment_advice");
+            fineuploader($('#project_id').val(), "upload_nn_documents");
+
+        }
+
 
         var classes = [
             'shipment_port_of_loading',
