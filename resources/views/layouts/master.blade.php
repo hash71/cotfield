@@ -53,13 +53,29 @@
                 for (var key in data) {
                     options += '<option value="' + key + '">' + data[key] + '</option>';
                 }
-//                options += '<option value="1" selected>RUNNING</option><option value="1">bunning</option>';
-                if (['shipment_type', 'shipment_port_of_loading', 'shipment_transshipment_port', 'shipment_port_of_discharge'].includes(select2_id)) {
-                    $("." + select2_id).empty().append(options);//
-                } else {
-                    $("#" + select2_id).empty().append(options);//
-                }
+                $("#" + select2_id).empty().append(options);
+            }
+        });
+    }
 
+    function getOptionsListShipment(select2_id, id, editValue) {
+
+        $.ajax({
+            url: '{{url("ajax_select2_options_list")}}' + '/' + select2_id,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                _token: "{{csrf_token()}}"
+            },
+            success: function (data) {
+                options = '<option></option>';
+                for (var key in data) {
+                    options += '<option value="' + key + '">' + data[key] + '</option>';
+                }
+                $("#" + id).empty().append(options);
+                if (editValue) {
+                    $("#" + id).val(editValue).change();
+                }
             }
         });
     }
@@ -75,7 +91,37 @@
                 if (data == 1) {
                     $('#modal-' + select2_id).modal('hide');
                     toastr["info"]("Option Added Successfully");
-                    $("#modal-" + select2_id).on('select2:opening', getOptionsList(select2_id));
+                    //i dont know why this selector was used for select2 id initialization so i changed it
+//                    $("#modal-" + select2_id).on('select2:opening', getOptionsList(select2_id));
+                    $("#" + select2_id).on('select2:opening', getOptionsList(select2_id));
+                } else {
+                    toastr["error"]("Could Not Add The Option");
+                }
+            }
+        );
+    }
+
+    function add_new_option_shipment(select2_id) {
+        console.log('add_new_option_shipment');
+
+        $.post("{{url('ajax_project_create_option')}}" + '/' + select2_id,
+            {
+                _token: "{{csrf_token()}}",
+                value: $('#modal-' + select2_id + ' input').val()
+            },
+            function (data, status) {
+                if (data == 1) {
+                    $('#modal-' + select2_id).modal('hide');
+                    toastr["info"]("Option Added Successfully");
+                    $("." + select2_id).each(function () {
+                        var id = $(this).attr('id');
+                        var className = $(this).attr('class');
+                        className = className.split(" ");
+                        className = className[0];
+                        console.log("class " + className);
+                        console.log("id " + id);
+                        $("#" + id).on('select2:opening', getOptionsListShipment(className, id));
+                    });
                 } else {
                     toastr["error"]("Could Not Add The Option");
                 }
@@ -203,7 +249,6 @@
 
     function initial_plugins_for_shipment_classes(file_id, both) {
 
-
         if ($('#lc_partial_shipments :selected').text().trim() == 'ALLOWED') {
 //            if (file_id) {//for toggle not for the first time
             if (both) {
@@ -224,32 +269,35 @@
         } else {
             fineuploader($('#project_id').val(), "shipment_advice");
             fineuploader($('#project_id').val(), "upload_nn_documents");
-
         }
-
-
         var classes = [
             'shipment_port_of_loading',
             'shipment_transshipment_port',
             'shipment_port_of_discharge'
         ];
-
         var i;
-        //initialize select2
-
+        //initialize select2 for all ids of each classes
         for (i = 0; i < classes.length; i++) {//
-            $("." + classes[i]).select2({
-                placeholder: "select",
-                allowClear: true
-            }).on('select2:opening', getOptionsList(classes[i])).on('select2:open', {className: classes[i]}, function (evt) {
-                    $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
-                    $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
-                    $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
-                        'width': '100%',
-                        'border-radius': '0'
-                    });
+            $("." + classes[i]).each(function () {
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id)).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
                 }
-            );
+            });
         }
         //date
         $('.input-group.date').datepicker({

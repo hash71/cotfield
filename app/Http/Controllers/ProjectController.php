@@ -21,7 +21,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
         try {
             \DB::transaction(function () use ($request) {
 
@@ -74,7 +74,7 @@ class ProjectController extends Controller
                     Project::create([
                         'project_id' => $project_id,
                         'project_option' => $key,
-                        'project_value' => $value
+                        'project_value' => is_array($value) ? json_encode($value) : $value
                     ]);
                 }
                 Project::create([
@@ -103,7 +103,8 @@ class ProjectController extends Controller
                     'ip_expiry_date' => $data['ip_expiry_date'],
                     'sro_date' => $data['sro_date'],
                     'lc_port_of_loading' => $lc_port_of_loading,
-                    'eta_date' => $data['eta_date'],
+//                    'eta_date' => $data['eta_date'],
+                    'eta_date' => '',
                 ]);
             });
             session()->flash('project_created_true', 1);
@@ -146,6 +147,8 @@ class ProjectController extends Controller
         }
         $data = Project::where('project_id', $project_id)->pluck('project_value', 'project_option');
         $option_list = \App\Option::pluck('name')->toArray();
+
+//        dd(json_encode($option_list));
 
         return view('project_edit', compact('project_id', 'data', 'option_list'));
     }

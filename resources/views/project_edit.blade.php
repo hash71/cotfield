@@ -344,7 +344,7 @@
                                            name="sro_date" id="sro_date">
                                 </div>
                             </div>
-                            <div class="form-group">upload_ip_copy
+                            <div class="form-group">
                                 <label for="upload_ip_copy">Upload IP Copy</label>
                                 <div id="upload_ip_copy">
                                 </div>
@@ -484,145 +484,286 @@
                     </div>
                 </div>
             </div>
-            <div id="r9" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Shipment</h3>
-                            <div class="form-group" id="data_12">
-                                <label class="font-normal" for="shipment_date">Shipment Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="shipment_date" id="shipment_date">
+            {{--sn--}}
+
+            <input type="hidden" name="shipping_number" id="shipping_number" value="{{$data['shipping_number']}}">
+            <div id="group">
+
+                @if($data['shipping_number'])
+                    <?php
+                    $sea = $road = -1;
+                    $i = 0;
+                    $shipment_type = json_decode(stripslashes($data['shipment_type']));
+                    //                    dd($shipment_type);
+                    $shipment_date = json_decode(stripslashes($data['shipment_date']));
+                    $shipment_shipping_line = json_decode(stripslashes($data['shipment_shipping_line']));
+                    $shipment_vessel_name = json_decode(stripslashes($data['shipment_vessel_name']));
+                    $shipment_bill_of_lading = json_decode(stripslashes($data['shipment_bill_of_lading']));
+                    $shipment_no_of_containers = json_decode(stripslashes($data['shipment_no_of_containers']));
+                    $shipment_no_of_bales = json_decode(stripslashes($data['shipment_no_of_bales']));
+                    $transshipment_date = json_decode(stripslashes($data['transshipment_date']));
+                    $eta_date = json_decode(stripslashes($data['eta_date']));
+                    $shipment_truck_challan_no = json_decode(stripslashes($data['shipment_truck_challan_no']));
+                    $shipment_no_of_trucks = json_decode(stripslashes($data['shipment_no_of_trucks']));
+                    $nn_commercial_invoice_no = json_decode(stripslashes($data['nn_commercial_invoice_no']));
+                    $nn_commercial_invoice_date = json_decode(stripslashes($data['nn_commercial_invoice_date']));
+                    $courier_date = json_decode(stripslashes($data['courier_date']));
+                    $nn_dhl_courier_details = json_decode(stripslashes($data['nn_dhl_courier_details']));
+
+                    ?>
+
+
+                    @for($i=0;$i<$data['shipping_number'];$i++)
+
+                        @if($shipment_type[$i] == 'by_sea')
+                            <?php $sea++;?>
+                            <div class="row" id="{{$i+1}}">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-content">
+                                            <h3>Shipment {{$i+1}}</h3>
+                                            <div class="form-group">
+                                                <label class="font-normal" for="shipment_date">Shipment Date</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i
+                                                                class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control" name="shipment_date[]"
+                                                           value="{{$shipment_date[$i]}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_type">Shipment Type</label>
+                                                <select name="shipment_type[]" style="width: 100%;height: 30px;"
+                                                        class="shipment_type">
+                                                    <option value="by_sea" selected>BY SEA</option>
+                                                    <option value="by_road">BY ROAD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_shipping_line">Shipping Line</label>
+                                                <input type="text" name="shipment_shipping_line[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_shipping_line[$sea]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_vessel_name">Vessel Name</label>
+                                                <input type="text" name="shipment_vessel_name[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_vessel_name[$sea]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_bill_of_lading">Bill Of Loading Number</label>
+                                                <input type="text" name="shipment_bill_of_lading[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_bill_of_lading[$sea]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_no_of_containers">No. Of Containers</label>
+                                                <input type="text" name="shipment_no_of_containers[]" autocomplete="off"
+                                                       class="form-control "
+                                                       value="{{$shipment_no_of_containers[$sea]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_no_of_bales">No. Of Bales</label>
+                                                <input type="text" name="shipment_no_of_bales[]" autocomplete="off"
+                                                       class="form-control " value="{{$shipment_no_of_bales[$i]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_port_of_loading">Port Of Loading</label>
+                                                <select id="{{"shipment_port_of_loading".($i+1)}}"
+                                                        name="shipment_port_of_loading[]" style="width: 100%;"
+                                                        class="shipment_port_of_loading">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-normal" for="transshipment_date">Date Of
+                                                    Issue</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i
+                                                                class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control" name="transshipment_date[]"
+                                                           value="{{$transshipment_date[$sea]}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_transshipment_port">Transshipment Port</label>
+                                                <select id={{"shipment_transshipment_port".($i+1)}} name="shipment_transshipment_port[]"
+                                                        style="width: 100%;"
+                                                        class="shipment_transshipment_port">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_port_of_discharge">Port Of Discharge</label>
+                                                <select id="{{"shipment_port_of_discharge".($i+1)}}"
+                                                        name="shipment_port_of_discharge" style="width: 100%;"
+                                                        class="shipment_port_of_discharge">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-normal" for="eta_date">ETA Date</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i
+                                                                class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control" name="eta_date[]"
+                                                           value="{{$eta_date[$sea]}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_advice{{'_'.($i+1)}}">Shipment Advice</label>
+                                                <div id="shipment_advice{{'_'.($i+1)}}">
+                                                </div>
+                                                <div id="shipment_advice_{{($i+1).'_div'}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_type">Shipment Type</label>
-                                <select id="shipment_type" name="shipment_type" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_shipping_line">Shipping Line</label>
-                                <input type="text" id="shipment_shipping_line" name="shipment_shipping_line"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_vessel_name">Vessel Name</label>
-                                <input type="text" id="shipment_vessel_name" name="shipment_vessel_name"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_bill_of_lading">Bill Of Loading Number</label>
-                                <input type="text" id="shipment_bill_of_lading" name="shipment_bill_of_lading"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_no_of_containers">No. Of Containers</label>
-                                <input type="text" id="shipment_no_of_containers" name="shipment_no_of_containers"
-                                       autocomplete="off" class="form-control " value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_no_of_bales">No. Of Bales</label>
-                                <input type="text" id="shipment_no_of_bales" name="shipment_no_of_bales"
-                                       autocomplete="off" class="form-control " value="">
                             </div>
 
-                            <div class="form-group">
-                                <label for="shipment_port_of_loading">Port Of Loading</label>
-                                <select id="shipment_port_of_loading" name="shipment_port_of_loading"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group" id="data_13">
-                                <label class="font-normal" for="transshipment_date">Date Of Issue</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="transshipment_date" id="transshipment_date">
+                        @elseif($shipment_type[$i] == 'by_road')
+                            <?php $road++;?>
+                            <div class="row" id="{{$i+1}}">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-content">
+                                            <h3>Shipment {{$i+1}}</h3>
+                                            <div class="form-group">
+                                                <label class="font-normal" for="shipment_date">Shipment Date</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i
+                                                                class="fa fa-calendar"></i></span>
+                                                    <input type="text" class="form-control" name="shipment_date[]"
+                                                           value="{{$shipment_date[$i]}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_type">Shipment Type</label>
+                                                <select name="shipment_type"
+                                                        style="width: 100%;height: 30px;"
+                                                        class="shipment_type">
+                                                    <option value="by_road" selected>BY ROAD</option>
+                                                    <option value="by_sea">BY SEA</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_truck_challan_no">Truck Chalan No.</label>
+                                                <input type="text" name="shipment_truck_challan_no[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_truck_challan_no[$road]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_no_of_trucks">No. Of Trucks</label>
+                                                <input type="text" name="shipment_no_of_trucks[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_no_of_trucks[$road]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_no_of_bales">No. Of Bales</label>
+                                                <input type="text" name="shipment_no_of_bales[]" autocomplete="off"
+                                                       class="form-control text-box"
+                                                       value="{{$shipment_no_of_bales[$i]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_port_of_loading">Port Of Loading</label>
+                                                <select id="{{"shipment_port_of_loading".($i+1)}}"
+                                                        name="shipment_port_of_loading[]" style="width: 100%;"
+                                                        class="shipment_port_of_loading">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_port_of_discharge">Port Of Discharge</label>
+                                                <select id="{{"shipment_port_of_discharge".($i+1)}}"
+                                                        name="shipment_port_of_discharge[]" style="width: 100%;"
+                                                        class="shipment_port_of_discharge">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shipment_advice{{'_'.($i+1)}}">Shipment Advice</label>
+                                                <div id="shipment_advice{{'_'.($i+1)}}">
+                                                </div>
+                                                <div id="shipment_advice_{{($i+1).'_div'}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="shipment_transshipment_port">Transshipment Port</label>
-                                <select id="shipment_transshipment_port" name="shipment_transshipment_port"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_port_of_discharge">Port Of Discharge</label>
-                                <select id="shipment_port_of_discharge" name="shipment_port_of_discharge"
-                                        style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group" id="data_14">
-                                <label class="font-normal" for="eta_date">ETA Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control" name="eta_date"
-                                           id="eta_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipment_advice">Shipment Advice</label>
-                                <div id="shipment_advice">
-                                </div>
-                                <div id="shipment_advice_div">
-                                </div>
+                        @endif
 
+                        <div class="row" id="{{$i+1}}">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <h3>NN Documents {{$i+1}}</h3>
+                                        <div class="form-group">
+                                            <label for="nn_commercial_invoice_no">Commercial Invoice Number</label>
+                                            <input type="text" name="nn_commercial_invoice_no[]" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$nn_commercial_invoice_no[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-normal" for="nn_commercial_invoice_date">Commercial
+                                                Invoice Date
+                                            </label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control"
+                                                       name="nn_commercial_invoice_date[]"
+                                                       value="{{$nn_commercial_invoice_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-normal" for="courier_date">Courier Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control" name="courier_date[]"
+                                                       value="{{$courier_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nn_dhl_courier_name">Courier Name</label>
+                                            <input type="text" name="nn_dhl_courier_name[]" autocomplete="off"
+                                                   class="form-control text-box" value=" ">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nn_dhl_courier_details">File Number</label>
+                                            <input type="text" name="nn_dhl_courier_details[]" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$nn_dhl_courier_details[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upload_nn_documents{{'_'.($i+1)}}">Upload NN Documents</label>
+                                            <div id="upload_nn_documents{{'_'.($i+1)}}">
+                                            </div>
+                                            <div id="upload_nn_documents_{{($i+1).'_div'}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    @endfor
+                    <div class="row" id="shipment_button">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div style="margin-bottom: 10px">
+                                <button onclick="add_more_shipment_button()" type="button"
+                                        class="btn btn-success btn-outline btn-block" href="#"
+                                        style="width: 50%;margin: auto;">Add More Shipment
+                                </button>
+                            </div>
+                            <div style="margin: 10px 0;">
+                                <button onclick="delete_shipment_button()" type="button"
+                                        class="btn btn-danger btn-outline btn-block" href="#"
+                                        style="width: 50%;margin: auto;">Delete Last Shipment
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
-            <div id="r10" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>NN Documents</h3>
-                            <div class="form-group">
-                                <label for="nn_commercial_invoice_no">Commercial Invoice Number</label>
-                                <input type="text" id="nn_commercial_invoice_no" name="nn_commercial_invoice_no"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group" id="data_15">
-                                <label class="font-normal" for="nn_commercial_invoice_date">Commercial Invoice
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="nn_commercial_invoice_date" id="nn_commercial_invoice_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_16">
-                                <label class="font-normal" for="courier_date">Courier Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="courier_date" id="courier_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nn_dhl_courier_name">Courier Name</label>
-                                <input type="text" id="nn_dhl_courier_name" name="nn_dhl_courier_name"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="nn_dhl_courier_details">File Number</label>
-                                <input type="text" id="nn_dhl_courier_details" name="nn_dhl_courier_details"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_nn_documents">Upload NN Documents</label>
-                                <div id="upload_nn_documents">
-                                </div>
-                                <div id="upload_nn_documents_div">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{--sn--}}
             <div id="r11" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
@@ -1170,8 +1311,8 @@
             "upload_sro_copy",
             "upload_lc_copy",
             "upload_amendment_copy",
-            "shipment_advice",
-            "upload_nn_documents",
+//            "shipment_advice",
+//            "upload_nn_documents",
             "invoice_upload_payment_copy",
             "upload_acceptance_copy",
             "upload_controller_documents",
@@ -1282,8 +1423,8 @@
         fineuploader("{{$project_id}}", "upload_sro_copy");
         fineuploader("{{$project_id}}", "upload_lc_copy");
         fineuploader("{{$project_id}}", "upload_amendment_copy");
-        fineuploader("{{$project_id}}", "shipment_advice");
-        fineuploader("{{$project_id}}", "upload_nn_documents");
+        {{--fineuploader("{{$project_id}}", "shipment_advice");--}}
+        {{--fineuploader("{{$project_id}}", "upload_nn_documents");--}}
         fineuploader("{{$project_id}}", "invoice_upload_payment_copy");
         fineuploader("{{$project_id}}", "upload_acceptance_copy");
         fineuploader("{{$project_id}}", "upload_controller_documents");
@@ -1295,6 +1436,13 @@
         fineuploader("{{$project_id}}", "upload_carrying_copy");
         fineuploader("{{$project_id}}", "upload_letter");
         fineuploader("{{$project_id}}", "all_mail_attachement");
+
+//        sn
+        @for($i=1;$i<=$data['shipping_number'];$i++)
+        fineuploader("{{$project_id}}", "shipment_advice_" + '{{$i}}');
+        fineuploader("{{$project_id}}", "upload_nn_documents_" + '{{$i}}');
+        @endfor
+        {{--sn--}}
     });
 </script>
 <script>
@@ -1362,7 +1510,116 @@
 </script>
 @endpush
 @section('module')
+    <?php
+    $select_classes = [
+        'shipment_type',
+        'shipment_port_of_loading',
+        'shipment_transshipment_port',
+        'shipment_port_of_discharge'
+    ];?>
     @foreach(\App\Option::all()->pluck('name') as $option)
+        @if(in_array($option,$select_classes))
+            @continue
+        @endif
         @include('modals.edit_module',['select_id'=>$option,'label'=>'Add New'])
     @endforeach
+    @foreach ($select_classes as $select_class)
+        @include('modals.module_for_class_select',['select_id'=>$select_class,'label'=>'Add New'])
+    @endforeach
+
+
+    {{--@foreach(\App\Option::all()->pluck('name') as $option)--}}
+    {{--@include('modals.edit_module',['select_id'=>$option,'label'=>'Add New'])--}}
+    {{--@endforeach--}}
+    {{--sn--}}
+    <script src="{{asset('js/shipment.js')}}"></script>
+
+
+    <script>
+        $(function () {
+            $('.shipment_type').on('change', toggle_sea_road);
+            var classes_for_partial = [
+                'shipment_port_of_loading',
+                'shipment_transshipment_port',
+                'shipment_port_of_discharge'
+            ];
+                    @if($data['shipping_number'])
+            var shipment_transshipment_ports = JSON.parse('<?php echo stripslashes($data['shipment_transshipment_port']);?>');
+            var shipment_port_of_loadings = JSON.parse('<?php echo stripslashes($data['shipment_port_of_loading']);?>');
+            var shipment_port_of_discharges = JSON.parse('<?php echo stripslashes($data['shipment_port_of_discharge']);?>');
+            @endif
+
+
+    $('.shipment_transshipment_port').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, shipment_transshipment_ports[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
+            $('.shipment_port_of_loading').each(function (index) {
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, shipment_port_of_loadings[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+            });
+            $('.shipment_port_of_discharge').each(function (index) {
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, shipment_port_of_discharges[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+            });
+
+        });
+        $(function () {
+            $('#' + 'shipment_transshipment_port1').val("232").change();
+        });
+    </script>
+    {{--sn--}}
 @endsection

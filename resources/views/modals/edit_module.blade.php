@@ -27,6 +27,7 @@
 
 
         function getOptionsListSelected(select2_id) {//just to initialize options global variable
+
             $.ajax({
                 url: '{{url("ajax_select2_options_list")}}' + '/' + select2_id,
                 type: 'POST',

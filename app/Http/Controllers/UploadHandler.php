@@ -342,7 +342,7 @@ class UploadHandler
      */
     protected function toBytes($str)
     {
-        $val = trim($str);
+        $val = (int)trim($str);
         $last = strtolower($str[strlen($str) - 1]);
         switch ($last) {
             case 'g':

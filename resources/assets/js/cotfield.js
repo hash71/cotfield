@@ -1,4 +1,5 @@
 function getOptionsList(select2_id) {//just to initialize options global variable
+    console.log('getOptionsList');
     $.ajax({
         url: '{{url("ajax_select2_options_list")}}' + '/' + select2_id,
         type: 'POST',
@@ -24,7 +25,6 @@ function add_new_option(select2_id) {
             value: $('#modal-' + select2_id + ' input').val()
         },
         function (data, status) {
-            console.log(data);
             if (data == 1) {
                 $('#modal-' + select2_id).modal('hide');
                 toastr["warning"]("successful");
