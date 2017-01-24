@@ -1478,39 +1478,6 @@
     });
 </script>
 <script>
-
-
-    $(function () {
-        $('#controller_invoice_weight').on('change', function () {
-            console.log("bal");
-            var diff = $(this).val() - $('#controller_landing_weight').val();
-            $('#s_g_w_c_short_gain_weight_claim_qty').attr('value', diff);
-            $('#s_g_w_c_short_gain_weight_claim_amount').attr('value', $('#s_c_price').val() * diff);
-        });
-
-        $('#controller_landing_weight').on('change', function () {
-            console.log("bal");
-            var diff = $('#controller_invoice_weight').val() - $(this).val();
-            $('#s_g_w_c_short_gain_weight_claim_qty').attr('value', diff);
-            $('#s_g_w_c_short_gain_weight_claim_amount').attr('value', $('#s_c_price').val() * diff);
-        });
-
-        $('#lc_amendment_day_id').on('click', function (event) {
-            event.preventDefault();
-            var elem = '<div class="input-group date" id="lc_amendment_day_element" style="padding-top: 10px;"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="lc_amendment_day[]" id="lc_amendment_day"></div>';
-            $('#lc_amendment_day_div').append(elem);
-            $('.input-group.date').datepicker({
-                format: 'yyyy-mm-dd',
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
-        })
-    });
-</script>
-<script>
     $(function () {
 
         toastr.options = {
