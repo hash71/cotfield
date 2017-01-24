@@ -42,7 +42,7 @@ class FileUploadController extends Controller
 // Include the upload handler class
         $uploader = new UploadHandler();
 // Specify the list of valid extensions, ex. array("jpeg", "xml", "bmp")
-        $uploader->allowedExtensions = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'ppt', 'pptx']; // all files types allowed by default
+        $uploader->allowedExtensions = ['pdf', 'docx', 'doc', 'xlsx', 'xls', 'ppt', 'pptx', 'csv']; // all files types allowed by default
 // Specify max file size in bytes.
         $uploader->sizeLimit = 15728640;
 // Specify the input name set in the javascript.

@@ -638,7 +638,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="shipment_type">Shipment Type</label>
-                                                <select name="shipment_type"
+                                                <select name="shipment_type[]"
                                                         style="width: 100%;height: 30px;"
                                                         class="shipment_type">
                                                     <option value="by_road" selected>BY ROAD</option>
@@ -1440,7 +1440,39 @@
 //        sn
         @for($i=1;$i<=$data['shipping_number'];$i++)
         fineuploader("{{$project_id}}", "shipment_advice_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "shipment_advice_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
         fineuploader("{{$project_id}}", "upload_nn_documents_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "upload_nn_documents_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
         @endfor
         {{--sn--}}
     });
@@ -1617,9 +1649,7 @@
             });
 
         });
-        $(function () {
-            $('#' + 'shipment_transshipment_port1').val("232").change();
-        });
+
     </script>
     {{--sn--}}
 @endsection
