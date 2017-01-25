@@ -152,22 +152,22 @@
                 }
 
             },
-            chunking: {
-                enabled: true,
-                concurrent: {
-                    enabled: true
-                },
-                success: {
-                    endpoint: "{{URL::to('upload')}}?done"
-                },
-                params: {
-                    _token: "{{csrf_token()}}"
-                }
-            },
-            resume: {
-                enabled: true,
-                recordsExpireIn: 1
-            },
+            {{--chunking: {--}}
+                {{--enabled: true,--}}
+                {{--concurrent: {--}}
+                    {{--enabled: true--}}
+                {{--},--}}
+                {{--success: {--}}
+                    {{--endpoint: "{{URL::to('upload')}}?done"--}}
+                {{--},--}}
+                {{--params: {--}}
+                    {{--_token: "{{csrf_token()}}"--}}
+                {{--}--}}
+            {{--},--}}
+            {{--resume: {--}}
+                {{--enabled: true,--}}
+                {{--recordsExpireIn: 1--}}
+            {{--},--}}
             retry: {
                 enableAuto: true,
                 showButton: true
