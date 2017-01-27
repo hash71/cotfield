@@ -1449,7 +1449,7 @@
 
                 for (var k = 0; k < data.length; k++) {
                     var $initial_element = document.getElementById(data[k].select_id + "_div");
-                    console.log($initial_element);
+//                    console.log($initial_element);
                     var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
                     $initial_element.innerHTML += row;
                 }

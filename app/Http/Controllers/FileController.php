@@ -3,14 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Storage;
 
 class FileController extends Controller
 {
     public function download($id)
     {
+
         $filename = \App\ProjectFile::where('file_id', $id)->first()->file_name;
-        $path = storage_path('app/my_files/' . $id . '/' . $filename);
-        return response()->file($path);
+
+        $content = Storage::disk('s3')->get('cotfield/' . $id . '/' . $filename);
+
+        $mime = Storage::disk('s3')->mimeType('cotfield/' . $id . '/' . $filename);
+
+        return response($content, 200, [
+            'Content-Type' => $mime,
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => "inline; filename={$filename}",
+            'Content-Transfer-Encoding' => 'binary',
+        ]);
     }
 
     public function initial_file_list($project_id, $element_id)
@@ -21,7 +32,7 @@ class FileController extends Controller
         $initial_files = [];
 
         foreach ($files as $file) {
-            $file_size = filesize(storage_path('app/my_files/' . $file->file_id . '/' . $file->file_name));
+            $file_size = Storage::disk('s3')->size('cotfield/' . $file->file_id . '/' . $file->file_name);
             $file = [
                 "success" => true,
                 "uuid" => $file->file_id,

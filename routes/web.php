@@ -15,6 +15,7 @@
 
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
+Route::get('myphpinfo', 'HomeController@phpfileinfo');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ReportsController@getReport');
@@ -39,8 +40,26 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('ajax_user_list', 'UserController@ajax_user_list');
     Route::get('edit_user/{id}', 'UserController@edit');
     Route::put('update_user/{id}', 'UserController@update');
-//Route::post('ajax_get_project_details', 'ProjectController@ajax_get_project_details');
 });
+
+
+//Route::get('bal', function () {
+//    return view('test');
+//});
+//Route::post('s3', function (\Illuminate\Http\Request $request) {
+//
+//    $filename = Storage::disk('s3')->putFileAs('cots', $request->file('my_file'), $request->file('my_file')->getClientOriginalName());
+//    $content = Storage::get($filename);
+//    $size = Storage::size($filename);
+//    $mime = Storage::mimeType($filename);
+//    return response($content, 200, [
+//        'Content-Type' => $mime,
+//        'Content-Description' => 'File Transfer',
+//        'Content-Disposition' => "inline; filename={$filename}",
+//        'Content-Transfer-Encoding' => 'binary',
+//    ]);
+//});
+
 
 
 

@@ -1,14 +1,12 @@
 <?php
 namespace App\Http\Controllers;
-
-use Illuminate\Http\File;
-use Storage;
-
 /**
  * Do not use or reference this directly from your client-side code.
  * Instead, this should be required via the endpoint.php or endpoint-cors.php
  * file(s).
  */
+
+
 class UploadHandler
 {
 
@@ -102,6 +100,13 @@ class UploadHandler
     public function handleUpload($uploadDirectory, $name = null)
     {
 
+        if (is_writable($this->chunksFolder) &&
+            1 == mt_rand(1, 1 / $this->chunksCleanupProbability)
+        ) {
+
+            // Run garbage collection
+            $this->cleanupChunks();
+        }
 
         // Check that the max upload size specified in class configuration does not
         // exceed size allowed by server config
@@ -112,7 +117,22 @@ class UploadHandler
             return array('error' => "Server error. Increase post_max_size and upload_max_filesize to " . $neededRequestSize);
         }
 
+        if ($this->isInaccessible($uploadDirectory)) {
+            return array('error' => "Server error. Uploads directory isn't writable");
+        }
 
+        $type = $_SERVER['CONTENT_TYPE'];
+        if (isset($_SERVER['HTTP_CONTENT_TYPE'])) {
+            $type = $_SERVER['HTTP_CONTENT_TYPE'];
+        }
+
+        if (!isset($type)) {
+            return array('error' => "No files were uploaded.");
+        } else if (strpos(strtolower($type), 'multipart/') !== 0) {
+            return array('error' => "Server error. Not a multipart request. Please set forceMultipart to default value (true).");
+        }
+
+        // Get size and name
         $file = $_FILES[$this->inputName];
         $size = $file['size'];
         if (isset($_REQUEST['qqtotalfilesize'])) {
@@ -181,16 +201,15 @@ class UploadHandler
 
             $target = join(DIRECTORY_SEPARATOR, array($uploadDirectory, $uuid, $name));
 
-
             if ($target) {
-                //nazmul vai er change
-                Storage::disk('s3')->putFileAs('cotfield/' . $uuid, new File($file['tmp_name']), $name);
-                // ei porjonto
-
                 $this->uploadName = basename($target);
-                return array('success' => true, "uuid" => $uuid);
 
-
+                if (!is_dir(dirname($target))) {
+                    mkdir(dirname($target), 0777, true);
+                }
+                if (move_uploaded_file($file['tmp_name'], $target)) {
+                    return array('success' => true, "uuid" => $uuid);
+                }
             }
 
             return array('error' => 'Could not save uploaded file.' .
@@ -206,16 +225,26 @@ class UploadHandler
      */
     public function handleDelete($uploadDirectory, $name = null)
     {
+        if ($this->isInaccessible($uploadDirectory)) {
+            return array('error' => "Server error. Uploads directory isn't writable" . ((!$this->isWindows()) ? " or executable." : "."));
+        }
 
-
+        $targetFolder = $uploadDirectory;
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $tokens = explode('/', $url);
         $uuid = $tokens[sizeof($tokens) - 1];
 
+        $target = join(DIRECTORY_SEPARATOR, array($targetFolder, $uuid));
 
-        Storage::disk('s3')->deleteDirectory('cotfield/' . $uuid);
-        return array("success" => true, "uuid" => $uuid);
-
+        if (is_dir($target)) {
+            $this->removeDir($target);
+            return array("success" => true, "uuid" => $uuid);
+        } else {
+            return array("success" => false,
+                "error" => "File not found! Unable to delete." . $url,
+                "path" => $uuid
+            );
+        }
 
     }
 
