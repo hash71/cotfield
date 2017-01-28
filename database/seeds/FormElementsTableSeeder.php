@@ -32,6 +32,7 @@ class FormElementsTableSeeder extends Seeder
             's_c_price',
             's_c_price_unit',
             's_c_commission_rate',
+            's_c_commission_point',
             's_c_shipment',
             's_c_payment',
             's_c_latest_date_of_lc_opening',

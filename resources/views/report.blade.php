@@ -53,6 +53,14 @@
 <script src="{{asset('datatables.min.js')}}"></script>
 <script>
     $(function () {
+        $('.toggle-vis').on('click', function () {
+            if ($(this).css('color')) {
+            }
+        });
+    });
+</script>
+<script>
+    $(function () {
         $('#sales_report').DataTable({
             "fnRowCallback": function (nRow, aData, iDisplayIndex) {
                 // Bind click event

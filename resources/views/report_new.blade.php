@@ -5,10 +5,15 @@
 <link rel="stylesheet" href="{{asset('datatables.min.css')}}">
 <style>
     .toggle-vis {
+        color: green;
         border: 1px solid #e7e7e7;
         padding: 0px 7px;
         line-height: 30px;
         white-space: nowrap;
+    }
+
+    .toggle-color {
+        color: red !important;
     }
 </style>
 
@@ -131,6 +136,11 @@
 <script src="{{asset('datatables.min.js')}}"></script>
 <script>
     $(function () {
+
+        $('.toggle-vis').on('click', function () {
+            $(this).toggleClass('toggle-color');
+        });
+
         var filter_table = $('#sales_report').DataTable({
             "fnRowCallback": function (nRow, aData, iDisplayIndex) {
                 // Bind click event

@@ -172,12 +172,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="s_c_crop_year">Comission Rate(%)</label>
+                                <label for="s_c_commission_rate">Comission Rate(%)</label>
                                 <input type="text" id="s_c_commission_rate" name="s_c_commission_rate"
                                        autocomplete="off" class="form-control " value="">
                             </div>
                             <div class="form-group">
-                                <label for="s_c_crop_year">Shipment</label>
+                                <label for="s_c_commission_point">Comission Rate(Point)</label>
+                                <input type="text" id="s_c_commission_point" name="s_c_commission_point"
+                                       autocomplete="off" class="form-control " value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="s_c_shipment">Shipment</label>
                                 <textarea id="s_c_shipment" name="s_c_shipment" autocomplete="off"
                                           class="form-control"></textarea>
                             </div>
@@ -187,7 +192,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="s_c_crop_year">LC Opening</label>
+                                <label for="s_c_latest_date_of_lc_opening">LC Opening</label>
                                 <input type="text" id="s_c_latest_date_of_lc_opening"
                                        name="s_c_latest_date_of_lc_opening" autocomplete="off"
                                        class="form-control text-box" value="">
@@ -241,7 +246,7 @@
                         <div class="ibox-content">
                             <h3>Proforma Invoice</h3>
                             <div class="form-group">
-                                <label for="project_name">PI Number</label>
+                                <label for="p_i_number">PI Number</label>
                                 <input type="text" id="p_i_number" name="p_i_number" autocomplete="off"
                                        class="form-control text-box" value="">
                             </div>
@@ -256,7 +261,7 @@
                                 </div>
                             </div>
                             <div class="form-group" id="data_2">
-                                <label class="font-normal" for="">PI Date</label>
+                                <label for="pi_date" class="font-normal">PI Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control" name="pi_date"
@@ -305,7 +310,7 @@
                                        class="form-control text-box" value="">
                             </div>
                             <div class="form-group" id="data_5">
-                                <label class="font-normal">IP Date</label>
+                                <label for="ip_date" class="font-normal">IP Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
@@ -313,7 +318,7 @@
                                 </div>
                             </div>
                             <div class="form-group" id="data_6">
-                                <label class="font-normal">IP Expiry Date</label>
+                                <label for="ip_expiry_date" class="font-normal">IP Expiry Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
@@ -321,7 +326,7 @@
                                 </div>
                             </div>
                             <div class="form-group" id="data_7">
-                                <label class="font-normal">SRO Date</label>
+                                <label for="sro_date" class="font-normal">SRO Date</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                     <input type="text" class="form-control"
@@ -1027,7 +1032,7 @@
     });
 </script>
 {{--sn--}}
-<script src="{{asset('js/shipment.js')}}"></script>
+<script src="{{asset(elixir('js/shipment.js'))}}"></script>
 {{--sn--}}
 @endpush
 @section('module')

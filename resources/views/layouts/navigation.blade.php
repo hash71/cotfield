@@ -11,7 +11,7 @@
                             </span>
                     </a>
                     {{--<ul class="dropdown-menu animated fadeInRight m-t-xs">--}}
-                        {{--<li><a href="{{url('logout')}}">Logout</a></li>--}}
+                    {{--<li><a href="{{url('logout')}}">Logout</a></li>--}}
                     {{--</ul>--}}
                 </div>
                 <div class="logo-element">
@@ -31,8 +31,8 @@
                         <li><a href="#r6">Proforma Invoice</a></li>
                         <li><a href="#r7">Import Permit</a></li>
                         <li><a href="#r8">LC</a></li>
-                        <li><a href="#r9">Shipment</a></li>
-                        <li><a href="#r10">NN Documents</a></li>
+                        {{--<li><a href="#r9">Shipment</a></li>--}}
+                        {{--<li><a href="#r10">NN Documents</a></li>--}}
                         <li><a href="#r11">Payment</a></li>
                         <li><a href="#r12">Controller</a></li>
                         <li><a href="#r13">Short/Gain Weight Claim</a></li>
@@ -66,8 +66,8 @@
                             <li><a href="#r6">Proforma Invoice</a></li>
                             <li><a href="#r7">Import Permit</a></li>
                             <li><a href="#r8">LC</a></li>
-                            <li><a href="#r9">Shipment</a></li>
-                            <li><a href="#r10">NN Documents</a></li>
+                            {{--<li><a href="#r9">Shipment</a></li>--}}
+                            {{--<li><a href="#r10">NN Documents</a></li>--}}
                             <li><a href="#r11">Payment</a></li>
                             <li><a href="#r12">Controller</a></li>
                             <li><a href="#r13">Short/Gain Weight Claim</a></li>

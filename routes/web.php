@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-//Route::get('bal', function () {
+//Route::get('test', function () {
 //    return view('test');
 //});
 //Route::post('s3', function (\Illuminate\Http\Request $request) {

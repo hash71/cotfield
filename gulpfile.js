@@ -64,7 +64,8 @@ elixir(mix => {
         'public/css/vendor.css',
         'public/css/inspinia.css',
         'public/js/vendor.js',
-        'public/js/inspinia.js'
+        'public/js/inspinia.js',
+        'public/js/shipment.js'
     ]);
 
 
