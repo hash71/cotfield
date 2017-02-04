@@ -13,6 +13,8 @@
 
 //Auth::routes();
 
+use Maatwebsite\Excel\Facades\Excel;
+
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('myphpinfo', 'HomeController@phpfileinfo');
@@ -40,8 +42,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('ajax_user_list', 'UserController@ajax_user_list');
     Route::get('edit_user/{id}', 'UserController@edit');
     Route::put('update_user/{id}', 'UserController@update');
+    Route::get('monthly_excel_upload', 'MonthlyExcelController@index');
+    Route::post('monthly_excel_store', 'MonthlyExcelController@store');
+    Route::get('monthly_excel_delete', 'MonthlyExcelController@delete');
+    Route::delete('monthly_excel_delete', 'MonthlyExcelController@destroy');
+    Route::get('excel_report', 'ExcelReportController@index');
+    Route::get('ajax_excel_report', 'ExcelReportController@ajaxExcelReport');
 });
-
 
 //Route::get('test', function () {
 //    return view('test');
@@ -59,6 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
 //        'Content-Transfer-Encoding' => 'binary',
 //    ]);
 //});
+
+
 
 
 

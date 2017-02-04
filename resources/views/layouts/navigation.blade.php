@@ -91,6 +91,21 @@
                                     class="nav-label">Users List</span>
                         </a>
                     </li>
+                    <li class="{{url()->current() == url('monthly_excel_upload') ? 'active' : ''}}">
+                        <a href="{{url('monthly_excel_upload')}}"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Upload Monthly Excel</span>
+                        </a>
+                    </li>
+                    <li class="{{url()->current() == url('monthly_excel_delete') ? 'active' : ''}}">
+                        <a href="{{url('monthly_excel_delete')}}"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Delete Monthly Excel</span>
+                        </a>
+                    </li>
+                    <li class="{{url()->current() == url('excel_report') ? 'active' : ''}}">
+                        <a href="{{url('excel_report')}}"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Monthly Excel Report</span>
+                        </a>
+                    </li>
                 @endif
         </ul>
     </div>

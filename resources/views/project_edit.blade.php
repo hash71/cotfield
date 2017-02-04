@@ -498,23 +498,67 @@
                     <?php
                     $sea = $road = -1;
                     $i = 0;
-                    $shipment_type = json_decode(stripslashes($data['shipment_type']));
-                    //                    dd($shipment_type);
-                    $shipment_date = json_decode(stripslashes($data['shipment_date']));
-                    $shipment_shipping_line = json_decode(stripslashes($data['shipment_shipping_line']));
-                    $shipment_vessel_name = json_decode(stripslashes($data['shipment_vessel_name']));
-                    $shipment_bill_of_lading = json_decode(stripslashes($data['shipment_bill_of_lading']));
-                    $shipment_no_of_containers = json_decode(stripslashes($data['shipment_no_of_containers']));
-                    $shipment_no_of_bales = json_decode(stripslashes($data['shipment_no_of_bales']));
-                    $transshipment_date = json_decode(stripslashes($data['transshipment_date']));
-                    $eta_date = json_decode(stripslashes($data['eta_date']));
-                    $shipment_truck_challan_no = json_decode(stripslashes($data['shipment_truck_challan_no']));
-                    $shipment_no_of_trucks = json_decode(stripslashes($data['shipment_no_of_trucks']));
-                    $nn_commercial_invoice_no = json_decode(stripslashes($data['nn_commercial_invoice_no']));
-                    $nn_commercial_invoice_date = json_decode(stripslashes($data['nn_commercial_invoice_date']));
-                    $courier_date = json_decode(stripslashes($data['courier_date']));
-                    $nn_dhl_courier_details = json_decode(stripslashes($data['nn_dhl_courier_details']));
 
+                    if (isset($data['shipment_type'])) {
+                        $shipment_type = json_decode(stripslashes($data['shipment_type']));
+                    }
+
+                    if (isset($data['shipment_date'])) {
+                        $shipment_date = json_decode(stripslashes($data['shipment_date']));
+                    }
+
+                    if (isset($data['shipment_shipping_line'])) {
+                        $shipment_shipping_line = json_decode(stripslashes($data['shipment_shipping_line']));
+                    }
+
+
+                    if (isset($data['shipment_vessel_name'])) {
+                        $shipment_vessel_name = json_decode(stripslashes($data['shipment_vessel_name']));
+                    }
+
+                    if (isset($data['shipment_bill_of_lading'])) {
+                        $shipment_bill_of_lading = json_decode(stripslashes($data['shipment_bill_of_lading']));
+                    }
+
+                    if (isset($data['shipment_no_of_containers'])) {
+                        $shipment_no_of_containers = json_decode(stripslashes($data['shipment_no_of_containers']));
+                    }
+
+                    if (isset($data['shipment_no_of_bales'])) {
+                        $shipment_no_of_bales = json_decode(stripslashes($data['shipment_no_of_bales']));
+                    }
+
+                    if (isset($data['transshipment_date'])) {
+                        $transshipment_date = json_decode(stripslashes($data['transshipment_date']));
+                    }
+
+                    if (isset($data['eta_date'])) {
+                        $eta_date = json_decode(stripslashes($data['eta_date']));
+                    }
+
+                    if (isset($data['shipment_truck_challan_no'])) {
+                        $shipment_truck_challan_no = json_decode(stripslashes($data['shipment_truck_challan_no']));
+                    }
+
+                    if (isset($data['shipment_no_of_trucks'])) {
+                        $shipment_no_of_trucks = json_decode(stripslashes($data['shipment_no_of_trucks']));
+                    }
+
+                    if (isset($data['nn_commercial_invoice_no'])) {
+                        $nn_commercial_invoice_no = json_decode(stripslashes($data['nn_commercial_invoice_no']));
+                    }
+
+                    if (isset($data['nn_commercial_invoice_date'])) {
+                        $nn_commercial_invoice_date = json_decode(stripslashes($data['nn_commercial_invoice_date']));
+                    }
+
+                    if (isset($data['courier_date'])) {
+                        $courier_date = json_decode(stripslashes($data['courier_date']));
+                    }
+
+                    if (isset($data['nn_dhl_courier_details'])) {
+                        $nn_dhl_courier_details = json_decode(stripslashes($data['nn_dhl_courier_details']));
+                    }
                     ?>
 
 
@@ -1312,6 +1356,7 @@
         var file_upload_ids = [
             "upload_sales_confirmation",
             "upload_contract_copy",
+            "upload_pi_copy",
             "upload_ip_copy",
             "upload_sro_copy",
             "upload_lc_copy",

@@ -153,21 +153,21 @@
 
             },
             {{--chunking: {--}}
-                {{--enabled: true,--}}
-                {{--concurrent: {--}}
+                    {{--enabled: true,--}}
+                    {{--concurrent: {--}}
                     {{--enabled: true--}}
-                {{--},--}}
-                {{--success: {--}}
+                    {{--},--}}
+                    {{--success: {--}}
                     {{--endpoint: "{{URL::to('upload')}}?done"--}}
-                {{--},--}}
-                {{--params: {--}}
+                    {{--},--}}
+                    {{--params: {--}}
                     {{--_token: "{{csrf_token()}}"--}}
-                {{--}--}}
-            {{--},--}}
-            {{--resume: {--}}
-                {{--enabled: true,--}}
-                {{--recordsExpireIn: 1--}}
-            {{--},--}}
+                    {{--}--}}
+                    {{--},--}}
+                    {{--resume: {--}}
+                    {{--enabled: true,--}}
+                    {{--recordsExpireIn: 1--}}
+                    {{--},--}}
             retry: {
                 enableAuto: true,
                 showButton: true
@@ -199,6 +199,25 @@
     }
 
     $(function () {
+
+
+        $('#data_4 .input-group.date').datepicker({
+            format: 'yyyy-mm',
+            minViewMode: 1,
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            todayHighlight: true
+        });
+
+//        $('.input-group.date:not(#data_4)').datepicker({
+//            format: 'yyyy-mm-dd',
+//            todayBtn: "linked",
+//            keyboardNavigation: false,
+//            forceParse: false,
+//            calendarWeeks: true,
+//            autoclose: true
+//        });
 
         $('.input-group.date').datepicker({
             format: 'yyyy-mm-dd',
@@ -243,8 +262,16 @@
             toastr["info"]("Successfully Created New User");
         @elseif(session()->get('password_update') == 1)
             toastr["info"]("Successfully Updated Password");
-
-
+        @elseif(session()->get('monthly_excel_file_format') == 1)
+            toastr["error"]("Error: Please upload in xls or xlsx Format");
+        @elseif(session()->get('excel_success_true') == 1)
+            toastr["info"]("Excel Upload Successful");
+        @elseif(session()->get('excel_success_false') == 1)
+            toastr["error"]("Error: Please upload in correct format");
+        @elseif(session()->get('monthly_excel_delete_success'))
+            toastr["info"]('{{session()->get('monthly_excel_delete_success')}}' + " Rows Deleted Succesfully");
+        @elseif(session()->get('monthly_excel_delete_fail') == 1)
+            toastr["error"]("Error: Failed to delete");
         @endif
     });
 
