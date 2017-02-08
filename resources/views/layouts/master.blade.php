@@ -21,7 +21,7 @@
     <style>
         .navbar-right {
             float: right !important;
-            margin-right: -15px;
+            /*margin-right: -15px;*/
         }
     </style>
 </head>
@@ -337,6 +337,34 @@
             autoclose: true
         });
     }
+</script>
+
+<script>
+    //this script is for changing burger-menu in mobile display
+    $(function () {
+        if ($(this).width() < 769) {
+            $('body').addClass('fixed-nav');
+            $('#topnav').removeClass('navbar-static-top white-bg');
+            $('#topnav').addClass('navbar-fixed-top');
+        } else {
+            $('body').removeClass('fixed-nav');
+            $('#topnav').removeClass('navbar-fixed-top');
+            $('#topnav').addClass('navbar-static-top white-bg');
+
+        }
+        $(window).bind("resize", function () {
+            if ($(this).width() < 769) {
+                $('body').addClass('fixed-nav');
+                $('#topnav').removeClass('navbar-static-top white-bg');
+                $('#topnav').addClass('navbar-fixed-top');
+            } else {
+                $('body').removeClass('fixed-nav');
+                $('#topnav').removeClass('navbar-fixed-top');
+                $('#topnav').addClass('navbar-static-top white-bg');
+            }
+        });
+
+    });
 </script>
 
 

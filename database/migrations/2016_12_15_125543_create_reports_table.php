@@ -35,7 +35,7 @@ class CreateReportsTable extends Migration
             $table->date('ip_expiry_date');
             $table->date('sro_date');
             $table->string('lc_port_of_loading');
-            $table->date('eta_date');
+            $table->string('eta_date');
             $table->timestamps();
         });
     }

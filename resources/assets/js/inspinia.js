@@ -10,11 +10,11 @@ $(document).ready(function () {
 
     // Add body-small class if window less than 768px
     /*nazmul vai changed it*/
-    // if ($(this).width() < 769) {
-    //   $('body').addClass('body-small')
-    // } else {
-    //   $('body').removeClass('body-small')
-    // }
+    if ($(this).width() < 769) {
+        $('body').addClass('body-small')
+    } else {
+        $('body').removeClass('body-small')
+    }
 
     // MetsiMenu
     $('#side-menu').metisMenu();
@@ -111,13 +111,13 @@ $(document).ready(function () {
 
 // Minimalize menu when screen is less than 768px
 /*nazmul vai change korche*/
-// $(window).bind("resize", function () {
-//     if ($(this).width() < 769) {
-//         $('body').addClass('body-small')
-//     } else {
-//         $('body').removeClass('body-small')
-//     }
-// });
+$(window).bind("resize", function () {
+    if ($(this).width() < 769) {
+        $('body').addClass('body-small')
+    } else {
+        $('body').removeClass('body-small')
+    }
+});
 
 function SmoothlyMenu() {
     if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {

@@ -21,7 +21,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
         try {
             \DB::transaction(function () use ($request) {
 
@@ -103,8 +103,7 @@ class ProjectController extends Controller
                     'ip_expiry_date' => $data['ip_expiry_date'],
                     'sro_date' => $data['sro_date'],
                     'lc_port_of_loading' => $lc_port_of_loading,
-//                    'eta_date' => $data['eta_date'],
-                    'eta_date' => '',
+                    'eta_date' => is_array($data['eta_date']) ? implode(", ", $data['eta_date']) : $data['eta_date']
                 ]);
             });
             session()->flash('project_created_true', 1);
@@ -238,8 +237,7 @@ class ProjectController extends Controller
                     'ip_expiry_date' => $data['ip_expiry_date'],
                     'sro_date' => $data['sro_date'],
                     'lc_port_of_loading' => $lc_port_of_loading,
-                    //                    'eta_date' => $data['eta_date'],
-                    'eta_date' => '',
+                    'eta_date' => is_array($data['eta_date']) ? implode(", ", $data['eta_date']) : $data['eta_date']
                 ]);
             });
             session()->flash('project_updated_true', 1);
