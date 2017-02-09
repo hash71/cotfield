@@ -644,7 +644,7 @@
                                             <div class="form-group">
                                                 <label for="shipment_port_of_discharge">Port Of Discharge</label>
                                                 <select id="{{"shipment_port_of_discharge".($i+1)}}"
-                                                        name="shipment_port_of_discharge" style="width: 100%;"
+                                                        name="shipment_port_of_discharge[]" style="width: 100%;"
                                                         class="shipment_port_of_discharge">
                                                 </select>
                                             </div>
@@ -807,6 +807,190 @@
                                         class="btn btn-danger btn-outline btn-block" href="#"
                                         style="width: 50%;margin: auto;">Delete Last Shipment
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{--if partial shipment not allowed--}}
+                @else
+
+                    @if($data['shipment_type'] == 'by_sea')
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content"><h3>Shipment</h3>
+                                        <div class="form-group"><label class="font-normal" for="shipment_date">Shipment
+                                                Date</label>
+                                            <div class="input-group date"><span class="input-group-addon"><i
+                                                            class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                      class="form-control"
+                                                                                                      name="shipment_date"
+                                                                                                      value="{{$data['shipment_date']}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_type">Shipment Type</label> <select
+                                                    name="shipment_type" style="width: 100%;height: 30px;"
+                                                    class="shipment_type">
+                                                <option value="by_sea" selected>BY SEA</option>
+                                                <option value="by_road">BY ROAD</option>
+                                            </select></div>
+                                        <div class="form-group"><label for="shipment_shipping_line">Shipping
+                                                Line</label> <input type="text" name="shipment_shipping_line"
+                                                                    autocomplete="off" class="form-control text-box"
+                                                                    value="{{$data['shipment_shipping_line']}}"></div>
+                                        <div class="form-group"><label for="shipment_vessel_name">Vessel Name</label>
+                                            <input type="text" name="shipment_vessel_name" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$data['shipment_vessel_name']}}"></div>
+                                        <div class="form-group"><label for="shipment_bill_of_lading">Bill Of Loading
+                                                Number</label> <input type="text" name="shipment_bill_of_lading"
+                                                                      autocomplete="off" class="form-control text-box"
+                                                                      value="{{$data['shipment_bill_of_lading']}}">
+                                        </div>
+                                        <div class="form-group"><label for="shipment_no_of_containers">No. Of
+                                                Containers</label> <input type="text" name="shipment_no_of_containers"
+                                                                          autocomplete="off" class="form-control "
+                                                                          value="{{$data['shipment_no_of_containers']}}">
+                                        </div>
+                                        <div class="form-group"><label for="shipment_no_of_bales">No. Of Bales</label>
+                                            <input type="text" name="shipment_no_of_bales" autocomplete="off"
+                                                   class="form-control " value="{{$data['shipment_no_of_bales']}}">
+                                        </div>
+                                        <div class="form-group"><label for="shipment_port_of_loading">Port Of
+                                                Loading</label> <select id="shipment_port_of_loading1"
+                                                                        name="shipment_port_of_loading"
+                                                                        style="width: 100%;"
+                                                                        class="shipment_port_of_loading"> </select>
+                                        </div>
+                                        <div class="form-group"><label class="font-normal" for="transshipment_date">Date
+                                                Of Issue</label>
+                                            <div class="input-group date"><span class="input-group-addon"><i
+                                                            class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                      class="form-control"
+                                                                                                      name="transshipment_date"
+                                                                                                      value="{{$data['transshipment_date']}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_transshipment_port">Transshipment
+                                                Port</label> <select id="shipment_transshipment_port1"
+                                                                     name="shipment_transshipment_port"
+                                                                     style="width: 100%;"
+                                                                     class="shipment_transshipment_port"> </select>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_port_of_discharge">Port Of
+                                                Discharge</label> <select id="shipment_port_of_discharge1"
+                                                                          name="shipment_port_of_discharge"
+                                                                          style="width: 100%;"
+                                                                          class="shipment_port_of_discharge"> </select>
+                                        </div>
+                                        <div class="form-group"><label class="font-normal" for="eta_date">ETA
+                                                Date</label>
+                                            <div class="input-group date"><span class="input-group-addon"><i
+                                                            class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                      class="form-control"
+                                                                                                      name="eta_date"
+                                                                                                      value="{{$data['eta_date']}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_advice">Shipment Advice</label>
+                                            <div id="shipment_advice"></div>
+                                            <div id="shipment_advice_div"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @elseif($data['shipment_type'] == 'by_road')
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content"><h3>Shipment</h3>
+                                        <div class="form-group"><label class="font-normal" for="shipment_date">Shipment
+                                                Date</label>
+                                            <div class="input-group date"><span class="input-group-addon"><i
+                                                            class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                      class="form-control"
+                                                                                                      name="shipment_date"
+                                                                                                      value="{{$data['shipment_date']}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_type">Shipment Type</label> <select
+                                                    name="shipment_type" style="width: 100%;height: 30px;"
+                                                    class="shipment_type">
+                                                <option value="by_road" selected>BY ROAD</option>
+                                                <option value="by_sea">BY SEA</option>
+                                            </select></div>
+                                        <div class="form-group"><label for="shipment_truck_challan_no">Truck Chalan
+                                                No.</label> <input type="text" name="shipment_truck_challan_no"
+                                                                   autocomplete="off" class="form-control text-box"
+                                                                   value="{{$data['shipment_truck_challan_no']}}"></div>
+                                        <div class="form-group"><label for="shipment_no_of_trucks">No. Of Trucks</label>
+                                            <input type="text" name="shipment_no_of_trucks" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$data['shipment_no_of_trucks']}}"></div>
+                                        <div class="form-group"><label for="shipment_no_of_bales">No. Of Bales</label>
+                                            <input type="text" name="shipment_no_of_bales" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$data['shipment_no_of_bales']}}"></div>
+                                        <div class="form-group"><label for="shipment_port_of_loading">Port Of
+                                                Loading</label> <select id="shipment_port_of_loading1"
+                                                                        name="shipment_port_of_loading"
+                                                                        style="width: 100%;"
+                                                                        class="shipment_port_of_loading"> </select>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_port_of_discharge">Port Of
+                                                Discharge</label> <select id="shipment_port_of_discharge1"
+                                                                          name="shipment_port_of_discharge"
+                                                                          style="width: 100%;"
+                                                                          class="shipment_port_of_discharge"> </select>
+                                        </div>
+                                        <div class="form-group"><label for="shipment_advice">Shipment Advice</label>
+                                            <div id="shipment_advice"></div>
+                                            <div id="shipment_advice_div"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content"><h3>NN Documents</h3>
+                                    <div class="form-group"><label for="nn_commercial_invoice_no">Commercial Invoice
+                                            Number</label> <input type="text" name="nn_commercial_invoice_no"
+                                                                  autocomplete="off" class="form-control text-box"
+                                                                  value="{{$data['nn_commercial_invoice_no']}}"></div>
+                                    <div class="form-group"><label class="font-normal" for="nn_commercial_invoice_date">Commercial
+                                            Invoice Date </label>
+                                        <div class="input-group date"><span class="input-group-addon"><i
+                                                        class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                  class="form-control"
+                                                                                                  name="nn_commercial_invoice_date"
+                                                                                                  value="{{$data['nn_commercial_invoice_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label class="font-normal" for="courier_date">Courier
+                                            Date</label>
+                                        <div class="input-group date"><span class="input-group-addon"><i
+                                                        class="fa fa-calendar"></i></span> <input type="text"
+                                                                                                  class="form-control"
+                                                                                                  name="courier_date"
+                                                                                                  value="{{$data['courier_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label for="nn_dhl_courier_name">Courier Name</label> <input
+                                                type="text" name="nn_dhl_courier_name" autocomplete="off"
+                                                class="form-control text-box" value="{{$data['nn_dhl_courier_name']}}">
+                                    </div>
+                                    <div class="form-group"><label for="nn_dhl_courier_details">File Number</label>
+                                        <input type="text" name="nn_dhl_courier_details" autocomplete="off"
+                                               class="form-control text-box"
+                                               value="{{$data['nn_dhl_courier_details']}}"></div>
+                                    <div class="form-group"><label for="upload_nn_documents">Upload NN Documents</label>
+                                        <div id="upload_nn_documents"></div>
+                                        <div id="upload_nn_documents_div"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1361,8 +1545,10 @@
             "upload_sro_copy",
             "upload_lc_copy",
             "upload_amendment_copy",
-//            "shipment_advice",
-//            "upload_nn_documents",
+            @if(!$data['shipping_number'])
+                "shipment_advice",
+            "upload_nn_documents",
+            @endif
             "invoice_upload_payment_copy",
             "upload_acceptance_copy",
             "upload_controller_documents",
@@ -1473,8 +1659,10 @@
         fineuploader("{{$project_id}}", "upload_sro_copy");
         fineuploader("{{$project_id}}", "upload_lc_copy");
         fineuploader("{{$project_id}}", "upload_amendment_copy");
-        {{--fineuploader("{{$project_id}}", "shipment_advice");--}}
-        {{--fineuploader("{{$project_id}}", "upload_nn_documents");--}}
+        @if(!$data['shipping_number'])
+        fineuploader("{{$project_id}}", "shipment_advice");
+        fineuploader("{{$project_id}}", "upload_nn_documents");
+        @endif
         fineuploader("{{$project_id}}", "invoice_upload_payment_copy");
         fineuploader("{{$project_id}}", "upload_acceptance_copy");
         fineuploader("{{$project_id}}", "upload_controller_documents");
@@ -1593,13 +1781,35 @@
                 'shipment_port_of_discharge'
             ];
                     @if($data['shipping_number'])
+                    @if(isset($data['shipment_transshipment_port']))
             var shipment_transshipment_ports = JSON.parse('<?php echo stripslashes($data['shipment_transshipment_port']);?>');
+                    @endif
+                    @if(isset($data['shipment_port_of_loading']))
             var shipment_port_of_loadings = JSON.parse('<?php echo stripslashes($data['shipment_port_of_loading']);?>');
+                    @endif
+                    @if(isset($data['shipment_port_of_discharge']))
             var shipment_port_of_discharges = JSON.parse('<?php echo stripslashes($data['shipment_port_of_discharge']);?>');
+                    @endif
+
+                    @else
+                    @if(isset($data['shipment_transshipment_port']))
+            var shipment_transshipment_ports = [];
+            shipment_transshipment_ports[0] = '{{$data['shipment_transshipment_port']}}';
+                    @endif
+
+                    @if(isset($data['shipment_port_of_loading']))
+            var shipment_port_of_loadings = [];
+            shipment_port_of_loadings[0] = '{{$data['shipment_port_of_loading']}}';
+
+                    @endif
+                    @if(isset($data['shipment_port_of_discharge']))
+            var shipment_port_of_discharges = [];
+            shipment_port_of_discharges[0] = '{{$data['shipment_port_of_discharge']}}';
             @endif
+    @endif
 
 
-    $('.shipment_transshipment_port').each(function (index) {
+$('.shipment_transshipment_port').each(function (index) {
 
                 var id = $(this).attr('id');
                 var className = $(this).attr('class');

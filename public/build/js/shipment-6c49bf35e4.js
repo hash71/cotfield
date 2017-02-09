@@ -41,7 +41,7 @@ function getSea() {
     sea += "                <\/div>";
     sea += "                <div class=\"form-group\">";
     sea += "                    <label for=\"shipment_port_of_loading\">Port Of Loading<\/label>";
-    sea += "                    <select name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
+    sea += "                    <select id=\"shipment_port_of_loading1\" name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
     sea += "                    <\/select>";
     sea += "                <\/div>";
     sea += "                <div class=\"form-group\">";
@@ -53,12 +53,12 @@ function getSea() {
     sea += "                <\/div>";
     sea += "                <div class=\"form-group\">";
     sea += "                    <label for=\"shipment_transshipment_port\">Transshipment Port<\/label>";
-    sea += "                    <select name=\"shipment_transshipment_port\" style=\"width: 100%;\" class=\"shipment_transshipment_port\">";
+    sea += "                    <select id=\"shipment_transshipment_port1\" name=\"shipment_transshipment_port\" style=\"width: 100%;\" class=\"shipment_transshipment_port\">";
     sea += "                    <\/select>";
     sea += "                <\/div>";
     sea += "                <div class=\"form-group\">";
     sea += "                    <label for=\"shipment_port_of_discharge\">Port Of Discharge<\/label>";
-    sea += "                    <select name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
+    sea += "                    <select id=\"shipment_port_of_discharge1\" name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
     sea += "                    <\/select>";
     sea += "                <\/div>";
     sea += "                <div class=\"form-group\">";
@@ -117,12 +117,12 @@ function getRoad() {
     road += "                <\/div>";
     road += "                <div class=\"form-group\">";
     road += "                    <label for=\"shipment_port_of_loading\">Port Of Loading<\/label>";
-    road += "                    <select name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
+    road += "                    <select id=\"shipment_port_of_loading1\" name=\"shipment_port_of_loading\" style=\"width: 100%;\" class=\"shipment_port_of_loading\">";
     road += "                    <\/select>";
     road += "                <\/div>";
     road += "                <div class=\"form-group\">";
     road += "                    <label for=\"shipment_port_of_discharge\">Port Of Discharge<\/label>";
-    road += "                    <select name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
+    road += "                    <select id=\"shipment_port_of_discharge1\" name=\"shipment_port_of_discharge\" style=\"width: 100%;\" class=\"shipment_port_of_discharge\">";
     road += "                    <\/select>";
     road += "                <\/div>";
     road += "                <div class=\"form-group\">";

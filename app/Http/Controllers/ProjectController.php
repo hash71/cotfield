@@ -26,6 +26,7 @@ class ProjectController extends Controller
             \DB::transaction(function () use ($request) {
 
                 $data = $request->except('_token');
+                $data['eta_date'] = isset($data['eta_date']) ? $data['eta_date'] : "";
                 $project_id = $data['project_id'];
                 $amendments = [];
                 foreach ($data['lc_amendment_day'] as $day) {
@@ -109,6 +110,7 @@ class ProjectController extends Controller
             session()->flash('project_created_true', 1);
             return redirect('dashboard');
         } catch (\Exception $e) {
+//            dd($e);
             session()->flash('project_created_false', 1);
             return redirect('dashboard');
         }
@@ -160,6 +162,7 @@ class ProjectController extends Controller
             \DB::transaction(function () use ($request) {
 
                 $data = $request->except('_token');
+                $data['eta_date'] = isset($data['eta_date']) ? $data['eta_date'] : "";
                 $project_id = $data['project_id'];
                 $amendments = [];
                 foreach ($data['lc_amendment_day'] as $day) {
