@@ -22,6 +22,11 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
+        if (!$request->lc_partial_shipments) {
+            session()->flash('partial_shipment_select', 1);
+            return redirect('dashboard');
+        }
+
         try {
             \DB::transaction(function () use ($request) {
 
@@ -93,7 +98,7 @@ class ProjectController extends Controller
                     'contract_date' => $data['contract_date'],
                     's_c_origin' => $s_c_origin,
                     's_c_price' => $s_c_price,
-                    's_c_payment' => $data['s_c_payment'],
+                    's_c_payment' => $data['s_c_payment'] ? OptionList::where('id', $data['s_c_payment'])->first()->list : '',
                     'p_i_quantity' => $p_i_quantity,
                     'p_i_latest_date_of_lc_opening' => $data['p_i_latest_date_of_lc_opening'],
                     'p_i_latest_date_of_shipment' => $data['p_i_latest_date_of_shipment'],
@@ -110,6 +115,7 @@ class ProjectController extends Controller
             session()->flash('project_created_true', 1);
             return redirect('dashboard');
         } catch (\Exception $e) {
+//            dd($e->getLine());
 //            dd($e);
             session()->flash('project_created_false', 1);
             return redirect('dashboard');
@@ -229,7 +235,7 @@ class ProjectController extends Controller
                     'contract_date' => $data['contract_date'],
                     's_c_origin' => $s_c_origin,
                     's_c_price' => $s_c_price,
-                    's_c_payment' => $data['s_c_payment'],
+                    's_c_payment' => $data['s_c_payment'] ? OptionList::where('id', $data['s_c_payment'])->first()->list : '',
                     'p_i_quantity' => $p_i_quantity,
                     'p_i_latest_date_of_lc_opening' => $data['p_i_latest_date_of_lc_opening'],
                     'p_i_latest_date_of_shipment' => $data['p_i_latest_date_of_shipment'],

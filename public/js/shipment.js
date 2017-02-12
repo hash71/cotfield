@@ -1,3 +1,129 @@
+function getShortgain() {
+    var shortgain = "";
+    shortgain += "<div class=\"row\">";
+    shortgain += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    shortgain += "        <div class=\"ibox float-e-margins\">";
+    shortgain += "            <div class=\"ibox-content\">";
+    shortgain += "                <h3>Short\/Gain Weight Claim<\/h3>";
+    shortgain += "                <div class=\"form-group\" id=\"data_20\">";
+    shortgain += "                    <label class=\"font-noraml\" for=\"s_g_w_c_short_gain_weight_claim_date\">Short\/Gain Weight Claim Date<\/label>";
+    shortgain += "                    <div class=\"input-group date\">";
+    shortgain += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    shortgain += "                        <input type=\"text\" name=\"s_g_w_c_short_gain_weight_claim_date\" class=\"form-control\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_short_gain_weight_claim_qty\">Short\/Gain Weight Claim QTY.<\/label>";
+    shortgain += "                    <input type=\"text\" disabled=\"\" id=\"s_g_w_c_short_gain_weight_claim_qty1\" class=\"s_g_w_c_short_gain_weight_claim_qty form-control\" name=\"s_g_w_c_short_gain_weight_claim_qty\" autocomplete=\"off\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_short_gain_weight_claim_amount\">Short\/Gain Weight Claim Amount<\/label>";
+    shortgain += "                    <input type=\"text\" disabled=\"\" id=\"s_g_w_c_short_gain_weight_claim_amount1\" class=\"s_g_w_c_short_gain_weight_claim_amount form-control\" name=\"s_g_w_c_short_gain_weight_claim_amount\" autocomplete=\"off\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\" id=\"data_21\">";
+    shortgain += "                    <label class=\"font-noraml\" for=\"s_g_w_c_amount_received_date\">Amount Received Date";
+    shortgain += "                    <\/label>";
+    shortgain += "                    <div class=\"input-group date\">";
+    shortgain += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    shortgain += "                        <input type=\"text\" class=\"form-control\" name=\"s_g_w_c_amount_received_date\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_received_account_number\">Received Account Name<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_received_account_number\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_payment_mode\">Payment Mode<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_payment_mode\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_remarks\">Remarks<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_remarks\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_upload_claim_letter\">Upload Claim Letter<\/label>";
+    shortgain += "                    <div id=\"s_g_w_c_upload_claim_letter\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                    <div id=\"s_g_w_c_upload_claim_letter_div\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"short_gain_payment_copy\">Upload Payment Copy<\/label>";
+    shortgain += "                    <div id=\"short_gain_payment_copy\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                    <div id=\"short_gain_payment_copy_div\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "            <\/div>";
+    shortgain += "        <\/div>";
+    shortgain += "    <\/div>";
+    shortgain += "<\/div>";
+    shortgain += "";
+    return shortgain;
+}
+function getShortgainPartial(id) {
+    var shortgain = "";
+    shortgain += "<div class=\"row " + id + "\">";
+    shortgain += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    shortgain += "        <div class=\"ibox float-e-margins\">";
+    shortgain += "            <div class=\"ibox-content\">";
+    shortgain += "                <h3>Short\/Gain Weight Claim " + id + "<\/h3>";
+    shortgain += "                <div class=\"form-group\" id=\"data_20\">";
+    shortgain += "                    <label class=\"font-noraml\" for=\"s_g_w_c_short_gain_weight_claim_date\">Short\/Gain Weight Claim Date<\/label>";
+    shortgain += "                    <div class=\"input-group date\">";
+    shortgain += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    shortgain += "                        <input type=\"text\" name=\"s_g_w_c_short_gain_weight_claim_date[]\" class=\"form-control\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_short_gain_weight_claim_qty\">Short\/Gain Weight Claim QTY.<\/label>";
+    shortgain += "                    <input type=\"text\" disabled=\"\" id=\"s_g_w_c_short_gain_weight_claim_qty" + id + "\" name=\"s_g_w_c_short_gain_weight_claim_qty[]\" autocomplete=\"off\" class=\"form-control s_g_w_c_short_gain_weight_claim_qty\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_short_gain_weight_claim_amount\">Short\/Gain Weight Claim Amount<\/label>";
+    shortgain += "                    <input type=\"text\" disabled=\"\" id=\"s_g_w_c_short_gain_weight_claim_amount" + id + "\" name=\"s_g_w_c_short_gain_weight_claim_amount[]\" autocomplete=\"off\" class=\"form-control s_g_w_c_short_gain_weight_claim_amount\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\" id=\"data_21\">";
+    shortgain += "                    <label class=\"font-noraml\" for=\"s_g_w_c_amount_received_date\">Amount Received Date";
+    shortgain += "                    <\/label>";
+    shortgain += "                    <div class=\"input-group date\">";
+    shortgain += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    shortgain += "                        <input type=\"text\" class=\"form-control\" name=\"s_g_w_c_amount_received_date[]\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_received_account_number\">Received Account Name<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_received_account_number[]\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_payment_mode\">Payment Mode<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_payment_mode[]\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_remarks\">Remarks<\/label>";
+    shortgain += "                    <input type=\"text\" name=\"s_g_w_c_remarks[]\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"s_g_w_c_upload_claim_letter\">Upload Claim Letter<\/label>";
+    shortgain += "                    <div id=\"s_g_w_c_upload_claim_letter_" + id + "\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                    <div id=\"s_g_w_c_upload_claim_letter_" + id + "_div\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "                <div class=\"form-group\">";
+    shortgain += "                    <label for=\"short_gain_payment_copy\">Upload Payment Copy<\/label>";
+    shortgain += "                    <div id=\"short_gain_payment_copy_" + id + "\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                    <div id=\"short_gain_payment_copy_" + id + "_div\">";
+    shortgain += "                    <\/div>";
+    shortgain += "                <\/div>";
+    shortgain += "            <\/div>";
+    shortgain += "        <\/div>";
+    shortgain += "    <\/div>";
+    shortgain += "<\/div>";
+    shortgain += "";
+    return shortgain;
+}
 function getSea() {
     var sea = "";
     sea += "<div class=\"row\">";
@@ -187,9 +313,253 @@ function getNN() {
     nn += "";
     return nn;
 }
+function getPayment() {
+    var payment = "";
+    payment += "<div class=\"row\">";
+    payment += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    payment += "        <div class=\"ibox float-e-margins\">";
+    payment += "            <div class=\"ibox-content\">";
+    payment += "                <h3>Payment<\/h3>";
+    payment += "                <div class=\"form-group\" id=\"data_17\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_invoice_payment_date\">Invoice Payment Date";
+    payment += "                    <\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_invoice_payment_date\" id=\"payment_invoice_payment_date\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\" id=\"data_18\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_acceptance_date\">Payment Acceptance Date<\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_acceptance_date\" id=\"payment_acceptance_date\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\" id=\"data_19\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_maturity_due_date\">Maturity Due Date<\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_maturity_due_date\" id=\"payment_maturity_due_date\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\">";
+    payment += "                    <label for=\"invoice_upload_payment_copy\">Upload Payment Copy<\/label>";
+    payment += "                    <div id=\"invoice_upload_payment_copy\">";
+    payment += "                    <\/div>";
+    payment += "                    <div id=\"invoice_upload_payment_copy_div\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\">";
+    payment += "                    <label for=\"upload_acceptance_copy\">Upload Acceptance Copy<\/label>";
+    payment += "                    <div id=\"upload_acceptance_copy\">";
+    payment += "                    <\/div>";
+    payment += "                    <div id=\"upload_acceptance_copy_div\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "            <\/div>";
+    payment += "        <\/div>";
+    payment += "    <\/div>";
+    payment += "<\/div>";
+    payment += "";
+    return payment;
+}
+function getPaymentPartial(id) {
+    var payment = "";
+    payment += "<div class=\"row " + id + "\">";
+    payment += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    payment += "        <div class=\"ibox float-e-margins\">";
+    payment += "            <div class=\"ibox-content\">";
+    payment += "                <h3>Payment " + id + "<\/h3>";
+    payment += "                <div class=\"form-group\" id=\"data_17\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_invoice_payment_date\">Invoice Payment Date";
+    payment += "                    <\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_invoice_payment_date[]\" id=\"payment_invoice_payment_date\" value=\"\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\" id=\"data_18\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_acceptance_date\">Payment Acceptance Date<\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_acceptance_date[]\" id=\"payment_acceptance_date\" value=\"\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\" id=\"data_19\">";
+    payment += "                    <label class=\"font-normal\" for=\"payment_maturity_due_date\">Maturity Due Date<\/label>";
+    payment += "                    <div class=\"input-group date\">";
+    payment += "                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"><\/i><\/span>";
+    payment += "                        <input type=\"text\" class=\"form-control\" name=\"payment_maturity_due_date[]\" id=\"payment_maturity_due_date\" value=\"\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\">";
+    payment += "                    <label for=\"invoice_upload_payment_copy\">Upload Payment Copy<\/label>";
+    payment += "                    <div id=\"invoice_upload_payment_copy_" + id + "\">";
+    payment += "                    <\/div>";
+    payment += "                    <div id=\"invoice_upload_payment_copy_" + id + "_div\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "                <div class=\"form-group\">";
+    payment += "                    <label for=\"upload_acceptance_copy\">Upload Acceptance Copy<\/label>";
+    payment += "                    <div id=\"upload_acceptance_copy_" + id + "\">";
+    payment += "                    <\/div>";
+    payment += "                    <div id=\"upload_acceptance_copy_" + id + "_div\">";
+    payment += "                    <\/div>";
+    payment += "                <\/div>";
+    payment += "            <\/div>";
+    payment += "        <\/div>";
+    payment += "    <\/div>";
+    payment += "<\/div>";
+    payment += "";
+    return payment;
+}
+function getController() {
+    var controller = "";
+    controller += "<div class=\"row\">";
+    controller += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    controller += "        <div class=\"ibox float-e-margins\">";
+    controller += "            <div class=\"ibox-content\">";
+    controller += "                <h3>Controller<\/h3>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_name\">Controller Name<\/label>";
+    controller += "                    <input type=\"text\" id=\"controller_name\" name=\"controller_name\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_weight_finalization_area\">Weight Finalization Area<\/label>";
+    controller += "                    <select class=\"controller_weight_finalization_area\" id=\"controller_weight_finalization_area1\" name=\"controller_weight_finalization_area\" style=\"width: 100%;\">";
+    controller += "                    <\/select>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_weight_type\">Weight Type<\/label>";
+    controller += "                    <select class=\"controller_weight_type\" id=\"controller_weight_type1\" name=\"controller_weight_type\" style=\"width: 100%;\">";
+    controller += "                    <\/select>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_tear_weight\">Tear Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" id=\"controller_tear_weight\" name=\"controller_tear_weight\" autocomplete=\"off\" class=\"form-control \" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select class=\"controller_tear_weight_unit\" id=\"controller_tear_weight_unit1\" name=\"controller_tear_weight_unit\" style=\"width: 100%;\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_invoice_weight\">Invoice Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" id=\"controller_invoice_weight1\" name=\"controller_invoice_weight\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select class=\"controller_invoice_weight_unit\" id=\"controller_invoice_weight_unit1\" name=\"controller_invoice_weight_unit\" style=\"width: 100%;\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_landing_weight\">Landing Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" id=\"controller_landing_weight1\" name=\"controller_landing_weight\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select class=\"controller_landing_weight_unit\" id=\"controller_landing_weight_unit1\" name=\"controller_landing_weight_unit\" style=\"width: 100%;\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_short_gain_weight\">Short\/Gain Weight<\/label>";
+    controller += "                    <input type=\"text\" disabled=\"\" id=\"controller_short_gain_weight1\" name=\"controller_short_gain_weight\" autocomplete=\"off\" class=\"form-control controller_short_gain_weight\" value=\"\">";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"upload_controller_documents\">Upload Controller Documents<\/label>";
+    controller += "                    <div id=\"upload_controller_documents\">";
+    controller += "                    <\/div>";
+    controller += "                    <div id=\"upload_controller_documents_div\">";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "            <\/div>";
+    controller += "        <\/div>";
+    controller += "    <\/div>";
+    controller += "<\/div>";
+    controller += "";
+    return controller;
+}
+function getControllerPartial(id) {
+    var controller = "";
+    controller += "<div class=\"row " + id + "\">";
+    controller += "    <div class=\"col-lg-8 col-lg-offset-2\">";
+    controller += "        <div class=\"ibox float-e-margins\">";
+    controller += "            <div class=\"ibox-content\">";
+    controller += "                <h3>Controller " + id + "<\/h3>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_name\">Controller Name<\/label>";
+    controller += "                    <input type=\"text\" name=\"controller_name[]\" autocomplete=\"off\" class=\"form-control text-box\" value=\"\">";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_weight_finalization_area\">Weight Finalization Area<\/label>";
+    controller += "                    <select id=\"controller_weight_finalization_area" + id + "\" name=\"controller_weight_finalization_area[]\" style=\"width: 100%;\" class=\"controller_weight_finalization_area\">";
+    controller += "                    <\/select>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_weight_type\">Weight Type<\/label>";
+    controller += "                    <select id=\"controller_weight_type" + id + "\" name=\"controller_weight_type[]\" style=\"width: 100%;\" class=\"controller_weight_type\">";
+    controller += "                    <\/select>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_tear_weight\">Tear Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" name=\"controller_tear_weight[]\" autocomplete=\"off\" class=\"form-control \" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select id=\"controller_tear_weight_unit" + id + "\" name=\"controller_tear_weight_unit[]\" style=\"width: 100%;\" class=\"controller_tear_weight_unit\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_invoice_weight\">Invoice Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" id=\"controller_invoice_weight" + id + "\" name=\"controller_invoice_weight[]\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select id=\"controller_invoice_weight_unit" + id + "\" name=\"controller_invoice_weight_unit[]\" style=\"width: 100%;\" class=\"controller_invoice_weight_unit\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_landing_weight\">Landing Weight<\/label>";
+    controller += "                    <div class=\"row\">";
+    controller += "                        <div class=\"col-xs-8\">";
+    controller += "                            <input type=\"text\" id=\"controller_landing_weight" + id + "\" name=\"controller_landing_weight[]\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"\">";
+    controller += "                        <\/div>";
+    controller += "                        <div class=\"col-xs-4\">";
+    controller += "                            <select id=\"controller_landing_weight_unit" + id + "\" name=\"controller_landing_weight_unit[]\" style=\"width: 100%;\" class=\"controller_landing_weight_unit\"><\/select>";
+    controller += "                        <\/div>";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"controller_short_gain_weight\">Short\/Gain Weight<\/label>";
+    controller += "                    <input type=\"text\" disabled=\"\" id=\"controller_short_gain_weight" + id + "\" name=\"controller_short_gain_weight[]\" autocomplete=\"off\" class=\"form-control controller_short_gain_weight\" value=\"\">";
+    controller += "                <\/div>";
+    controller += "                <div class=\"form-group\">";
+    controller += "                    <label for=\"upload_controller_documents\">Upload Controller Documents<\/label>";
+    controller += "                    <div id=\"upload_controller_documents_" + id + "\">";
+    controller += "                    <\/div>";
+    controller += "                    <div id=\"upload_controller_documents_" + id + "_div\">";
+    controller += "                    <\/div>";
+    controller += "                <\/div>";
+    controller += "            <\/div>";
+    controller += "        <\/div>";
+    controller += "    <\/div>";
+    controller += "<\/div>";
+    controller += "";
+    return controller;
+}
 function getSeaPartial(id) {
     var sea = "";
-    sea += "<div class=\"row\" id=\"" + id + "\">";
+    sea += "<div class=\"row " + id + "\">";
     sea += "    <div class=\"col-lg-8 col-lg-offset-2\">";
     sea += "        <div class=\"ibox float-e-margins\">";
     sea += "            <div class=\"ibox-content\">";
@@ -266,7 +636,7 @@ function getSeaPartial(id) {
 }
 function getRoadPartial(id) {
     var road = "";
-    road += "<div class=\"row\" id=\"" + id + "\">";
+    road += "<div class=\"row " + id + "\">";
     road += "    <div class=\"col-lg-8 col-lg-offset-2\">";
     road += "        <div class=\"ibox float-e-margins\">";
     road += "            <div class=\"ibox-content\">";
@@ -316,7 +686,7 @@ function getRoadPartial(id) {
 }
 function getNNPartial(id) {
     var nn = "";
-    nn += "<div class=\"row\">";
+    nn += "<div class=\"row " + id + "\">";
     nn += "    <div class=\"col-lg-8 col-lg-offset-2\">";
     nn += "        <div class=\"ibox float-e-margins\">";
     nn += "            <div class=\"ibox-content\">";
@@ -373,6 +743,11 @@ function add_more_shipment_button() {
 
     $('#shipment_button').before(getSeaPartial(id_now));
     $('#shipment_button').before(getNNPartial(id_now));
+    $('#shipment_button').before(getPaymentPartial(id_now));
+    $('#shipment_button').before(getControllerPartial(id_now));
+    $('#shipment_button').before(getShortgainPartial(id_now));
+    $('.controller_invoice_weight').on('change', changeValue);
+    $('.controller_landing_weight').on('change', changeValue);
 
     initial_plugins_for_shipment_classes(id_now, true);//for attaching select2 plugin
     //on selecting road or sea
@@ -384,8 +759,9 @@ function delete_shipment_button() {
 
         var id_now = parseInt($('#shipping_number').val());
         adjustShippingNumber(-1);
-        $('#' + id_now + ' + ' + '.row').remove();
-        $('#' + id_now).remove();
+        // $('#' + id_now + ' + ' + '.row').remove();
+        // $('#' + id_now).remove();
+        $('.row.' + id_now).remove();
 
         $('html,body').animate({
             scrollTop: $("#shipment_button").offset().top
@@ -410,13 +786,23 @@ $('#lc_partial_shipments').on('select2:select', function (evt) {
         $('#group').empty();
         $('#group').append(getSeaPartial(id_now));
         $('#group').append(getNNPartial(id_now));
+        $('#group').append(getPaymentPartial(id_now));
+        $('#group').append(getControllerPartial(id_now));
+        $('#group').append(getShortgainPartial(id_now));
         $('#group').append(getShipmentButtons());
+        $('.controller_invoice_weight').on('change', changeValue);
+        $('.controller_landing_weight').on('change', changeValue);
         initial_plugins_for_shipment_classes(id_now, true);//for attaching select2 plugin
     } else if (allowed == 'NOT ALLOWED') {
         $('#shipping_number').attr('value', 0);//reset shipping number for partial shipment
         $('#group').empty();
         $('#group').append(getSea());
         $('#group').append(getNN());
+        $('#group').append(getPayment());
+        $('#group').append(getController());
+        $('#group').append(getShortgain());
+        $('.controller_invoice_weight').on('change', changeValue);
+        $('.controller_landing_weight').on('change', changeValue);
         initial_plugins_for_shipment_classes();//for attaching select2 plugin
     }
     //on selecting road or sea
@@ -436,7 +822,8 @@ function toggle_sea_road(evt) {
     if (shipmentType == 'by_road') {
         if (allowed == 'ALLOWED') {
             elemToReplace = $(evt.target).closest('.row');
-            replace_element_id = parseInt(elemToReplace.attr('id'));
+            var elem_id = elemToReplace.attr('class');
+            replace_element_id = parseInt(elem_id[elem_id.length - 1]);
             elemToReplace.replaceWith(getRoadPartial(replace_element_id));
         } else if (allowed == 'NOT ALLOWED') {
             elemToReplace = $(evt.target).closest('.row');
@@ -446,7 +833,8 @@ function toggle_sea_road(evt) {
     } else if (shipmentType == 'by_sea') {
         if (allowed == 'ALLOWED') {
             elemToReplace = $(evt.target).closest('.row');
-            replace_element_id = parseInt(elemToReplace.attr('id'));
+            var elem_id = elemToReplace.attr('class');
+            replace_element_id = parseInt(elem_id[elem_id.length - 1]);
             elemToReplace.replaceWith(getSeaPartial(replace_element_id));
         } else if (allowed == 'NOT ALLOWED') {
             elemToReplace = $(evt.target).closest('.row');
@@ -461,17 +849,23 @@ function toggle_sea_road(evt) {
     $('.shipment_type').on('change', toggle_sea_road);//after toggling attach the event again
 }
 
-$(function () {
-    function changeValue() {
-        var diff = $('#controller_invoice_weight').val() - $('#controller_landing_weight').val();
-        $('#s_g_w_c_short_gain_weight_claim_qty').attr('value', diff);
-        $('#controller_short_gain_weight').attr('value', diff);
-        $('#s_g_w_c_short_gain_weight_claim_amount').attr('value', $('#s_c_price').val() * diff);
+function changeValue(evt) {
+    var shipping_number = $('#shipping_number').val();
+    if (shipping_number == 0) {
+        shipping_number = 1;
     }
+    for (var i = 1; i <= shipping_number; i++) {
+        var diff = $('#controller_invoice_weight' + i).val() - $('#controller_landing_weight' + i).val();
+        $('#controller_short_gain_weight' + i).attr('value', diff);
+        $('#s_g_w_c_short_gain_weight_claim_qty' + i).attr('value', diff);
+        $('#s_g_w_c_short_gain_weight_claim_amount' + i).attr('value', $('#s_c_price').val() * diff);
+    }
+}
+$(function () {
 
     $('#s_c_price').on('change', changeValue);
-    $('#controller_invoice_weight').on('change', changeValue);
-    $('#controller_landing_weight').on('change', changeValue);
+    $('.controller_invoice_weight').on('change', changeValue);
+    $('.controller_landing_weight').on('change', changeValue);
 
     $('#lc_amendment_day_id').on('click', function (event) {
         event.preventDefault();

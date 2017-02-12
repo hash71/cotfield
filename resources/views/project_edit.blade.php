@@ -502,63 +502,90 @@
                     if (isset($data['shipment_type'])) {
                         $shipment_type = json_decode(stripslashes($data['shipment_type']));
                     }
-
                     if (isset($data['shipment_date'])) {
                         $shipment_date = json_decode(stripslashes($data['shipment_date']));
                     }
-
                     if (isset($data['shipment_shipping_line'])) {
                         $shipment_shipping_line = json_decode(stripslashes($data['shipment_shipping_line']));
                     }
-
-
                     if (isset($data['shipment_vessel_name'])) {
                         $shipment_vessel_name = json_decode(stripslashes($data['shipment_vessel_name']));
                     }
-
                     if (isset($data['shipment_bill_of_lading'])) {
                         $shipment_bill_of_lading = json_decode(stripslashes($data['shipment_bill_of_lading']));
                     }
-
                     if (isset($data['shipment_no_of_containers'])) {
                         $shipment_no_of_containers = json_decode(stripslashes($data['shipment_no_of_containers']));
                     }
-
                     if (isset($data['shipment_no_of_bales'])) {
                         $shipment_no_of_bales = json_decode(stripslashes($data['shipment_no_of_bales']));
                     }
-
                     if (isset($data['transshipment_date'])) {
                         $transshipment_date = json_decode(stripslashes($data['transshipment_date']));
                     }
-
                     if (isset($data['eta_date'])) {
                         $eta_date = json_decode(stripslashes($data['eta_date']));
                     }
-
                     if (isset($data['shipment_truck_challan_no'])) {
                         $shipment_truck_challan_no = json_decode(stripslashes($data['shipment_truck_challan_no']));
                     }
-
                     if (isset($data['shipment_no_of_trucks'])) {
                         $shipment_no_of_trucks = json_decode(stripslashes($data['shipment_no_of_trucks']));
                     }
-
                     if (isset($data['nn_commercial_invoice_no'])) {
                         $nn_commercial_invoice_no = json_decode(stripslashes($data['nn_commercial_invoice_no']));
                     }
-
                     if (isset($data['nn_commercial_invoice_date'])) {
                         $nn_commercial_invoice_date = json_decode(stripslashes($data['nn_commercial_invoice_date']));
                     }
-
                     if (isset($data['courier_date'])) {
                         $courier_date = json_decode(stripslashes($data['courier_date']));
                     }
-
                     if (isset($data['nn_dhl_courier_details'])) {
                         $nn_dhl_courier_details = json_decode(stripslashes($data['nn_dhl_courier_details']));
                     }
+                    if (isset($data['payment_invoice_payment_date'])) {
+                        $payment_invoice_payment_date = json_decode(stripslashes($data['payment_invoice_payment_date']));
+                    }
+
+                    if (isset($data['payment_acceptance_date'])) {
+                        $payment_acceptance_date = json_decode(stripslashes($data['payment_acceptance_date']));
+                    }
+                    if (isset($data['payment_maturity_due_date'])) {
+                        $payment_maturity_due_date = json_decode(stripslashes($data['payment_maturity_due_date']));
+                    }
+                    if (isset($data['controller_name'])) {
+                        $controller_name = json_decode(stripslashes($data['controller_name']));
+                    }
+                    if (isset($data['controller_tear_weight'])) {
+                        $controller_tear_weight = json_decode(stripslashes($data['controller_tear_weight']));
+                    }
+                    if (isset($data['controller_invoice_weight'])) {
+                        $controller_invoice_weight = json_decode(stripslashes($data['controller_invoice_weight']));
+                    }
+                    if (isset($data['controller_landing_weight'])) {
+                        $controller_landing_weight = json_decode(stripslashes($data['controller_landing_weight']));
+                    }
+                    if (isset($data['controller_short_gain_weight'])) {
+                        $controller_short_gain_weight = json_decode(stripslashes($data['controller_short_gain_weight']));
+                    }
+                    if (isset($data['s_g_w_c_short_gain_weight_claim_date'])) {
+                        $s_g_w_c_short_gain_weight_claim_date = json_decode(stripslashes($data['s_g_w_c_short_gain_weight_claim_date']));
+                    }
+                    if (isset($data['s_g_w_c_amount_received_date'])) {
+                        $s_g_w_c_amount_received_date = json_decode(stripslashes($data['s_g_w_c_amount_received_date']));
+                    }
+                    if (isset($data['s_g_w_c_received_account_number'])) {
+                        $s_g_w_c_received_account_number = json_decode(stripslashes($data['s_g_w_c_received_account_number']));
+                    }
+                    if (isset($data['s_g_w_c_payment_mode'])) {
+                        $s_g_w_c_payment_mode = json_decode(stripslashes($data['s_g_w_c_payment_mode']));
+                    }
+                    if (isset($data['s_g_w_c_remarks'])) {
+                        $s_g_w_c_remarks = json_decode(stripslashes($data['s_g_w_c_remarks']));
+                    }
+
+
                     ?>
 
 
@@ -566,7 +593,7 @@
 
                         @if($shipment_type[$i] == 'by_sea')
                             <?php $sea++;?>
-                            <div class="row" id="{{$i+1}}">
+                            <div class="row {{$i+1}}">
                                 <div class="col-lg-8 col-lg-offset-2">
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-content">
@@ -671,7 +698,7 @@
 
                         @elseif($shipment_type[$i] == 'by_road')
                             <?php $road++;?>
-                            <div class="row" id="{{$i+1}}">
+                            <div class="row {{$i+1}}">
                                 <div class="col-lg-8 col-lg-offset-2">
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-content">
@@ -739,7 +766,7 @@
                             </div>
                         @endif
 
-                        <div class="row" id="{{$i+1}}">
+                        <div class="row {{$i+1}}">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-content">
@@ -785,6 +812,232 @@
                                             <div id="upload_nn_documents{{'_'.($i+1)}}">
                                             </div>
                                             <div id="upload_nn_documents_{{($i+1).'_div'}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row {{$i+1}}">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <h3>Payment {{$i+1}}</h3>
+                                        <div class="form-group" id="data_17">
+                                            <label class="font-normal" for="payment_invoice_payment_date">Invoice
+                                                Payment
+                                                Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control"
+                                                       name="payment_invoice_payment_date[]"
+                                                       value="{{$payment_invoice_payment_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="data_18">
+                                            <label class="font-normal" for="payment_acceptance_date">Payment Acceptance
+                                                Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control"
+                                                       name="payment_acceptance_date[]"
+                                                       value="{{$payment_acceptance_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="data_19">
+                                            <label class="font-normal" for="payment_maturity_due_date">Maturity Due
+                                                Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control"
+                                                       name="payment_maturity_due_date[]"
+                                                       value="{{$payment_maturity_due_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="invoice_upload_payment_copy">Upload Payment Copy</label>
+                                            <div id="invoice_upload_payment_copy{{'_'.($i+1)}}">
+                                            </div>
+                                            <div id="invoice_upload_payment_copy_{{($i+1).'_div'}}">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upload_acceptance_copy">Upload Acceptance Copy</label>
+                                            <div id="upload_acceptance_copy{{'_'.($i+1)}}">
+                                            </div>
+                                            <div id="upload_acceptance_copy_{{($i+1).'_div'}}">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row {{$i+1}}">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <h3>Controller {{$i+1}}</h3>
+                                        <div class="form-group">
+                                            <label for="controller_name">Controller Name</label>
+                                            <input type="text" name="controller_name[]"
+                                                   autocomplete="off"
+                                                   class="form-control text-box" value="{{$controller_name[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_weight_finalization_area">Weight Finalization
+                                                Area</label>
+                                            <select class="controller_weight_finalization_area"
+                                                    id="controller_weight_finalization_area{{$i+1}}"
+                                                    name="controller_weight_finalization_area[]" style="width: 100%;">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_weight_type">Weight Type</label>
+                                            <select class="controller_weight_type" id="controller_weight_type{{$i+1}}"
+                                                    name="controller_weight_type[]"
+                                                    style="width: 100%;">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_tear_weight">Tear Weight</label>
+                                            <div class="row">
+                                                <div class="col-xs-8"><input type="text"
+                                                                             name="controller_tear_weight[]"
+                                                                             autocomplete="off"
+                                                                             class="form-control "
+                                                                             value="{{$controller_tear_weight[$i]}}">
+                                                </div>
+                                                <div class="col-xs-4"><select class="controller_tear_weight_unit"
+                                                                              id="controller_tear_weight_unit{{$i+1}}"
+                                                                              name="controller_tear_weight_unit[]"
+                                                                              style="width: 100%;"></select></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_invoice_weight">Invoice Weight</label>
+                                            <div class="row">
+                                                <div class="col-xs-8"><input type="text"
+                                                                             name="controller_invoice_weight[]"
+                                                                             autocomplete="off"
+                                                                             class="form-control"
+                                                                             value="{{$controller_invoice_weight[$i]}}">
+                                                </div>
+                                                <div class="col-xs-4"><select class="controller_invoice_weight_unit"
+                                                                              id="controller_invoice_weight_unit{{$i+1}}"
+                                                                              name="controller_invoice_weight_unit[]"
+                                                                              style="width: 100%;"></select></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_landing_weight">Landing Weight</label>
+                                            <div class="row">
+                                                <div class="col-xs-8"><input type="text"
+                                                                             name="controller_landing_weight[]"
+                                                                             autocomplete="off"
+                                                                             class="form-control "
+                                                                             value="{{$controller_landing_weight[$i]}}">
+                                                </div>
+                                                <div class="col-xs-4"><select class="controller_landing_weight_unit"
+                                                                              id="controller_landing_weight_unit{{$i+1}}"
+                                                                              name="controller_landing_weight_unit[]"
+                                                                              style="width: 100%;"></select></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="controller_short_gain_weight">Short/Gain Weight</label>
+                                            <input type="text" disabled=""
+                                                   name="controller_short_gain_weight[]" autocomplete="off"
+                                                   class="form-control"
+                                                   value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upload_controller_documents">Upload Controller Documents</label>
+                                            <div id="upload_controller_documents{{'_'.($i+1)}}">
+                                            </div>
+                                            <div id="upload_controller_documents_{{($i+1).'_div'}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row {{$i+1}}">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-content">
+                                        <h3>Short/Gain Weight Claim</h3>
+                                        <div class="form-group" id="data_20">
+                                            <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain
+                                                Weight
+                                                Claim Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="s_g_w_c_short_gain_weight_claim_date[]"
+                                                       class="form-control"
+                                                       value="{{$s_g_w_c_short_gain_weight_claim_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_short_gain_weight_claim_qty">Short/Gain Weight
+                                                Claim QTY.</label>
+                                            <input type="text" disabled=""
+                                                   id="s_g_w_c_short_gain_weight_claim_qty{{$i+1}}"
+                                                   name="s_g_w_c_short_gain_weight_claim_qty[]" autocomplete="off"
+                                                   class="form-control s_g_w_c_short_gain_weight_claim_qty" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_short_gain_weight_claim_amount">Short/Gain Weight
+                                                Claim Amount</label>
+                                            <input type="text" disabled=""
+                                                   id="s_g_w_c_short_gain_weight_claim_amount{{$i+1}}"
+                                                   name="s_g_w_c_short_gain_weight_claim_amount[]" autocomplete="off"
+                                                   class="form-control s_g_w_c_short_gain_weight_claim_amount" value="">
+                                        </div>
+                                        <div class="form-group" id="data_21">
+                                            <label class="font-noraml" for="s_g_w_c_amount_received_date">Amount
+                                                Received
+                                                Date</label>
+                                            <div class="input-group date">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="form-control"
+                                                       name="s_g_w_c_amount_received_date[]"
+                                                       value="{{$s_g_w_c_amount_received_date[$i]}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_received_account_number">Received Account Name</label>
+                                            <input type="text"
+                                                   name="s_g_w_c_received_account_number[]" autocomplete="off"
+                                                   class="form-control text-box"
+                                                   value="{{$s_g_w_c_received_account_number[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_payment_mode">Payment Mode</label>
+                                            <input type="text" name="s_g_w_c_payment_mode[]"
+                                                   autocomplete="off" class="form-control text-box"
+                                                   value="{{$s_g_w_c_payment_mode[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_remarks">Remarks</label>
+                                            <input type="text" name="s_g_w_c_remarks[]"
+                                                   autocomplete="off"
+                                                   class="form-control text-box" value="{{$s_g_w_c_remarks[$i]}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="s_g_w_c_upload_claim_letter">Upload Claim Letter</label>
+                                            <div id="s_g_w_c_upload_claim_letter_{{$i+1}}">
+                                            </div>
+                                            <div id="s_g_w_c_upload_claim_letter_{{$i+1}}_div">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="short_gain_payment_copy">Upload Payment Copy</label>
+                                            <div id="short_gain_payment_copy_{{$i+1}}">
+                                            </div>
+                                            <div id="short_gain_payment_copy_{{$i+1}}_div">
                                             </div>
                                         </div>
                                     </div>
@@ -994,203 +1247,230 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <h3>Payment</h3>
+                                    <div class="form-group" id="data_17">
+                                        <label class="font-normal" for="payment_invoice_payment_date">Invoice Payment
+                                            Date</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="form-control"
+                                                   name="payment_invoice_payment_date"
+                                                   value="{{$data['payment_invoice_payment_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="data_18">
+                                        <label class="font-normal" for="payment_acceptance_date">Payment Acceptance
+                                            Date</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="form-control"
+                                                   name="payment_acceptance_date"
+                                                   value="{{$data['payment_acceptance_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="data_19">
+                                        <label class="font-normal" for="payment_maturity_due_date">Maturity Due
+                                            Date</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="form-control"
+                                                   name="payment_maturity_due_date"
+                                                   value="{{$data['payment_maturity_due_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_upload_payment_copy">Upload Payment Copy</label>
+                                        <div id="invoice_upload_payment_copy">
+                                        </div>
+                                        <div id="invoice_upload_payment_copy_div">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="upload_acceptance_copy">Upload Acceptance Copy</label>
+                                        <div id="upload_acceptance_copy">
+                                        </div>
+                                        <div id="upload_acceptance_copy_div">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <h3>Controller</h3>
+                                    <div class="form-group">
+                                        <label for="controller_name">Controller Name</label>
+                                        <input type="text" name="controller_name"
+                                               autocomplete="off"
+                                               class="form-control text-box" value="{{$data['controller_name']}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_weight_finalization_area">Weight Finalization
+                                            Area</label>
+                                        <select id="controller_weight_finalization_area1"
+                                                class="controller_weight_finalization_area"
+                                                name="controller_weight_finalization_area" style="width: 100%;">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_weight_type">Weight Type</label>
+                                        <select class="controller_weight_type" id="controller_weight_type1"
+                                                name="controller_weight_type"
+                                                style="width: 100%;">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_tear_weight">Tear Weight</label>
+                                        <div class="row">
+                                            <div class="col-xs-8"><input type="text"
+                                                                         name="controller_tear_weight"
+                                                                         autocomplete="off"
+                                                                         class="form-control "
+                                                                         value="{{$data['controller_tear_weight']}}">
+                                            </div>
+                                            <div class="col-xs-4"><select class="controller_tear_weight_unit"
+                                                                          id="controller_tear_weight_unit1"
+                                                                          name="controller_tear_weight_unit"
+                                                                          style="width: 100%;"></select></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_invoice_weight">Invoice Weight</label>
+                                        <div class="row">
+                                            <div class="col-xs-8"><input type="text"
+                                                                         name="controller_invoice_weight"
+                                                                         autocomplete="off"
+                                                                         class="form-control"
+                                                                         value="{{$data['controller_invoice_weight']}}">
+                                            </div>
+                                            <div class="col-xs-4"><select class="controller_invoice_weight_unit"
+                                                                          id="controller_invoice_weight_unit1"
+                                                                          name="controller_invoice_weight_unit"
+                                                                          style="width: 100%;"></select></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_landing_weight">Landing Weight</label>
+                                        <div class="row">
+                                            <div class="col-xs-8"><input type="text"
+                                                                         name="controller_landing_weight"
+                                                                         autocomplete="off"
+                                                                         class="form-control"
+                                                                         value="{{$data['controller_landing_weight']}}">
+                                            </div>
+                                            <div class="col-xs-4"><select id="controller_landing_weight_unit1"
+                                                                          class="controller_landing_weight_unit"
+                                                                          name="controller_landing_weight_unit"
+                                                                          style="width: 100%;"></select></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="controller_short_gain_weight">Short/Gain Weight</label>
+                                        <input type="text" disabled=""
+                                               name="controller_short_gain_weight" autocomplete="off"
+                                               class="form-control"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="upload_controller_documents">Upload Controller Documents</label>
+                                        <div id="upload_controller_documents">
+                                        </div>
+                                        <div id="upload_controller_documents_div">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <h3>Short/Gain Weight Claim</h3>
+                                    <div class="form-group" id="data_20">
+                                        <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain
+                                            Weight
+                                            Claim Date</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" name="s_g_w_c_short_gain_weight_claim_date"
+                                                   class="form-control"
+                                                   value="{{$data['s_g_w_c_short_gain_weight_claim_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_short_gain_weight_claim_qty">Short/Gain Weight
+                                            Claim QTY.</label>
+                                        <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_qty1"
+                                               name="s_g_w_c_short_gain_weight_claim_qty" autocomplete="off"
+                                               class="form-control s_g_w_c_short_gain_weight_claim_qty">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_short_gain_weight_claim_amount">Short/Gain Weight
+                                            Claim Amount</label>
+                                        <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_amount1"
+                                               name="s_g_w_c_short_gain_weight_claim_amount" autocomplete="off"
+                                               class="form-control s_g_w_c_short_gain_weight_claim_amount" value="">
+                                    </div>
+                                    <div class="form-group" id="data_21">
+                                        <label class="font-noraml" for="s_g_w_c_amount_received_date">Amount Received
+                                            Date</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="form-control"
+                                                   name="s_g_w_c_amount_received_date"
+                                                   value="{{$data['s_g_w_c_amount_received_date']}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_received_account_number">Received Account Name</label>
+                                        <input type="text"
+                                               name="s_g_w_c_received_account_number" autocomplete="off"
+                                               class="form-control text-box"
+                                               value="{{$data['s_g_w_c_received_account_number']}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_payment_mode">Payment Mode</label>
+                                        <input type="text" name="s_g_w_c_payment_mode"
+                                               autocomplete="off" class="form-control text-box"
+                                               value="{{$data['s_g_w_c_payment_mode']}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_remarks">Remarks</label>
+                                        <input type="text" name="s_g_w_c_remarks"
+                                               autocomplete="off"
+                                               class="form-control text-box" value="{{$data['s_g_w_c_remarks']}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="s_g_w_c_upload_claim_letter">Upload Claim Letter</label>
+                                        <div id="s_g_w_c_upload_claim_letter">
+                                        </div>
+                                        <div id="s_g_w_c_upload_claim_letter_div">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="short_gain_payment_copy">Upload Payment Copy</label>
+                                        <div id="short_gain_payment_copy">
+                                        </div>
+                                        <div id="short_gain_payment_copy_div">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </div>
             {{--sn--}}
-            <div id="r11" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Payment</h3>
-                            <div class="form-group" id="data_17">
-                                <label class="font-normal" for="payment_invoice_payment_date">Invoice Payment
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_invoice_payment_date" id="payment_invoice_payment_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_18">
-                                <label class="font-normal" for="payment_acceptance_date">Payment Acceptance Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_acceptance_date" id="payment_acceptance_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_19">
-                                <label class="font-normal" for="payment_maturity_due_date">Maturity Due Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_maturity_due_date" id="payment_maturity_due_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="invoice_upload_payment_copy">Upload Payment Copy</label>
-                                <div id="invoice_upload_payment_copy">
-                                </div>
-                                <div id="invoice_upload_payment_copy_div">
-                                </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_acceptance_copy">Upload Acceptance Copy</label>
-                                <div id="upload_acceptance_copy">
-                                </div>
-                                <div id="upload_acceptance_copy_div">
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="r12" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Controller</h3>
-                            <div class="form-group">
-                                <label for="controller_name">Controller Name</label>
-                                <input type="text" id="controller_name" name="controller_name" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_weight_finalization_area">Weight Finalization Area</label>
-                                <select id="controller_weight_finalization_area"
-                                        name="controller_weight_finalization_area" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_weight_type">Weight Type</label>
-                                <select id="controller_weight_type" name="controller_weight_type" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_tear_weight">Tear Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_tear_weight"
-                                                                 name="controller_tear_weight" autocomplete="off"
-                                                                 class="form-control " value=""></div>
-                                    <div class="col-xs-4"><select id="controller_tear_weight_unit"
-                                                                  name="controller_tear_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_invoice_weight">Invoice Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_invoice_weight"
-                                                                 name="controller_invoice_weight" autocomplete="off"
-                                                                 class="form-control" value=""></div>
-                                    <div class="col-xs-4"><select id="controller_invoice_weight_unit"
-                                                                  name="controller_invoice_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_landing_weight">Landing Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_landing_weight"
-                                                                 name="controller_landing_weight" autocomplete="off"
-                                                                 class="form-control " value=""></div>
-                                    <div class="col-xs-4"><select id="controller_landing_weight_unit"
-                                                                  name="controller_landing_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_short_gain_weight">Short/Gain Weight</label>
-                                <input type="text" disabled="" id="controller_short_gain_weight"
-                                       name="controller_short_gain_weight" autocomplete="off" class="form-control "
-                                       value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_controller_documents">Upload Controller Documents</label>
-                                <div id="upload_controller_documents">
-                                </div>
-                                <div id="upload_controller_documents_div">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="r13" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Short/Gain Weight Claim</h3>
-                            <div class="form-group" id="data_20">
-                                <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain Weight
-                                    Claim Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" name="s_g_w_c_short_gain_weight_claim_date"
-                                           class="form-control" id="s_g_w_c_short_gain_weight_claim_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_short_gain_weight_claim_qty">Short/Gain Weight
-                                    Claim QTY.</label>
-                                <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_qty"
-                                       name="s_g_w_c_short_gain_weight_claim_qty" autocomplete="off"
-                                       class="form-control " value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_short_gain_weight_claim_amount">Short/Gain Weight
-                                    Claim Amount</label>
-                                <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_amount"
-                                       name="s_g_w_c_short_gain_weight_claim_amount" autocomplete="off"
-                                       class="form-control " value="">
-                            </div>
-                            <div class="form-group" id="data_21">
-                                <label class="font-noraml" for="s_g_w_c_amount_received_date">Amount Received
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="s_g_w_c_amount_received_date" id="s_g_w_c_amount_received_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_received_account_number">Received Account Name</label>
-                                <input type="text" id="s_g_w_c_received_account_number"
-                                       name="s_g_w_c_received_account_number" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_payment_mode">Payment Mode</label>
-                                <input type="text" id="s_g_w_c_payment_mode" name="s_g_w_c_payment_mode"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_remarks">Remarks</label>
-                                <input type="text" id="s_g_w_c_remarks" name="s_g_w_c_remarks" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_upload_claim_letter">Upload Claim Letter</label>
-                                <div id="s_g_w_c_upload_claim_letter">
-                                </div>
-                                <div id="s_g_w_c_upload_claim_letter_div">
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="short_gain_payment_copy">Upload Payment Copy</label>
-                                <div id="short_gain_payment_copy">
-                                </div>
-                                <div id="short_gain_payment_copy_div">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="r14" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
@@ -1548,13 +1828,13 @@
             @if(!$data['shipping_number'])
                 "shipment_advice",
             "upload_nn_documents",
-            @endif
             "invoice_upload_payment_copy",
             "upload_acceptance_copy",
             "upload_controller_documents",
             "s_g_w_c_upload_claim_letter",
             "short_gain_payment_copy",
-            "upload_claim_letter",
+            @endif
+                "upload_claim_letter",
             "upload_payment_copy",
             "debit_upload_payment_copy",
             "upload_carrying_copy",
@@ -1662,12 +1942,12 @@
         @if(!$data['shipping_number'])
         fineuploader("{{$project_id}}", "shipment_advice");
         fineuploader("{{$project_id}}", "upload_nn_documents");
-        @endif
         fineuploader("{{$project_id}}", "invoice_upload_payment_copy");
         fineuploader("{{$project_id}}", "upload_acceptance_copy");
         fineuploader("{{$project_id}}", "upload_controller_documents");
         fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter");
         fineuploader("{{$project_id}}", "short_gain_payment_copy");
+        @endif
         fineuploader("{{$project_id}}", "upload_claim_letter");
         fineuploader("{{$project_id}}", "upload_payment_copy");
         fineuploader("{{$project_id}}", "debit_upload_payment_copy");
@@ -1711,6 +1991,93 @@
 
             }
         );
+        fineuploader("{{$project_id}}", "invoice_upload_payment_copy_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "invoice_upload_payment_copy_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
+
+        fineuploader("{{$project_id}}", "upload_acceptance_copy_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "upload_acceptance_copy_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
+        fineuploader("{{$project_id}}", "upload_controller_documents_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "upload_controller_documents_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
+        fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "s_g_w_c_upload_claim_letter_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
+        fineuploader("{{$project_id}}", "short_gain_payment_copy_" + '{{$i}}');
+        var target_url = "{{URL::to('initial_file_list')}}" + "/" + "{{$project_id}}" + "/" + "short_gain_payment_copy_" + '{{$i}}';
+
+        $.get(
+            target_url,
+            function (data, status) {
+
+
+                for (var k = 0; k < data.length; k++) {
+                    var $initial_element = document.getElementById(data[k].select_id + "_div");
+                    console.log($initial_element);
+                    var row = '<div id=' + data[k].uuid + ' class="form-group" style="padding: 10px 0 0;"><a target="_blank" href="' + '{{URL::to('download')}}' + '/' + data[k].uuid + '"><button class="btn btn-outline btn-primary dim btn-sm" type="button"><i class="fa fa-check">Download</i></button></a><span>' + data[k].name + '</span></div>';
+                    $initial_element.innerHTML += row;
+                }
+
+            }
+        );
+
         @endfor
         {{--sn--}}
     });
@@ -1752,7 +2119,12 @@
         'shipment_type',
         'shipment_port_of_loading',
         'shipment_transshipment_port',
-        'shipment_port_of_discharge'
+        'shipment_port_of_discharge',
+        'controller_weight_finalization_area',
+        'controller_weight_type',
+        'controller_tear_weight_unit',
+        'controller_invoice_weight_unit',
+        'controller_landing_weight_unit'
     ];?>
     @foreach(\App\Option::all()->pluck('name') as $option)
         @if(in_array($option,$select_classes))
@@ -1769,7 +2141,7 @@
     {{--@include('modals.edit_module',['select_id'=>$option,'label'=>'Add New'])--}}
     {{--@endforeach--}}
     {{--sn--}}
-    <script src="{{asset(elixir('js/shipment.js'))}}"></script>
+    <script src="{{asset('js/shipment.js')}}"></script>
 
 
     <script>
@@ -1778,7 +2150,12 @@
             var classes_for_partial = [
                 'shipment_port_of_loading',
                 'shipment_transshipment_port',
-                'shipment_port_of_discharge'
+                'shipment_port_of_discharge',
+                'controller_weight_finalization_area',
+                'controller_weight_type',
+                'controller_tear_weight_unit',
+                'controller_invoice_weight_unit',
+                'controller_landing_weight_unit'
             ];
                     @if($data['shipping_number'])
                     @if(isset($data['shipment_transshipment_port']))
@@ -1791,25 +2168,65 @@
             var shipment_port_of_discharges = JSON.parse('<?php echo stripslashes($data['shipment_port_of_discharge']);?>');
                     @endif
 
+                    @if(isset($data['controller_weight_finalization_area']))
+            var controller_weight_finalization_areas = JSON.parse('<?php echo stripslashes($data['controller_weight_finalization_area']);?>');
+                    @endif
+                    @if(isset($data['controller_weight_type']))
+            var controller_weight_types = JSON.parse('<?php echo stripslashes($data['controller_weight_type']);?>');
+                    @endif
+                    @if(isset($data['controller_tear_weight_unit']))
+            var controller_tear_weight_units = JSON.parse('<?php echo stripslashes($data['controller_tear_weight_unit']);?>');
+                    @endif
+                    @if(isset($data['controller_invoice_weight_unit']))
+            var controller_invoice_weight_units = JSON.parse('<?php echo stripslashes($data['controller_invoice_weight_unit']);?>');
+                    @endif
+                    @if(isset($data['controller_landing_weight_unit']))
+            var controller_landing_weight_units = JSON.parse('<?php echo stripslashes($data['controller_landing_weight_unit']);?>');
+                    @endif
+
                     @else
+
                     @if(isset($data['shipment_transshipment_port']))
             var shipment_transshipment_ports = [];
             shipment_transshipment_ports[0] = '{{$data['shipment_transshipment_port']}}';
                     @endif
-
                     @if(isset($data['shipment_port_of_loading']))
             var shipment_port_of_loadings = [];
             shipment_port_of_loadings[0] = '{{$data['shipment_port_of_loading']}}';
-
                     @endif
                     @if(isset($data['shipment_port_of_discharge']))
             var shipment_port_of_discharges = [];
             shipment_port_of_discharges[0] = '{{$data['shipment_port_of_discharge']}}';
+                    @endif
+
+
+
+                    @if(isset($data['controller_weight_finalization_area']))
+            var controller_weight_finalization_areas = [];
+            controller_weight_finalization_areas[0] = '{{$data['controller_weight_finalization_area']}}';
+                    @endif
+                    @if(isset($data['controller_weight_type']))
+            var controller_weight_types = [];
+            controller_weight_types[0] = '{{$data['controller_weight_type']}}';
+                    @endif
+                    @if(isset($data['controller_tear_weight_unit']))
+            var controller_tear_weight_units = [];
+            controller_tear_weight_units[0] = '{{$data['controller_tear_weight_unit']}}';
+                    @endif
+                    @if(isset($data['controller_invoice_weight_unit']))
+            var controller_invoice_weight_units = [];
+            controller_invoice_weight_units[0] = '{{$data['controller_invoice_weight_unit']}}';
+                    @endif
+                    @if(isset($data['controller_landing_weight_unit']))
+            var controller_landing_weight_units = [];
+            controller_landing_weight_units[0] = '{{$data['controller_landing_weight_unit']}}';
             @endif
-    @endif
 
 
-$('.shipment_transshipment_port').each(function (index) {
+@endif
+
+
+            $('.shipment_transshipment_port').each(function (index) {
 
                 var id = $(this).attr('id');
                 var className = $(this).attr('class');
@@ -1874,8 +2291,124 @@ $('.shipment_transshipment_port').each(function (index) {
                 }
 
             });
+            $('.controller_weight_finalization_area').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, controller_weight_finalization_areas[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
+            $('.controller_weight_type').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, controller_weight_types[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
+            $('.controller_tear_weight_unit').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, controller_tear_weight_units[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
+            $('.controller_invoice_weight_unit').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, controller_invoice_weight_units[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
+            $('.controller_landing_weight_unit').each(function (index) {
+
+                var id = $(this).attr('id');
+                var className = $(this).attr('class');
+
+                if (!$("#" + id).hasClass("select2-hidden-accessible")) {
+
+                    $("#" + id).select2({
+                        placeholder: "select",
+                        allowClear: true
+                    }).on('select2:opening', getOptionsListShipment(className, id, controller_landing_weight_units[index])).on('select2:open', {className: className}, function (evt) {
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").remove();
+                            $(".select2-dropdown.select2-dropdown--below").append('<div class="text-center"><a data-toggle="modal" class="btn btn-primary" href="#modal-' + evt.data.className + '">ADD NEW</a></div>');
+                            $(".select2-dropdown.select2-dropdown--below .btn.btn-primary").css({
+                                'width': '100%',
+                                'border-radius': '0'
+                            });
+                        }
+                    );
+                }
+
+
+            });
 
         });
+
 
     </script>
     {{--sn--}}

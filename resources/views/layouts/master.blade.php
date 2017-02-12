@@ -272,6 +272,8 @@
             toastr["info"]('{{session()->get('monthly_excel_delete_success')}}' + " Rows Deleted Succesfully");
         @elseif(session()->get('monthly_excel_delete_fail') == 1)
             toastr["error"]("Error: Failed to delete");
+        @elseif(session()->get('partial_shipment_select') == 1)
+            toastr["error"]("Error: Must Select Partial Shipment");
         @endif
     });
 
@@ -282,26 +284,33 @@
             if (both) {
                 fineuploader($('#project_id').val(), "shipment_advice_" + file_id);
                 fineuploader($('#project_id').val(), "upload_nn_documents_" + file_id);
-            } else {
+                fineuploader($('#project_id').val(), "invoice_upload_payment_copy_" + file_id);
+                fineuploader($('#project_id').val(), "upload_acceptance_copy_" + file_id);
+                fineuploader($('#project_id').val(), "upload_controller_documents_" + file_id);
+                fineuploader($('#project_id').val(), "s_g_w_c_upload_claim_letter_" + file_id);
+                fineuploader($('#project_id').val(), "short_gain_payment_copy_" + file_id);
+            } else {//for toggle
                 fineuploader($('#project_id').val(), "shipment_advice_" + file_id);
-
             }
-//            } else {
-//
-//                for (var i = 1; i <= parseInt($('#shipping_number').val()); i++) {
-//                    fineuploader($('#project_id').val(), "shipment_advice_" + i);
-//                    fineuploader($('#project_id').val(), "upload_nn_documents_" + i);
-//                }
-//            }
-
         } else {
             fineuploader($('#project_id').val(), "shipment_advice");
             fineuploader($('#project_id').val(), "upload_nn_documents");
+            fineuploader($('#project_id').val(), "invoice_upload_payment_copy");
+            fineuploader($('#project_id').val(), "upload_acceptance_copy");
+            fineuploader($('#project_id').val(), "upload_controller_documents");
+            fineuploader($('#project_id').val(), "s_g_w_c_upload_claim_letter");
+            fineuploader($('#project_id').val(), "short_gain_payment_copy");
+
         }
         var classes = [
             'shipment_port_of_loading',
             'shipment_transshipment_port',
-            'shipment_port_of_discharge'
+            'shipment_port_of_discharge',
+            'controller_weight_finalization_area',
+            'controller_weight_type',
+            'controller_tear_weight_unit',
+            'controller_invoice_weight_unit',
+            'controller_landing_weight_unit'
         ];
         var i;
         //initialize select2 for all ids of each classes

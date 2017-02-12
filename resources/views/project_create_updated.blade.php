@@ -459,202 +459,6 @@
 
             </div>
             {{--sn--}}
-
-
-            <div id="r11" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Payment</h3>
-                            <div class="form-group" id="data_17">
-                                <label class="font-normal" for="payment_invoice_payment_date">Invoice Payment
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_invoice_payment_date" id="payment_invoice_payment_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_18">
-                                <label class="font-normal" for="payment_acceptance_date">Payment Acceptance Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_acceptance_date" id="payment_acceptance_date">
-                                </div>
-                            </div>
-                            <div class="form-group" id="data_19">
-                                <label class="font-normal" for="payment_maturity_due_date">Maturity Due Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="payment_maturity_due_date" id="payment_maturity_due_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="invoice_upload_payment_copy">Upload Payment Copy</label>
-                                <div id="invoice_upload_payment_copy">
-                                </div>
-                                <div id="invoice_upload_payment_copy_div">
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_acceptance_copy">Upload Acceptance Copy</label>
-                                <div id="upload_acceptance_copy">
-                                </div>
-                                <div id="upload_acceptance_copy_div">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="r12" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Controller</h3>
-                            <div class="form-group">
-                                <label for="controller_name">Controller Name</label>
-                                <input type="text" id="controller_name" name="controller_name" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_weight_finalization_area">Weight Finalization Area</label>
-                                <select id="controller_weight_finalization_area"
-                                        name="controller_weight_finalization_area" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_weight_type">Weight Type</label>
-                                <select id="controller_weight_type" name="controller_weight_type" style="width: 100%;">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_tear_weight">Tear Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_tear_weight"
-                                                                 name="controller_tear_weight" autocomplete="off"
-                                                                 class="form-control " value=""></div>
-                                    <div class="col-xs-4"><select id="controller_tear_weight_unit"
-                                                                  name="controller_tear_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_invoice_weight">Invoice Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_invoice_weight"
-                                                                 name="controller_invoice_weight" autocomplete="off"
-                                                                 class="form-control" value=""></div>
-                                    <div class="col-xs-4"><select id="controller_invoice_weight_unit"
-                                                                  name="controller_invoice_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_landing_weight">Landing Weight</label>
-                                <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="controller_landing_weight"
-                                                                 name="controller_landing_weight" autocomplete="off"
-                                                                 class="form-control " value=""></div>
-                                    <div class="col-xs-4"><select id="controller_landing_weight_unit"
-                                                                  name="controller_landing_weight_unit"
-                                                                  style="width: 100%;"></select></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="controller_short_gain_weight">Short/Gain Weight</label>
-                                <input type="text" disabled="" id="controller_short_gain_weight"
-                                       name="controller_short_gain_weight" autocomplete="off" class="form-control "
-                                       value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="upload_controller_documents">Upload Controller Documents</label>
-                                <div id="upload_controller_documents">
-                                </div>
-                                <div id="upload_controller_documents_div">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="r13" class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <h3>Short/Gain Weight Claim</h3>
-                            <div class="form-group" id="data_20">
-                                <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain Weight
-                                    Claim Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" name="s_g_w_c_short_gain_weight_claim_date"
-                                           class="form-control" id="s_g_w_c_short_gain_weight_claim_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_short_gain_weight_claim_qty">Short/Gain Weight
-                                    Claim QTY.</label>
-                                <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_qty"
-                                       name="s_g_w_c_short_gain_weight_claim_qty" autocomplete="off"
-                                       class="form-control " value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_short_gain_weight_claim_amount">Short/Gain Weight
-                                    Claim Amount</label>
-                                <input type="text" disabled="" id="s_g_w_c_short_gain_weight_claim_amount"
-                                       name="s_g_w_c_short_gain_weight_claim_amount" autocomplete="off"
-                                       class="form-control " value="">
-                            </div>
-                            <div class="form-group" id="data_21">
-                                <label class="font-noraml" for="s_g_w_c_amount_received_date">Amount Received
-                                    Date</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" class="form-control"
-                                           name="s_g_w_c_amount_received_date" id="s_g_w_c_amount_received_date">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_received_account_number">Received Account Name</label>
-                                <input type="text" id="s_g_w_c_received_account_number"
-                                       name="s_g_w_c_received_account_number" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_payment_mode">Payment Mode</label>
-                                <input type="text" id="s_g_w_c_payment_mode" name="s_g_w_c_payment_mode"
-                                       autocomplete="off" class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_remarks">Remarks</label>
-                                <input type="text" id="s_g_w_c_remarks" name="s_g_w_c_remarks" autocomplete="off"
-                                       class="form-control text-box" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="s_g_w_c_upload_claim_letter">Upload Claim Letter</label>
-                                <div id="s_g_w_c_upload_claim_letter">
-                                </div>
-                                <div id="s_g_w_c_upload_claim_letter_div">
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="short_gain_payment_copy">Upload Payment Copy</label>
-                                <div id="short_gain_payment_copy">
-                                </div>
-                                <div id="short_gain_payment_copy_div">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="r14" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="ibox float-e-margins">
@@ -1018,11 +822,11 @@
         fineuploader("{{$project_id}}", "upload_amendment_copy");
         {{--fineuploader("{{$project_id}}", "shipment_advice");--}}
         {{--fineuploader("{{$project_id}}", "upload_nn_documents");--}}
-        fineuploader("{{$project_id}}", "invoice_upload_payment_copy");
-        fineuploader("{{$project_id}}", "upload_acceptance_copy");
-        fineuploader("{{$project_id}}", "upload_controller_documents");
-        fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter");
-        fineuploader("{{$project_id}}", "short_gain_payment_copy");
+        {{--fineuploader("{{$project_id}}", "invoice_upload_payment_copy");--}}
+        {{--fineuploader("{{$project_id}}", "upload_acceptance_copy");--}}
+        {{--fineuploader("{{$project_id}}", "upload_controller_documents");--}}
+        {{--fineuploader("{{$project_id}}", "s_g_w_c_upload_claim_letter");--}}
+        {{--fineuploader("{{$project_id}}", "short_gain_payment_copy");--}}
         fineuploader("{{$project_id}}", "upload_claim_letter");
         fineuploader("{{$project_id}}", "upload_payment_copy");//updates
         fineuploader("{{$project_id}}", "debit_upload_payment_copy");//updates
@@ -1032,7 +836,7 @@
     });
 </script>
 {{--sn--}}
-<script src="{{asset(elixir('js/shipment.js'))}}"></script>
+<script src="{{asset('js/shipment.js')}}"></script>
 {{--sn--}}
 @endpush
 @section('module')
@@ -1041,7 +845,12 @@
         'shipment_type',
         'shipment_port_of_loading',
         'shipment_transshipment_port',
-        'shipment_port_of_discharge'
+        'shipment_port_of_discharge',
+        'controller_weight_finalization_area',
+        'controller_weight_type',
+        'controller_tear_weight_unit',
+        'controller_invoice_weight_unit',
+        'controller_landing_weight_unit'
     ];?>
     @foreach(\App\Option::all()->pluck('name') as $option)
         @if(in_array($option,$select_classes))
