@@ -23,17 +23,21 @@ class RegisterController extends Controller
 
             'username' => 'required|max:255',
             'password' => 'required|min:6',
+            'user_type' => 'required'
 
         ]);
 
         try {
+            if (!$request->user_type == 'admin' && !$request->user_type == 'basic') {
+                throw new \Exception();
+            }
             \DB::transaction(function () use ($request) {
 //                dd($request->all());
                 $password = bcrypt($request->password);
                 User::create([
                     'username' => $request->username,
                     'password' => $password,
-                    'role' => 'basic'
+                    'role' => $request->user_type
                 ]);
             });
         } catch (\Exception $e) {

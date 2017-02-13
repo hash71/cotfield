@@ -33,9 +33,9 @@
                         <li><a href="#r8">LC</a></li>
                         {{--<li><a href="#r9">Shipment</a></li>--}}
                         {{--<li><a href="#r10">NN Documents</a></li>--}}
-                        <li><a href="#r11">Payment</a></li>
-                        <li><a href="#r12">Controller</a></li>
-                        <li><a href="#r13">Short/Gain Weight Claim</a></li>
+                        {{--<li><a href="#r11">Payment</a></li>--}}
+                        {{--<li><a href="#r12">Controller</a></li>--}}
+                        {{--<li><a href="#r13">Short/Gain Weight Claim</a></li>--}}
                         <li><a href="#r14">Quality Claim</a></li>
                         <li><a href="#r15">Debit Note</a></li>
                         <li><a href="#r16">Carrying Charge</a></li>
@@ -68,9 +68,9 @@
                             <li><a href="#r8">LC</a></li>
                             {{--<li><a href="#r9">Shipment</a></li>--}}
                             {{--<li><a href="#r10">NN Documents</a></li>--}}
-                            <li><a href="#r11">Payment</a></li>
-                            <li><a href="#r12">Controller</a></li>
-                            <li><a href="#r13">Short/Gain Weight Claim</a></li>
+                            {{--<li><a href="#r11">Payment</a></li>--}}
+                            {{--<li><a href="#r12">Controller</a></li>--}}
+                            {{--<li><a href="#r13">Short/Gain Weight Claim</a></li>--}}
                             <li><a href="#r14">Quality Claim</a></li>
                             <li><a href="#r15">Debit Note</a></li>
                             <li><a href="#r16">Carrying Charge</a></li>

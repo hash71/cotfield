@@ -101,7 +101,6 @@
     }
 
     function add_new_option_shipment(select2_id) {
-        console.log('add_new_option_shipment');
 
         $.post("{{url('ajax_project_create_option')}}" + '/' + select2_id,
             {
@@ -117,8 +116,6 @@
                         var className = $(this).attr('class');
                         className = className.split(" ");
                         className = className[0];
-                        console.log("class " + className);
-                        console.log("id " + id);
                         $("#" + id).on('select2:opening', getOptionsListShipment(className, id));
                     });
                 } else {
@@ -261,7 +258,9 @@
         @elseif(session()->get('register_success') == 1)
             toastr["info"]("Successfully Created New User");
         @elseif(session()->get('password_update') == 1)
-            toastr["info"]("Successfully Updated Password");
+            toastr["info"]("User Update Successful");
+        @elseif(session()->get('password_update') == 2)
+            toastr["error"]("User Update Failed");
         @elseif(session()->get('monthly_excel_file_format') == 1)
             toastr["error"]("Error: Please upload in xls or xlsx Format");
         @elseif(session()->get('excel_success_true') == 1)

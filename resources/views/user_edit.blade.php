@@ -17,18 +17,28 @@
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="put">
                             <div class="form-group"><label class="col-lg-2 control-label">Username</label>
-
-                                <div class="col-lg-10"><span
-                                            class="form-control">{{\App\User::find($id)->username}}</span>
+                                <div class="col-lg-10"><input type="text" placeholder="Username" class="form-control"
+                                                              name="username" required
+                                                              value="{{\App\User::find($id)->username}}">
 
                                 </div>
                             </div>
                             <div class="form-group"><label class="col-lg-2 control-label">Password</label>
 
                                 <div class="col-lg-10"><input type="password" placeholder="Password"
-                                                              class="form-control" name="password" required></div>
+                                                              class="form-control" name="password"></div>
                             </div>
-
+                            <div class="form-group"><label class="col-lg-2 control-label">User Type</label>
+                                <div class="col-lg-10"><select name="user_type" id="user_type">
+                                        <option value=""></option>
+                                        <option value="admin" {{(\App\User::find($id)->role =='admin')?"selected":"" }}>
+                                            Admin
+                                        </option>
+                                        <option value="basic" {{(\App\User::find($id)->role =='basic')?"selected":"" }}>
+                                            Basic
+                                        </option>
+                                    </select></div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button class="btn btn-sm btn-info btn-outline" type="submit">Update Password
@@ -51,6 +61,12 @@
         toastr["error"]("{{$error}}");
     @endforeach
     @endif
+    $(function () {
+        $("#user_type").select2({
+            placeholder: "select",
+            allowClear: true
+        })
+    });
 </script>
 
 @endpush

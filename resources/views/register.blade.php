@@ -29,6 +29,14 @@
                                                               class="form-control" name="password" required
                                                               value="{{old('username')}}"></div>
                             </div>
+                            <div class="form-group"><label class="col-lg-2 control-label">User Type</label>
+
+                                <div class="col-lg-10"><select name="user_type" id="user_type" required>
+                                        <option value=""></option>
+                                        <option value="admin">Admin</option>
+                                        <option value="basic">Basic</option>
+                                    </select></div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
@@ -51,6 +59,12 @@
         toastr["error"]("{{$error}}");
     @endforeach
     @endif
+    $(function () {
+        $("#user_type").select2({
+            placeholder: "select",
+            allowClear: true
+        })
+    });
 </script>
 
 @endpush

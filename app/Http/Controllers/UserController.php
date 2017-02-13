@@ -31,16 +31,42 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+
+
         if (\Auth::user()->role != "admin")
             return redirect('dashboard');
 
-        $this->validate($request, [
-            'password' => 'required|min:6',
-        ]);
+        try {
+            \DB::transaction(function () use ($id, $request) {
+                User::where('id', $id)->update([
+                    'username' => request('username')
+                ]);
 
-        User::where('id', $id)->update([
-            'password' => bcrypt(request('password'))
-        ]);
+                if ($request->password) {
+                    $this->validate($request, [
+                        'password' => 'min:6',
+                    ]);
+                    User::where('id', $id)->update([
+                        'password' => bcrypt(request('password'))
+                    ]);
+                }
+
+                if ($request->user_type) {
+                    if (!$request->user_type == 'admin' && !$request->user_type == 'basic') {
+                        throw new \Exception();
+                    }
+                    User::where('id', $id)->update([
+                        'role' => request('user_type')
+                    ]);
+                }
+            });
+        } catch (\Exception $e) {
+//            dd($e);
+            session()->flash('password_update', 2);
+            return view('user_list');
+        }
+
+
         session()->flash('password_update', 1);
         return view('user_list');
     }
