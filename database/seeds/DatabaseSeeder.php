@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FormElementsTableSeeder::class);
 //        $this->call(ProjectsTableSeeder::class);
 //        $this->call(ReportsTableSeeder::class);
-        $this->call(MonthlyExcelTableSeeder::class);
+//        $this->call(MonthlyExcelTableSeeder::class);
         \App\User::create([
             'username' => 'admin',
             'role' => 'admin',
