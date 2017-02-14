@@ -836,7 +836,7 @@
     });
 </script>
 {{--sn--}}
-<script src="{{asset('js/shipment.js')}}"></script>
+<script src="{{asset(elixir('js/shipment.js'))}}"></script>
 {{--sn--}}
 @endpush
 @section('module')

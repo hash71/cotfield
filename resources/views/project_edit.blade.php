@@ -584,6 +584,9 @@
                     if (isset($data['s_g_w_c_remarks'])) {
                         $s_g_w_c_remarks = json_decode(stripslashes($data['s_g_w_c_remarks']));
                     }
+                    if (isset($data['nn_dhl_courier_name'])) {
+                        $nn_dhl_courier_name = json_decode(stripslashes($data['nn_dhl_courier_name']));
+                    }
 
 
                     ?>
@@ -799,7 +802,7 @@
                                         <div class="form-group">
                                             <label for="nn_dhl_courier_name">Courier Name</label>
                                             <input type="text" name="nn_dhl_courier_name[]" autocomplete="off"
-                                                   class="form-control text-box" value=" ">
+                                                   class="form-control text-box" value="{{$nn_dhl_courier_name[$i]}}">
                                         </div>
                                         <div class="form-group">
                                             <label for="nn_dhl_courier_details">File Number</label>
@@ -919,10 +922,11 @@
                                         <div class="form-group">
                                             <label for="controller_invoice_weight">Invoice Weight</label>
                                             <div class="row">
-                                                <div class="col-xs-8"><input type="text"
+                                                <div class="col-xs-8"><input id="controller_invoice_weight{{$i+1}}"
+                                                                             type="text"
                                                                              name="controller_invoice_weight[]"
                                                                              autocomplete="off"
-                                                                             class="form-control"
+                                                                             class="form-control controller_invoice_weight"
                                                                              value="{{$controller_invoice_weight[$i]}}">
                                                 </div>
                                                 <div class="col-xs-4"><select class="controller_invoice_weight_unit"
@@ -934,10 +938,11 @@
                                         <div class="form-group">
                                             <label for="controller_landing_weight">Landing Weight</label>
                                             <div class="row">
-                                                <div class="col-xs-8"><input type="text"
+                                                <div class="col-xs-8"><input id="controller_landing_weight{{$i+1}}"
+                                                                             type="text"
                                                                              name="controller_landing_weight[]"
                                                                              autocomplete="off"
-                                                                             class="form-control "
+                                                                             class="form-control controller_landing_weight"
                                                                              value="{{$controller_landing_weight[$i]}}">
                                                 </div>
                                                 <div class="col-xs-4"><select class="controller_landing_weight_unit"
@@ -948,9 +953,9 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="controller_short_gain_weight">Short/Gain Weight</label>
-                                            <input type="text" disabled=""
+                                            <input type="text" disabled="" id="controller_short_gain_weight{{$i+1}}"
                                                    name="controller_short_gain_weight[]" autocomplete="off"
-                                                   class="form-control"
+                                                   class="form-control controller_short_gain_weight"
                                                    value="">
                                         </div>
                                         <div class="form-group">
@@ -1344,10 +1349,10 @@
                                     <div class="form-group">
                                         <label for="controller_invoice_weight">Invoice Weight</label>
                                         <div class="row">
-                                            <div class="col-xs-8"><input type="text"
+                                            <div class="col-xs-8"><input id="controller_invoice_weight1" type="text"
                                                                          name="controller_invoice_weight"
                                                                          autocomplete="off"
-                                                                         class="form-control"
+                                                                         class="form-control controller_invoice_weight"
                                                                          value="{{$data['controller_invoice_weight']}}">
                                             </div>
                                             <div class="col-xs-4"><select class="controller_invoice_weight_unit"
@@ -1359,10 +1364,10 @@
                                     <div class="form-group">
                                         <label for="controller_landing_weight">Landing Weight</label>
                                         <div class="row">
-                                            <div class="col-xs-8"><input type="text"
+                                            <div class="col-xs-8"><input id="controller_landing_weight1" type="text"
                                                                          name="controller_landing_weight"
                                                                          autocomplete="off"
-                                                                         class="form-control"
+                                                                         class="form-control controller_landing_weight"
                                                                          value="{{$data['controller_landing_weight']}}">
                                             </div>
                                             <div class="col-xs-4"><select id="controller_landing_weight_unit1"
@@ -1373,9 +1378,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="controller_short_gain_weight">Short/Gain Weight</label>
-                                        <input type="text" disabled=""
+                                        <input type="text" disabled="" id="controller_short_gain_weight1"
                                                name="controller_short_gain_weight" autocomplete="off"
-                                               class="form-control"
+                                               class="form-control controller_short_gain_weight"
                                                value="">
                                     </div>
                                     <div class="form-group">
@@ -2141,7 +2146,7 @@
     {{--@include('modals.edit_module',['select_id'=>$option,'label'=>'Add New'])--}}
     {{--@endforeach--}}
     {{--sn--}}
-    <script src="{{asset('js/shipment.js')}}"></script>
+    <script src="{{asset(elixir('js/shipment.js'))}}"></script>
 
 
     <script>
