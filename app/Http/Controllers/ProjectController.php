@@ -10,6 +10,7 @@ use App\SalesReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rules\In;
+use Storage;
 
 class ProjectController extends Controller
 {
@@ -269,17 +270,14 @@ class ProjectController extends Controller
 
                 $file_ids = ProjectFile::where('project_id', $project_id)->pluck('file_id');
                 foreach ($file_ids as $file_id) {
-                    $directory = storage_path(env('STORAGE_PATH') . '/' . $file_id);
-                    foreach (glob("{$directory}/*") as $file) {
-                        unlink($file);
-                    }
-                    rmdir($directory);
+                    Storage::disk('s3')->deleteDirectory('cotfield/' . $file_id);
                 }
                 ProjectFile::where('project_id', $project_id)->delete();
             });
             session()->flash('project_delete_true', 1);
             return redirect('dashboard');
         } catch (\Exception $e) {
+            dd($e);
             session()->flash('project_delete_false', 1);
             return redirect('dashboard');
         }
