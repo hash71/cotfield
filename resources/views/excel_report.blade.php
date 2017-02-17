@@ -4,6 +4,10 @@
 
 <link rel="stylesheet" href="{{asset('datatables.min.css')}}">
 <style>
+    th {
+        white-space: nowrap;
+    }
+
     .toggle-vis {
         color: green;
         border: 1px solid #e7e7e7;
@@ -56,7 +60,7 @@
                                 <select class="form-control m-b" name="account" style="margin-bottom: 0;"
                                         id="select_id3" multiple>
                                     {{--<option value="" style="visibility: hidden;">EXPORTER ORIGIN</option>--}}
-                                @foreach($exporter_origin as $data)
+                                    @foreach($exporter_origin as $data)
                                         <option value="{{$data->exporter_origin}}">{{$data->exporter_origin}}</option>
                                     @endforeach
                                 </select>
@@ -194,12 +198,18 @@
                                     <th>Staple</th>
                                     <th>Mic</th>
                                     <th>Rate Per LB Usd</th>
-                                    <th>QTY MT</th>
                                     <th>Port</th>
                                     <th>Month</th>
                                     <th>Year</th>
+                                    <th>QTY MT</th>
                                 </tr>
                                 </thead>
+                                <tfoot>
+                                <tr>
+                                    <th colspan="11" style="text-align:right">Total:</th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -220,14 +230,32 @@
         });
 
         var filter_table = $('#monthly_excel').DataTable({
-            {{--"fnRowCallback": function (nRow, aData, iDisplayIndex) {--}}
-                    {{--// Bind click event--}}
-                    {{--$(nRow).click(function () {--}}
-                    {{--console.log();--}}
-                    {{--window.open('{{url('/')}}' + '/projects/' + aData.project_id + '/edit', "_blank");--}}
-                    {{--});--}}
-                    {{--return nRow;--}}
-                    {{--},--}}
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api(), data;
+
+
+                // Total over all pages
+                total = api
+                    .column(11)
+                    .data()
+                    .reduce(function (a, b) {
+                        return a + b;
+                    }, 0);
+
+                // Total over this page
+                pageTotal = api
+                    .column(11, {page: 'current'})
+                    .data()
+                    .reduce(function (a, b) {
+                        return a + b;
+                    }, 0);
+
+                // Update footer
+                $(api.column(11).footer()).html(
+                    pageTotal
+                );
+
+            },
             processing: true,
             serverSide: true,
             ajax: {
@@ -241,10 +269,10 @@
                     d.staple = $('#select_id6').val();
                     d.mic = $('#select_id7').val();
                     d.rate_per_lb_usd = $('#select_id8').val();
-                    d.qty_mt = $('#select_id9').val();
                     d.port = $('#select_id10').val();
                     d.month = $('#select_id11').val();
                     d.year = $('#select_id12').val();
+                    d.qty_mt = $('#select_id9').val();
                 }
             },
             columns: [
@@ -256,10 +284,10 @@
                 {data: 'staple', name: 'staple'},
                 {data: 'mic', name: 'mic'},
                 {data: 'rate_per_lb_usd', name: 'rate_per_lb_usd'},
-                {data: 'qty_mt', name: 'qty_mt'},
                 {data: 'port', name: 'port'},
                 {data: 'month', name: 'month'},
-                {data: 'year', name: 'year'}
+                {data: 'year', name: 'year'},
+                {data: 'qty_mt', name: 'qty_mt'}
             ],
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 //            pageLength: 25,
