@@ -856,27 +856,27 @@ function changeValue() {
     }
     for (var i = 1; i <= shipping_number; i++) {
         var diff = $('#controller_invoice_weight' + i).val() - $('#controller_landing_weight' + i).val();
-        $('#controller_short_gain_weight' + i).attr('value', diff);
-        $('#s_g_w_c_short_gain_weight_claim_qty' + i).attr('value', diff);
-        $('#s_g_w_c_short_gain_weight_claim_amount' + i).attr('value', $('#s_c_price').val() * diff);
+        $('#controller_short_gain_weight' + i).attr('value', diff.toFixed(3));
+        $('#s_g_w_c_short_gain_weight_claim_qty' + i).attr('value', diff.toFixed(3));
+        $('#s_g_w_c_short_gain_weight_claim_amount' + i).attr('value', ($('#s_c_price').val() * diff).toFixed(3));
     }
 }
 
-function debit() {
-
-    var value1 = (
-            $('#s_c_price').val() * $('#p_i_quantity').val() * $('#s_c_commission_rate').val()
-        ) / 100;
-    var value2 = (
-            $('#p_i_quantity').val() * $('#s_c_commission_point').val()
-        ) / 1000;
-
-    var value = value1 + value2;
-    console.log("1 " + value1);
-    console.log("2 " + value2);
-    console.log("3 " + value);
-    $('#debit_note_amount').attr('value', value);
-}
+// function debit() {
+//
+//     var value1 = (
+//             $('#s_c_price').val() * $('#p_i_quantity').val() * $('#s_c_commission_rate').val()
+//         ) / 100;
+//     var value2 = (
+//             $('#p_i_quantity').val() * $('#s_c_commission_point').val()
+//         ) / 1000;
+//
+//     var value = value1 + value2;
+//     console.log("1 " + value1);
+//     console.log("2 " + value2);
+//     console.log("3 " + value);
+//     $('#debit_note_amount').attr('value', value);
+// }
 $(function () {
 
     $('#s_c_price').on('change', changeValue);
@@ -898,12 +898,12 @@ $(function () {
     });
     changeValue();
 
-    $('#s_c_price').on('change', debit);
-    $('#s_c_commission_rate').on('change', debit);
-    $('#s_c_commission_point').on('change', debit);
-    $('#p_i_quantity').on('change', debit);
-
-    debit();
+    // $('#s_c_price').on('change', debit);
+    // $('#s_c_commission_rate').on('change', debit);
+    // $('#s_c_commission_point').on('change', debit);
+    // $('#p_i_quantity').on('change', debit);
+    //
+    // debit();
 
 
 });

@@ -144,7 +144,8 @@ class ProjectController extends Controller
 
     public function ajaxGetOptions($module_name)
     {
-        return \App\OptionList::where('option', $module_name)->orderBy('id', 'DESC')->pluck('list', 'id');
+        return \DB::table('option_lists')->where('option', $module_name)->orderBy('list', 'ASC')->select(['list', 'id'])->get();
+//        return \App\OptionList::where('option', $module_name)->orderBy('list', 'ASC')->pluck('list', 'id');
     }
 
     public function edit($project_id)

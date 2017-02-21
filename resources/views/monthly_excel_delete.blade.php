@@ -9,7 +9,7 @@
                         {!! csrf_field() !!}
                         <div class="ibox-content">
                             <h4 style="font-weight:100;padding-bottom:10px;">Delete Monthly Report</h4>
-                            <div class="form-group" id="data_4">
+                            <div class="form-group" id="data_x">
                                 <label class="font-noraml">Select Month & Year</label>
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input

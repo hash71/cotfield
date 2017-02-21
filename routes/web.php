@@ -66,11 +66,3 @@ Route::group(['middleware' => 'auth'], function () {
 //        'Content-Transfer-Encoding' => 'binary',
 //    ]);
 //});
-
-
-
-
-
-
-
-

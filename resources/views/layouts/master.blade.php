@@ -49,9 +49,14 @@
             },
             success: function (data) {
                 options = '<option></option>';//for ajax select2 needs an empty first tag for placeholder to work correctly
-                for (var key in data) {
-                    options += '<option value="' + key + '">' + data[key] + '</option>';
+                //new
+                for (var i = 0; i < data.length; i++) {
+                    options += '<option value="' + data[i].id + '">' + data[i].list + '</option>';
                 }
+                //newend
+//                for (var key in data) {
+//                    options += '<option value="' + key + '">' + data[key] + '</option>';
+//                }
                 $("#" + select2_id).empty().append(options);
             }
         });
@@ -68,9 +73,14 @@
             },
             success: function (data) {
                 options = '<option></option>';
-                for (var key in data) {
-                    options += '<option value="' + key + '">' + data[key] + '</option>';
+                //new
+                for (var i = 0; i < data.length; i++) {
+                    options += '<option value="' + data[i].id + '">' + data[i].list + '</option>';
                 }
+                //newend
+//                for (var key in data) {
+//                    options += '<option value="' + key + '">' + data[key] + '</option>';
+//                }
                 $("#" + id).empty().append(options);
                 if (editValue) {
                     $("#" + id).val(editValue).change();
@@ -198,7 +208,7 @@
     $(function () {
 
 
-        $('#data_4 .input-group.date').datepicker({
+        $('#data_x .input-group.date').datepicker({
             format: 'yyyy-mm',
             minViewMode: 1,
             keyboardNavigation: false,

@@ -1575,7 +1575,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="debit_note_amount">Debit Note Amount</label>
-                                <input type="text" disabled="" id="debit_note_amount" name="debit_note_amount"
+                                <input type="text" id="debit_note_amount" name="debit_note_amount"
                                        autocomplete="off" class="form-control " value="">
                             </div>
                             <div class="form-group">

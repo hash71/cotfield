@@ -275,12 +275,11 @@ class OptionListsTableSeeder extends Seeder
                 $tmp_data .= $data[$i];
                 $tmp_data .= " ";
             }
-            trim($tmp_data);
 
 
             \App\OptionList::create([
                 'option' => $data[0],
-                'list' => $tmp_data
+                'list' => trim($tmp_data)
             ]);
         }
 
