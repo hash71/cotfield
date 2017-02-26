@@ -40,6 +40,7 @@
 <script src="{{asset(elixir('js/inspinia.js'))}}"></script>
 <script>
     function getOptionsList(select2_id) {//just to initialize options global variable
+//        console.log('getOptionsList');
         $.ajax({
             url: '{{url("ajax_select2_options_list")}}' + '/' + select2_id,
             type: 'POST',

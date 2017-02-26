@@ -38,13 +38,22 @@
                 success: function (data) {
                     var selected = allData[select2_id];
                     options = '<option></option>';//for ajax select2 needs an empty first tag for placeholder to work correctly
-                    for (var key in data) {
-                        if (key == selected) {
-                            options += '<option value="' + key + '" selected>' + data[key] + '</option>';
+                    //new
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].id == selected) {
+                            options += '<option value="' + data[i].id + '" selected>' + data[i].list + '</option>';
                         } else {
-                            options += '<option value="' + key + '">' + data[key] + '</option>';
+                            options += '<option value="' + data[i].id + '">' + data[i].list + '</option>';
                         }
                     }
+                    //newend
+//                    for (var key in data) {
+//                        if (key == selected) {
+//                            options += '<option value="' + key + '" selected>' + data[key] + '</option>';
+//                        } else {
+//                            options += '<option value="' + key + '">' + data[key] + '</option>';
+//                        }
+//                    }
                     $("#" + select2_id).empty().append(options);
                 }
             });
