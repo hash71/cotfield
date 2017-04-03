@@ -1,20 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
-//Auth::routes();
-
-use Maatwebsite\Excel\Facades\Excel;
-
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('myphpinfo', 'HomeController@phpfileinfo');
@@ -48,6 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('monthly_excel_delete', 'MonthlyExcelController@destroy');
     Route::get('excel_report', 'ExcelReportController@index');
     Route::get('ajax_excel_report', 'ExcelReportController@ajaxExcelReport');
+    Route::get('mt', 'MaintenanceController@mt');
+    Route::get('updates_on_demand_for_report', 'MaintenanceController@updates_on_demand_for_report');
+
 });
 
 //Route::get('test', function () {
@@ -66,3 +54,4 @@ Route::group(['middleware' => 'auth'], function () {
 //        'Content-Transfer-Encoding' => 'binary',
 //    ]);
 //});
+

@@ -449,7 +449,7 @@ function getController() {
     controller += "                    <label for=\"controller_invoice_weight\">Invoice Weight<\/label>";
     controller += "                    <div class=\"row\">";
     controller += "                        <div class=\"col-xs-8\">";
-    controller += "                            <input type=\"text\" id=\"controller_invoice_weight1\" name=\"controller_invoice_weight\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"\">";
+    controller += "                            <input type=\"number\" id=\"controller_invoice_weight1\" name=\"controller_invoice_weight\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"0\">";
     controller += "                        <\/div>";
     controller += "                        <div class=\"col-xs-4\">";
     controller += "                            <select class=\"controller_invoice_weight_unit\" id=\"controller_invoice_weight_unit1\" name=\"controller_invoice_weight_unit\" style=\"width: 100%;\"><\/select>";
@@ -460,7 +460,7 @@ function getController() {
     controller += "                    <label for=\"controller_landing_weight\">Landing Weight<\/label>";
     controller += "                    <div class=\"row\">";
     controller += "                        <div class=\"col-xs-8\">";
-    controller += "                            <input type=\"text\" id=\"controller_landing_weight1\" name=\"controller_landing_weight\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"\">";
+    controller += "                            <input type=\"number\" id=\"controller_landing_weight1\" name=\"controller_landing_weight\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"0\">";
     controller += "                        <\/div>";
     controller += "                        <div class=\"col-xs-4\">";
     controller += "                            <select class=\"controller_landing_weight_unit\" id=\"controller_landing_weight_unit1\" name=\"controller_landing_weight_unit\" style=\"width: 100%;\"><\/select>";
@@ -521,7 +521,7 @@ function getControllerPartial(id) {
     controller += "                    <label for=\"controller_invoice_weight\">Invoice Weight<\/label>";
     controller += "                    <div class=\"row\">";
     controller += "                        <div class=\"col-xs-8\">";
-    controller += "                            <input type=\"text\" id=\"controller_invoice_weight" + id + "\" name=\"controller_invoice_weight[]\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"\">";
+    controller += "                            <input type=\"number\" id=\"controller_invoice_weight" + id + "\" name=\"controller_invoice_weight[]\" autocomplete=\"off\" class=\"form-control controller_invoice_weight\" value=\"0\">";
     controller += "                        <\/div>";
     controller += "                        <div class=\"col-xs-4\">";
     controller += "                            <select id=\"controller_invoice_weight_unit" + id + "\" name=\"controller_invoice_weight_unit[]\" style=\"width: 100%;\" class=\"controller_invoice_weight_unit\"><\/select>";
@@ -532,7 +532,7 @@ function getControllerPartial(id) {
     controller += "                    <label for=\"controller_landing_weight\">Landing Weight<\/label>";
     controller += "                    <div class=\"row\">";
     controller += "                        <div class=\"col-xs-8\">";
-    controller += "                            <input type=\"text\" id=\"controller_landing_weight" + id + "\" name=\"controller_landing_weight[]\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"\">";
+    controller += "                            <input type=\"number\" id=\"controller_landing_weight" + id + "\" name=\"controller_landing_weight[]\" autocomplete=\"off\" class=\"form-control controller_landing_weight\" value=\"0\">";
     controller += "                        <\/div>";
     controller += "                        <div class=\"col-xs-4\">";
     controller += "                            <select id=\"controller_landing_weight_unit" + id + "\" name=\"controller_landing_weight_unit[]\" style=\"width: 100%;\" class=\"controller_landing_weight_unit\"><\/select>";
@@ -754,6 +754,13 @@ function add_more_shipment_button() {
     $('.shipment_type').on('change', toggle_sea_road);
 }
 function delete_shipment_button() {
+
+    var x = confirm("Are you sure you want to delete?");
+
+    if (!x) {
+        return false;
+    }
+
 
     if (parseInt($('#shipping_number').val()) > 1) {
 

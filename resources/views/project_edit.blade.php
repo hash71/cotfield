@@ -270,7 +270,7 @@
                             <div class="form-group">
                                 <label for="p_i_quantity">Quantity</label>
                                 <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="p_i_quantity" name="p_i_quantity"
+                                    <div class="col-xs-8"><input type="number" id="p_i_quantity" name="p_i_quantity"
                                                                  autocomplete="off" class="form-control " value="">
                                     </div>
                                     <div class="col-xs-4"><select id="p_i_quantity_unit" name="p_i_quantity_unit"
@@ -414,7 +414,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="lc_partial_shipments">Partial Shipment</label>
-                                <select id="lc_partial_shipments" name="lc_partial_shipments" style="width: 100%;">
+                                <select required id="lc_partial_shipments" name="lc_partial_shipments"
+                                        style="width: 100%;">
                                 </select>
                             </div>
                             <div class="form-group">
@@ -973,7 +974,7 @@
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-content">
-                                        <h3>Short/Gain Weight Claim</h3>
+                                        <h3>Short/Gain Weight Claim {{$i+1}}</h3>
                                         <div class="form-group" id="data_20">
                                             <label class="font-noraml" for="s_g_w_c_short_gain_weight_claim_date">Short/Gain
                                                 Weight
@@ -1763,7 +1764,8 @@
                         </button>
                     </div>
                     <div class="col-sm-6" id="right_button">
-                        <button type="button" class="btn btn-danger btn-outline btn-block" href="#">DELETE
+                        <button onclick="return confirm('Are you sure you want to delete?');" type="button"
+                                class="btn btn-danger btn-outline btn-block" href="#">DELETE
                         </button>
                     </div>
                 </div>

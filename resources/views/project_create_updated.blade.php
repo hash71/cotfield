@@ -253,7 +253,7 @@
                             <div class="form-group">
                                 <label for="p_i_quantity">Quantity</label>
                                 <div class="row">
-                                    <div class="col-xs-8"><input type="text" id="p_i_quantity" name="p_i_quantity"
+                                    <div class="col-xs-8"><input type="number" id="p_i_quantity" name="p_i_quantity"
                                                                  autocomplete="off" class="form-control " value="">
                                     </div>
                                     <div class="col-xs-4"><select id="p_i_quantity_unit" name="p_i_quantity_unit"
@@ -395,7 +395,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="lc_partial_shipments">Partial Shipment</label>
-                                <select id="lc_partial_shipments" name="lc_partial_shipments" style="width: 100%;">
+                                <select required id="lc_partial_shipments" name="lc_partial_shipments"
+                                        style="width: 100%;">
                                 </select>
                             </div>
                             <div class="form-group">
