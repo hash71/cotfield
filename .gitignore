@@ -6,3 +6,4 @@ Homestead.yaml
 .env
 node_modules
 storage
+/public/.htaccess
