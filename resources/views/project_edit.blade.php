@@ -924,7 +924,7 @@
                                             <label for="controller_invoice_weight">Invoice Weight</label>
                                             <div class="row">
                                                 <div class="col-xs-8"><input id="controller_invoice_weight{{$i+1}}"
-                                                                             type="text"
+                                                                             type="number"
                                                                              name="controller_invoice_weight[]"
                                                                              autocomplete="off"
                                                                              class="form-control controller_invoice_weight"
@@ -940,7 +940,7 @@
                                             <label for="controller_landing_weight">Landing Weight</label>
                                             <div class="row">
                                                 <div class="col-xs-8"><input id="controller_landing_weight{{$i+1}}"
-                                                                             type="text"
+                                                                             type="number"
                                                                              name="controller_landing_weight[]"
                                                                              autocomplete="off"
                                                                              class="form-control controller_landing_weight"
@@ -1350,7 +1350,7 @@
                                     <div class="form-group">
                                         <label for="controller_invoice_weight">Invoice Weight</label>
                                         <div class="row">
-                                            <div class="col-xs-8"><input id="controller_invoice_weight1" type="text"
+                                            <div class="col-xs-8"><input id="controller_invoice_weight1" type="number"
                                                                          name="controller_invoice_weight"
                                                                          autocomplete="off"
                                                                          class="form-control controller_invoice_weight"
@@ -1365,7 +1365,7 @@
                                     <div class="form-group">
                                         <label for="controller_landing_weight">Landing Weight</label>
                                         <div class="row">
-                                            <div class="col-xs-8"><input id="controller_landing_weight1" type="text"
+                                            <div class="col-xs-8"><input id="controller_landing_weight1" type="number"
                                                                          name="controller_landing_weight"
                                                                          autocomplete="off"
                                                                          class="form-control controller_landing_weight"

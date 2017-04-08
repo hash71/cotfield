@@ -83,7 +83,12 @@ class MaintenanceController extends Controller
             if ($shipping_number == 0) {
 
                 $s_g_w_c_short_gain_weight_claim_qty = (is_numeric($controller_invoice_weight) ? $controller_invoice_weight : 0) - (is_numeric($controller_landing_weight) ? $controller_landing_weight : 0);
-                $s_g_w_c_short_gain_weight_claim_qty = number_format($s_g_w_c_short_gain_weight_claim_qty, 3, '.', '');
+                if ($s_g_w_c_short_gain_weight_claim_qty == 0) {
+                    $s_g_w_c_short_gain_weight_claim_qty = 0;
+                } else {
+                    $s_g_w_c_short_gain_weight_claim_qty = number_format($s_g_w_c_short_gain_weight_claim_qty, 3, '.', '');
+                }
+
 
             } else if ($shipping_number > 0) {
 
@@ -93,7 +98,8 @@ class MaintenanceController extends Controller
 
                 for ($i = 0; $i < $shipping_number; $i++) {
                     try {
-                        $s_g_w_c_short_gain_weight_claim_qty[] = number_format(((is_numeric($controller_invoice_weight[$i]) ? $controller_invoice_weight[$i] : 0) - (is_numeric($controller_landing_weight[$i]) ? $controller_landing_weight[$i] : 0)), 3, '.', '');
+                        $dif = ((is_numeric($controller_invoice_weight[$i]) ? $controller_invoice_weight[$i] : 0) - (is_numeric($controller_landing_weight[$i]) ? $controller_landing_weight[$i] : 0));
+                        $s_g_w_c_short_gain_weight_claim_qty[] = ($dif == 0) ? 0 : number_format($dif, 3, '.', '');
                     } catch (\Exception $e) {
                         dd($e);
                     }

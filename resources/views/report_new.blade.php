@@ -3,6 +3,8 @@
 @push('styles')
 
 <link rel="stylesheet" href="{{asset('datatables.min.css')}}">
+
+
 <style>
     .toggle-vis {
         color: green;
@@ -52,15 +54,12 @@
                                 </div>
                             </div>
                             <div class="form-group" id="data_2">
-
                                 <div class="input-group date">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input
                                             type="text" class="form-control" id="to_id"
                                             placeholder="To">
                                 </div>
                             </div>
-
-
                             <button class="btn btn-white" type="submit" style="margin-bottom: 0;">Search</button>
                         </form>
                     </div>
@@ -152,6 +151,7 @@
 
 @push('scripts')
 <script src="{{asset('datatables.min.js')}}"></script>
+
 <script>
     $(function () {
 
@@ -213,7 +213,6 @@
 //            responsive: true,
             dom: '<"html5buttons"B>lTfgitp',
             buttons: [
-
 //                {extend: 'copy'},
                 {
                     extend: 'csv',
@@ -265,7 +264,7 @@
             filter_table.draw();
             e.preventDefault();
         });
-//latest updated code start
+
         $('.toggle-vis').each(function () {
             var column = filter_table.column($(this).attr('data-column'));
             var col = $(this).attr('data-column');
@@ -277,7 +276,6 @@
                 column.visible(0);
             }
         });
-//latest updated code start
     });
 </script>
 @endpush

@@ -19,7 +19,6 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
         if (!$request->lc_partial_shipments) {
             session()->flash('partial_shipment_select', 1);
             return redirect('dashboard');
@@ -29,6 +28,7 @@ class ProjectController extends Controller
             \DB::transaction(function () use ($request) {
 
                 $data = $request->except('_token');
+                $data['eta_date'] = isset($data['eta_date']) ? $data['eta_date'] : "";
                 $project_id = $data['project_id'];
                 $amendments = [];
                 foreach ($data['lc_amendment_day'] as $day) {
@@ -78,20 +78,22 @@ class ProjectController extends Controller
 
                     if ($data['shipping_number'] == 0) {
 
-                        $s_g_w_c_short_gain_weight_claim_qty = $data['controller_invoice_weight'] - $data['controller_landing_weight'];
+                        $s_g_w_c_short_gain_weight_claim_qty = (is_numeric($data['controller_invoice_weight']) ? $data['controller_invoice_weight'] : 0) - (is_numeric($data['controller_landing_weight']) ? $data['controller_landing_weight'] : 0);
+                        $s_g_w_c_short_gain_weight_claim_qty = ($s_g_w_c_short_gain_weight_claim_qty == 0) ? 0 : number_format($s_g_w_c_short_gain_weight_claim_qty, 3, '.', '');
 
                     } elseif ($data['shipping_number'] > 0) {
 
                         $s_g_w_c_short_gain_weight_claim_qty = [];
 
                         for ($i = 0; $i < $data['shipping_number']; $i++) {
-                            $s_g_w_c_short_gain_weight_claim_qty[] = $data['controller_invoice_weight'][$i] - $data['controller_landing_weight'][$i];
+                            $dif = (is_numeric($data['controller_invoice_weight'][$i]) ? $data['controller_invoice_weight'][$i] : 0) - (is_numeric($data['controller_landing_weight'][$i]) ? $data['controller_landing_weight'][$i] : 0);
+                            $dif = ($dif == 0) ? 0 : number_format($dif, 3, '.', '');
+                            $s_g_w_c_short_gain_weight_claim_qty[] = $dif;
                         }
                         $s_g_w_c_short_gain_weight_claim_qty = implode(", ", $s_g_w_c_short_gain_weight_claim_qty);
                     }
 
                 } catch (\Exception $e) {
-                    dd($e);
                     $s_g_w_c_short_gain_weight_claim_qty = "";
                 }
 
@@ -143,8 +145,6 @@ class ProjectController extends Controller
             session()->flash('project_created_true', 1);
             return redirect('dashboard');
         } catch (\Exception $e) {
-//            dd($e->getLine());
-//            dd($e);
             session()->flash('project_created_false', 1);
             return redirect('dashboard');
         }
@@ -183,9 +183,6 @@ class ProjectController extends Controller
         }
         $data = Project::where('project_id', $project_id)->pluck('project_value', 'project_option');
         $option_list = \App\Option::pluck('name')->toArray();
-
-//        dd(json_encode($option_list));
-
         return view('project_edit', compact('project_id', 'data', 'option_list'));
     }
 
@@ -200,6 +197,7 @@ class ProjectController extends Controller
             \DB::transaction(function () use ($request) {
 
                 $data = $request->except('_token');
+                $data['eta_date'] = isset($data['eta_date']) ? $data['eta_date'] : "";
                 $project_id = $data['project_id'];
                 $amendments = [];
                 foreach ($data['lc_amendment_day'] as $day) {
@@ -246,17 +244,15 @@ class ProjectController extends Controller
                 $s_g_w_c_short_gain_weight_claim_qty = "";
 
                 try {
-
                     if ($data['shipping_number'] == 0) {
-
-                        $s_g_w_c_short_gain_weight_claim_qty = $data['controller_invoice_weight'] - $data['controller_landing_weight'];
-
+                        $s_g_w_c_short_gain_weight_claim_qty = (is_numeric($data['controller_invoice_weight']) ? $data['controller_invoice_weight'] : 0) - (is_numeric($data['controller_landing_weight']) ? $data['controller_landing_weight'] : 0);
+                        $s_g_w_c_short_gain_weight_claim_qty = ($s_g_w_c_short_gain_weight_claim_qty == 0) ? 0 : number_format($s_g_w_c_short_gain_weight_claim_qty, 3, '.', '');
                     } elseif ($data['shipping_number'] > 0) {
-
                         $s_g_w_c_short_gain_weight_claim_qty = [];
-
                         for ($i = 0; $i < $data['shipping_number']; $i++) {
-                            $s_g_w_c_short_gain_weight_claim_qty[] = $data['controller_invoice_weight'][$i] - $data['controller_landing_weight'][$i];
+                            $dif = (is_numeric($data['controller_invoice_weight'][$i]) ? $data['controller_invoice_weight'][$i] : 0) - (is_numeric($data['controller_landing_weight'][$i]) ? $data['controller_landing_weight'][$i] : 0);
+                            $dif = ($dif == 0) ? 0 : number_format($dif, 3, '.', '');
+                            $s_g_w_c_short_gain_weight_claim_qty[] = $dif;
                         }
                         $s_g_w_c_short_gain_weight_claim_qty = implode(", ", $s_g_w_c_short_gain_weight_claim_qty);
                     }
@@ -325,7 +321,7 @@ class ProjectController extends Controller
 
     public function destroy($project_id)
     {
-//        dd("delete");
+
         try {
             \DB::transaction(function () use ($project_id) {
                 Project::where('project_id', $project_id)->delete();
@@ -340,7 +336,6 @@ class ProjectController extends Controller
             session()->flash('project_delete_true', 1);
             return redirect('dashboard');
         } catch (\Exception $e) {
-            dd($e);
             session()->flash('project_delete_false', 1);
             return redirect('dashboard');
         }
