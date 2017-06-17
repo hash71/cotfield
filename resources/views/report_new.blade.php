@@ -107,7 +107,7 @@
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover dataTables-example"
-                                   id="sales_report">
+                                   id="sales_report" style="width: 100% !important;">
                                 <thead>
                                 <tr>
                                     <th>Project Name</th>
